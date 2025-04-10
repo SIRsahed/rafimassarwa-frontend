@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu } from "lucide-react"
-import { Button } from "@/Components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { Button } from "../ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
+import { Menu } from "lucide-react"
 
 // Navigation links array
 const navigationLinks = [
