@@ -7,7 +7,7 @@ import Article from "@/components/HomePage/Articles";
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
       <div>
         <Hero />
       </div>

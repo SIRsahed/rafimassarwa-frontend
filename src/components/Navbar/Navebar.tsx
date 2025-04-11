@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu } from "lucide-react"
-import { Button } from "@/Components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { Button } from "../ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
+import { Menu } from "lucide-react"
 
 // Navigation links array
 const navigationLinks = [
@@ -14,7 +14,7 @@ const navigationLinks = [
   { name: "Murakkab's Portfolio", href: "/murakkabs-portfolio", isActive: false },
   { name: "Quality Stocks", href: "/quality-stocks", isActive: false },
   { name: "Stock of the Month", href: "/stock-of-the-month", isActive: false },
-  { name: "My Portfolio", href: "/my-portfolio", isActive: false },
+  { name: "My Portfolio", href: "/portfolio", isActive: false },
   { name: "Watchlist", href: "/watchlist", isActive: false },
   { name: "News", href: "/news", isActive: false },
 ]
@@ -50,7 +50,7 @@ export default function Navbar() {
         "py-4": !scrolled,
       })}
     >
-      <div className="mx-auto flex container items-center justify-between sm:px-6 lg:px-8">
+      <div className="mx-auto flex container items-center justify-between px-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image
