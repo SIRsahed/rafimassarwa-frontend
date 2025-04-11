@@ -1,8 +1,6 @@
 "use client"
 
-import { ArrowRight, Check, Printer } from "lucide-react"
-import { FaWhatsapp } from "react-icons/fa"
-import { motion } from "framer-motion"
+import { ArrowRight, Check } from "lucide-react"
 
 export default function PricingCard() {
 
