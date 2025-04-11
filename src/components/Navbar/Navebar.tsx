@@ -14,7 +14,7 @@ const navigationLinks = [
   { name: "Murakkab's Portfolio", href: "/murakkabs-portfolio", isActive: false },
   { name: "Quality Stocks", href: "/quality-stocks", isActive: false },
   { name: "Stock of the Month", href: "/stock-of-the-month", isActive: false },
-  { name: "My Portfolio", href: "/my-portfolio", isActive: false },
+  { name: "My Portfolio", href: "/portfolio", isActive: false },
   { name: "Watchlist", href: "/watchlist", isActive: false },
   { name: "News", href: "/news", isActive: false },
 ]
@@ -50,7 +50,7 @@ export default function Navbar() {
         "py-4": !scrolled,
       })}
     >
-      <div className="mx-auto flex container items-center justify-between sm:px-6 lg:px-8">
+      <div className="mx-auto flex container items-center justify-between px-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image

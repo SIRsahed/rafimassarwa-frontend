@@ -13,7 +13,7 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-[#EAF6EC] py-12 text-gray-700">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 lg:flex lg:justify-between">
+      <div className="container mx-auto lg:flex lg:justify-between">
         {/* Company Info */}
         <div className="lg:w-[500px] mb-10 lg:mb-0">
           <div className="mb-4">
