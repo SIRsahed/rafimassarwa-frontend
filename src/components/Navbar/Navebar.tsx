@@ -4,8 +4,8 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu } from "lucide-react"
-import { Button } from "@/Components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet"
+import { Button } from "../ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { cn } from "@/lib/utils"
 
 // Navigation links array
