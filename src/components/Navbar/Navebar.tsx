@@ -13,7 +13,7 @@ const navigationLinks = [
   { name: "Home", href: "/", isActive: true },
   { name: "Murakkab's Portfolio", href: "/murakkabs-portfolio", isActive: false },
   { name: "Quality Stocks", href: "/quality-stocks", isActive: false },
-  { name: "Stock of the Month", href: "/stock-of-the-month", isActive: false },
+  { name: "Stock of the Month", href: "/stock-of-month", isActive: false },
   { name: "My Portfolio", href: "/portfolio", isActive: false },
   { name: "Watchlist", href: "/watchlist", isActive: false },
   { name: "News", href: "/news", isActive: false },
