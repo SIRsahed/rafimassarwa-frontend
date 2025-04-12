@@ -666,7 +666,7 @@ export default function QualityStocks() {
                       <div className="ml-2 space-y-1">
                         {stock.buyHoldSell.map((item, i) => (
                           <div key={i} className="flex items-center text-xs">
-                            <div className={`w-2 h-2 rounded-full ${item.color} mr-1`}></div>
+                            <div className={`w-2 h-2 ${item.color} mr-1`}></div>
                             <span className={`${item.textColor}`}>{item.type}</span>
                           </div>
                         ))}
@@ -692,11 +692,11 @@ export default function QualityStocks() {
 
         {/* Pagination */}
         <div className="flex justify-end p-4 items-center gap-2">
-          <button className="w-8 h-8 rounded-md bg-green-100 text-green-600 flex items-center justify-center">1</button>
-          <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center">2</button>
-          <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center hidden sm:flex">3</button>
+          <button className="w-8 h-8 rounded-md text-white bg-green-500 flex items-center justify-center">1</button>
+          <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center border border-green-600">2</button>
+          <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center hidden sm:flex border border-green-600">3</button>
           <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center">...</button>
-          <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center hidden sm:flex">17</button>
+          <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center hidden sm:flex border border-green-600">17</button>
           <button className="w-8 h-8 rounded-md text-gray-600 flex items-center justify-center">
             <ChevronRight className="h-4 w-4" />
           </button>
