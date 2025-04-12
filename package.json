@@ -14,12 +14,17 @@
     "@radix-ui/react-tabs": "^1.1.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+<<<<<<< HEAD
     "lucide": "^0.487.0",
+=======
+    "embla-carousel-react": "^8.6.0",
+>>>>>>> 0311b41e30b145d72f3b4f5a65801821ccaa1fb9
     "lucide-react": "^0.487.0",
     "next": "14.2.24",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.5.0",
+    "swiper": "^11.2.6",
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7"
   },
