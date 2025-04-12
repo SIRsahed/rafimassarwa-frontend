@@ -343,7 +343,7 @@ export default function StockOfMonths() {
                       <div className="ml-2 space-y-1">
                         {stock.buyHoldSell.map((item, i) => (
                           <div key={i} className="flex items-center text-xs">
-                            <div className={`w-2 h-2 rounded-full ${item.color} mr-1`}></div>
+                            <div className={`w-2 h-2  ${item.color} mr-1`}></div>
                             <span className={`${item.textColor}`}>{item.type}</span>
                           </div>
                         ))}
