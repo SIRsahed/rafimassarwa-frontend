@@ -1,14 +1,14 @@
 import React from "react";
 import PortfolioPanels from "@/components/Portfolio/PortfolioPanels";
-import StockWatchlistTable from "@/components/Watchlist/StockWatchlistTable";
 import BannerAds from "@/components/News/BannerAds";
 import Article from "@/components/HomePage/Articles";
+import PortfolioTable from "@/components/Portfolio/PortfolioTable";
 
 const MyPortfolio = () => {
   return (
     <div>
       <PortfolioPanels />
-      <StockWatchlistTable />
+      <PortfolioTable />
       <div className="mt-[100px]">
         <BannerAds />
       </div>
