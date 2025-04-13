@@ -5,7 +5,6 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
 
@@ -24,7 +23,7 @@ const stockTickerData = [
 
 export default function StockTickerCarousel() {
   return (
-    <div className="mt-28 mx-auto max-w-[1440px]">
+    <div className="mx-auto max-w-[1500px]">
       <Carousel opts={{ align: "start" }} className="w-full">
         <CarouselContent>
           {stockTickerData.map((stock, index) => (
@@ -58,7 +57,7 @@ export default function StockTickerCarousel() {
         </CarouselContent>
 
         {/* Custom styled controls */}
-        <CarouselPrevious className="!left-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" />
+        {/* <CarouselPrevious className="!left-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" /> */}
         <CarouselNext className="!right-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" />
       </Carousel>
       <hr />
