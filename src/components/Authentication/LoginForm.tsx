@@ -17,22 +17,14 @@ const formSchema = z
     username: z.string().min(3, {
       message: "Username must be at least 3 characters.",
     }),
-    email: z.string().email({
-      message: "Please enter a valid email address.",
-    }),
     password: z.string().min(8, {
       message: "Password must be at least 8 characters.",
     }),
-    confirmPassword: z.string(),
   })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ["confirmPassword"],
-  });
 
 type FormValues = z.infer<typeof formSchema>;
 
-export default function RegistrationForm() {
+export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -44,9 +36,7 @@ export default function RegistrationForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
-      email: "",
       password: "",
-      confirmPassword: "",
     },
   });
 
@@ -56,13 +46,28 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center  p-4 bg-gradient-to-l from-[white] to-[#e8f7eb]">
+    <div className="flex min-h-screen items-center justify-center  p-4 bg-gradient-to-r from-[white] to-[#e8f7eb]">
       <div className="w-full max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
         <div className="flex flex-col md:flex-row">
-          {/* Left side - Registration Form */}
-          <div className="w-full p-10 md:w-1/2  h-[778px] flex flex-col items-center justify-center">
+          {/* left side - Welcome message */}
+          <div className="relative w-[70%] h-[778px]">
+            <div className="bg-gradient-to-br from-[#f0f9f0] to-[#e6f7e6] p-10  -skew-x-12 w-full h-full absolute right-20 shadow-[0_0_40px_rgba(0,0,0,0.2)]"></div>
+            
+            <div className="absolute flex flex-col items-center justify-center w-full h-full text-gray-700 pr-10">
+              <h1 className="mb-4 text-center text-5xl font-bold">
+                Welcome Back!
+              </h1>
+              <p className="mb-8 text-center">
+                To keep connected with us please login with your
+                personal info
+              </p>
+            </div>
+          </div>
+
+          {/* right side - Registration Form */}
+          <div className="w-full md:w-1/2 h-[778px] flex flex-col items-center justify-center">
             <h1 className="mb-8 text-center text-3xl font-bold">
-              Registration
+              Login
             </h1>
 
             {/* Social login options */}
@@ -95,10 +100,10 @@ export default function RegistrationForm() {
             </div>
 
             <p className="mb-8 text-center text-gray-600">
-              or use your email for registration
+              or use your username for login
             </p>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 w-full">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 w-full pr-5">
               {/* Username field */}
               <div className="relative">
                 <input
@@ -113,24 +118,6 @@ export default function RegistrationForm() {
                 {errors.username && (
                   <p className="mt-1 text-xs text-red-500">
                     {errors.username.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Email field */}
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full rounded border border-gray-300 py-3 pl-4 pr-10 outline-none focus:border-green-500"
-                  {...register("email")}
-                />
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                  <Mail size={20} />
-                </div>
-                {errors.email && (
-                  <p className="mt-1 text-xs text-red-500">
-                    {errors.email.message}
                   </p>
                 )}
               </div>
@@ -157,30 +144,10 @@ export default function RegistrationForm() {
                 )}
               </div>
 
-              {/* Confirm Password field */}
-              <div className="relative">
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  placeholder="Confirm Password"
-                  className="w-full rounded border border-gray-300 py-3 pl-4 pr-10 outline-none focus:border-green-500"
-                  {...register("confirmPassword")}
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  {showConfirmPassword ? (
-                    <EyeOff size={20} />
-                  ) : (
-                    <Eye size={20} />
-                  )}
-                </button>
-                {errors.confirmPassword && (
-                  <p className="mt-1 text-xs text-red-500">
-                    {errors.confirmPassword.message}
-                  </p>
-                )}
+              <div>
+                <Link href="/forgot-password">
+                  <p className="text-sm text-gray-500 text-center">Forgot password?</p>
+                </Link>
               </div>
 
               {/* Register button */}
@@ -188,29 +155,9 @@ export default function RegistrationForm() {
                 type="submit"
                 className="mt-2 w-full rounded bg-green-500 py-3 font-medium text-white transition-colors hover:bg-green-600"
               >
-                Register
+                Login
               </button>
             </form>
-          </div>
-
-          {/* Right side - Welcome message */}
-          <div className="relative w-[70%]  h-[778px]">
-            <div className="bg-gradient-to-br from-[#f0f9f0] to-[#e6f7e6] p-10  skew-x-12 w-full h-full absolute ml-16 shadow-[0_0_40px_rgba(0,0,0,0.2)]"></div>
-            
-            <div className="absolute flex flex-col items-center justify-center w-full h-full text-gray-700">
-              <h1 className="mb-4 text-center text-5xl font-bold">
-                Hello, Welcome!
-              </h1>
-              <p className="mb-8 text-center">
-                Enter your personal details to use all of site features
-              </p>
-              <Link
-                href="/login"
-                className="w-32 rounded border border-green-500 py-3 text-center text-green-500 transition-colors hover:bg-green-500 hover:text-white"
-              >
-                Login
-              </Link>
-            </div>
           </div>
         </div>
       </div>
