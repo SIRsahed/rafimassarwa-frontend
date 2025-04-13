@@ -18,8 +18,14 @@ export default function RootLayout({
       <body
         className={`${poppins.className} antialiased`}
       >
-        <Navbar />
-        {children}
+        <header>
+          <Navbar />
+        </header>
+        
+        <main>
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>
