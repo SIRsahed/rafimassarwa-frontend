@@ -1,32 +1,21 @@
+import LayoutWrapper from "@/Layout/LayoutWrapper";
 import "../globals.css";
-import { Poppins } from 'next/font/google';
-import Navbar from "@/components/Navbar/Navebar";
-import Footer from "@/components/Footer/Footer";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin']
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
 });
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className} antialiased`}
-      >
-        <header>
-          <Navbar />
-        </header>
-        
-        <main>
-          {children}
-        </main>
-
-        <Footer />
+      <body className={`${poppins.className} antialiased`}>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

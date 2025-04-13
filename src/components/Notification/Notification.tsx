@@ -89,20 +89,6 @@ export default function NotificationsPage() {
     },
   ]
 
-  // Use different avatars for each notification to match the design
-  const avatars = [
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-    "/placeholder.svg?height=48&width=48",
-  ]
-
   return (
     <div className=" container mx-auto px-6 py-4 mt-28">
       <h1 className="text-4xl font-bold mb-5 text-center">Notifications</h1>
@@ -137,7 +123,7 @@ export default function NotificationsPage() {
       </div>
 
       <div className="space-y-0">
-        {notifications.map((notification, index) => (
+        {notifications.map((notification) => (
           <div key={notification.id} className="flex items-center gap-1 py-4 border-b last:border-b-0 hover:bg-gray-100 cursor-pointer transition-all duration-300">
             {notification.unread 
             ?
