@@ -13,11 +13,11 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   return (
     <>
       {
-      pathname !== "/registration" && pathname !== "/login" && pathname !== "/forgot-password" && <Navbar />
+      pathname !== "/registration" && pathname !== "/login" && pathname !== "/forgot-password" && pathname !== "/enter-otp" && pathname !== "/reset-password" && <Navbar />
       }
       <main>{children}</main>
       {
-      pathname !== "/registration" && pathname !== "/login" && pathname !== "/forgot-password" && <Footer />
+      pathname !== "/registration" && pathname !== "/login" && pathname !== "/forgot-password" && pathname !== "/enter-otp" && pathname !== "/reset-password" && <Footer />
       }
     </>
   );
