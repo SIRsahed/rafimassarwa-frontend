@@ -13,7 +13,7 @@ export default function EPBanner() {
               height={500}
               className="w-32 h-24 sm:w-28 sm:h-20 lg:w-32 lg:h-24 object-cover mb-6 sm:mb-8 lg:mb-10"
             />
-            <h2 className="text-2xl sm:text-3xl md:text-[32px] lg:text-[40px] font-bold pb-4 sm:pb-6 lg:pb-8 max-w-[740px]">
+            <h2 className="text-2xl sm:text-3xl md:text-[32px] lg:text-[40px] font-bold pb-4 sm:pb-6 lg:pb-8 max-w-[740px] leading-[120%]">
               Gaining knowledge is the most rewarding investment
             </h2>
             <p className="max-w-[435px] text-sm sm:text-base lg:text-[16px] font-medium text-[#595959] pb-0 md:pb-0">
