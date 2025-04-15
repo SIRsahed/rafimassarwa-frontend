@@ -1,9 +1,4 @@
-import {
-  ChevronRight,
-  Bell,
-  CirclePlus,
-  Trash,
-} from "lucide-react";
+import { ChevronRight, Bell, Trash, TriangleAlert, Pencil } from "lucide-react";
 import Image from "next/image";
 
 type StockData = {
@@ -19,6 +14,7 @@ type StockData = {
   inPortfolio: boolean;
   emailAlerts: boolean;
   stockAlerts: boolean;
+  headingVal: string;
 };
 
 const stocks: StockData[] = [
@@ -35,12 +31,13 @@ const stocks: StockData[] = [
     inPortfolio: true,
     emailAlerts: true,
     stockAlerts: true,
+    headingVal: "Stron",
   },
   {
     name: "Tesla",
     price: 250.1,
-    priceChange: 1.75,
-    changePercent: 0.7,
+    priceChange: -1.75,
+    changePercent: -0.7,
     smartScore: 6,
     marketCap: "900B",
     sector: "Automotive",
@@ -49,6 +46,7 @@ const stocks: StockData[] = [
     inPortfolio: false,
     emailAlerts: false,
     stockAlerts: true,
+    headingVal: "Stron",
   },
   {
     name: "Amazon",
@@ -63,6 +61,7 @@ const stocks: StockData[] = [
     inPortfolio: true,
     emailAlerts: false,
     stockAlerts: false,
+    headingVal: "Stron",
   },
   {
     name: "Amazon",
@@ -77,6 +76,7 @@ const stocks: StockData[] = [
     inPortfolio: true,
     emailAlerts: false,
     stockAlerts: false,
+    headingVal: "Stron",
   },
   {
     name: "Amazon",
@@ -91,6 +91,7 @@ const stocks: StockData[] = [
     inPortfolio: true,
     emailAlerts: false,
     stockAlerts: false,
+    headingVal: "Stron",
   },
   {
     name: "Amazon",
@@ -105,13 +106,14 @@ const stocks: StockData[] = [
     inPortfolio: true,
     emailAlerts: false,
     stockAlerts: false,
+    headingVal: "Stron",
   },
 ];
 
-export default function StockWatchlistTable() {
+export default function PortfolioTable() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-[100px] container mx-auto">
-      <div className="flex items-center gap-2 p-4">
+      <div className="flex items-center gap-2 p-4 mb-11">
         <div className="flex gap-3 items-center bg-[#BFBFBF] p-1 rounded-sm">
           <div className="">
             <Image
@@ -166,34 +168,38 @@ export default function StockWatchlistTable() {
                 Stock Name
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                Number of Shares
+              </th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Price
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Price Change
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Smart Score
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Market Cap
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Sector
+                Ai Catalyst
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Analyst Consensus
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Price Target Update
+                Analyst Price Target
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Add to Portfolio
+                Smart Score
+              </th>
+
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                Holding Value
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Email Alerts
+                Holding Gain
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Stock Alerts
+                Top Analyst Consensus
+              </th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                Alerts
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Action
@@ -207,7 +213,7 @@ export default function StockWatchlistTable() {
                   <div className="flex items-center">
                     <div className="mr-2 h-9 w-9 rounded-full bg-gray-900 flex items-center justify-center text-white text-xs">
                       <Image
-                        src="/images/apple.png"
+                        src="/images/appl.png"
                         alt="apple image"
                         width={20}
                         height={20}
@@ -216,11 +222,18 @@ export default function StockWatchlistTable() {
                     <span className="font-medium">{stock.name}</span>
                   </div>
                 </td>
+                <td>
+                  <div className="flex ml-5">
+                    <TriangleAlert className="text-sm text-[#FFD700]" />
+                    <p className="text-md font-bold">0</p>
+                    <Pencil className="text-sm text-[#28A745]" />
+                  </div>
+                </td>
                 <td className="px-4 py-4 font-medium">
                   ${stock.price.toFixed(2)}
                 </td>
-                <td className="px-4 py-4 text-sm">
-                  {/* <div
+                <td className="px-4 py-4">
+                  <div
                     className={`flex items-center ${
                       stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
                     }`}
@@ -230,26 +243,21 @@ export default function StockWatchlistTable() {
                       {Math.abs(stock.priceChange).toFixed(2)} (
                       {stock.changePercent.toFixed(1)}%)
                     </span>
-                  </div> */}
-                  <p className="text-sm text-black">▲{stock.priceChange}({stock.changePercent})%</p>
+                  </div>
                 </td>
                 <td className="px-4 py-4 text-center">
-                  <div>
+                  <div className="w-6 h-6">
                     <Image
-                      src="/images/lock-s.png"
+                      src="/images/Ai.png"
                       height={100}
                       width={100}
                       alt="lock image"
+                      className="w-full h-full"
                     />
                   </div>
                 </td>
-                <td className="px-4 py-4">${stock.marketCap}</td>
-
                 <td className="px-4 py-4">
-                  <div className="flex items-center">{stock.sector}</div>
-                </td>
-
-                <td className="px-4 py-4 text-center">
+                  {/* ${stock.marketCap} */}
                   <div className="flex items-center gap-2">
                     <div className="h-5 w-5">
                       <Image
@@ -261,6 +269,17 @@ export default function StockWatchlistTable() {
                       />
                     </div>
                     <p>Hold</p>
+                  </div>
+                </td>
+
+                <td className="px-4 py-4">
+                  <div>
+                    <Image
+                      src="/images/lock-s.png"
+                      height={100}
+                      width={100}
+                      alt="lock image"
+                    />
                   </div>
                 </td>
 
@@ -276,31 +295,54 @@ export default function StockWatchlistTable() {
                 </td>
 
                 <td className="px-4 py-4 text-center">
-                  <div className="mr-14">
+                  {/* <div>
+                    <Image
+                      src="/images/lock-s.png"
+                      height={100}
+                      width={100}
+                      alt="lock image"
+                    />
+                  </div> */}
+                  <p className="text-lg text-black mr-6">{stock?.headingVal}</p>
+                </td>
+
+                <td className="px-4 py-4 text-center">
+                  {/* <div className="mr-14">
                     <CirclePlus className="h-5 w-5 mx-auto text-gray-400" />
+                  </div> */}
+                  <div
+                    className={`flex items-center ${
+                      stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    <div className="font-medium flex items-center gap-2 justify-center">
+                      <p>▼</p>
+                      <p>{stock.priceChange}</p>
+                    </div>
                   </div>
                 </td>
+
                 <td className="px-4 py-4 text-center">
                   {/* {stock.emailAlerts ? (
-                    <Eye className="h-5 w-5 mx-auto text-gray-600" />
-                  ) : (
-                    <EyeOff className="h-5 w-5 mx-auto text-gray-400" />
-                  )} */}
+                      <Eye className="h-5 w-5 mx-auto text-gray-600" />
+                    ) : (
+                      <EyeOff className="h-5 w-5 mx-auto text-gray-400" />
+                    )} */}
 
-                  <div
-                    className={`h-4 w-8 rounded-full ${
-                      stock.inPortfolio ? "bg-green-500" : "bg-gray-300"
-                    } relative`}
-                  >
-                    <div
-                      className={`absolute ${
-                        stock.inPortfolio ? "right-0" : "left-0"
-                      } top-0 h-4 w-4 rounded-full bg-white shadow-sm`}
-                    ></div>
+                  <div>
+                    <Image
+                      src="/images/lock-s.png"
+                      height={100}
+                      width={100}
+                      alt="lock image"
+                    />
                   </div>
                 </td>
+
                 <td className="px-4 py-4 text-center">
-                  <Bell className="h-5 w-5 mx-auto text-gray-400" />
+                  <div className="mr-6">
+                    <Bell className="h-5 w-5 mx-auto text-gray-400" />
+                  </div>
                 </td>
                 <td className="px-4 py-4 text-center">
                   <Trash className="h-5 w-5 mx-auto text-gray-400" />

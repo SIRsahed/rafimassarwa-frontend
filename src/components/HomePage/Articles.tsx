@@ -26,7 +26,7 @@ const articles = [
   {
     id: 2,
     category: "Tech",
-    title: "Apple’s Q1 Results Surpass Expectations",
+    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
     timestamp: "1.00 pm, 20/11/25",
     tag: "AAPL",
     image: "/images/cart.png",
@@ -34,7 +34,7 @@ const articles = [
   {
     id: 3,
     category: "Crypto",
-    title: "Bitcoin Hits New High in 2025",
+    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
     timestamp: "9.00 am, 20/11/25",
     tag: "BTC",
     image: "/images/cart.png",
@@ -79,7 +79,7 @@ export default function LatestArticles() {
             filteredArticles.map((article) => (
               <div
                 key={article.id}
-                className="overflow-hidden rounded-lg border-[1px] border-black bg-white shadow-sm p-3"
+                className="overflow-hidden rounded-[16px] border-[1px] border-black bg-white shadow-sm p-3"
               >
                 <div className="relative h-48 w-full overflow-hidden rounded-md">
                   <Image
@@ -92,9 +92,9 @@ export default function LatestArticles() {
                 <div className="p-4">
                   <div className="mb-2 text-sm text-gray-600">{article.category}</div>
                   <h3 className="mb-2 text-lg font-semibold">{article.title}</h3>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-3">
                     <span className="text-sm text-gray-500">{article.timestamp}</span>
-                    <span className="rounded-full border border-gray-300 px-3 py-1 text-xs font-medium">
+                    <span className="rounded-full border border-[#28A745] px-3 py-1 text-xs font-medium">
                       {article.tag}
                     </span>
                   </div>

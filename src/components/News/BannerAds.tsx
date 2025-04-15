@@ -3,7 +3,7 @@ import { X, Info } from "lucide-react";
 export default function BannerAds() {
   return (
     <div className="relative h-[149px] bg-[#edf5ed] rounded-sm p-6 mb-6 container mx-auto shadow-sm shadow-gray-400">
-      <div className="absolute top-4 right-4 flex items-center gap-2">
+      <div className="absolute top-0 right-0 flex items-center gap-2">
         <button className="p-[1px] bg-[#FFFFFF] cursor-pointer">
           <Info className="h-4 w-4" />
         </button>
