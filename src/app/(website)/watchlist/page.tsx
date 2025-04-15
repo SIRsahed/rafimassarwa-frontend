@@ -1,8 +1,8 @@
-import Articles from "@/components/murakkabs_portfolio/Articles";
 import BannerAds from "@/components/News/BannerAds";
 import AlertsCards from "@/components/Watchlist/AlertsCards";
 import StockTickerCarousel from "@/components/Watchlist/StockTickerCarousel";
 import StockWatchlistTable from "@/components/Watchlist/StockWatchlistTable";
+import LatestArticles from "@/shared/Articles";
 import React from "react";
 
 const WatchlistPage = () => {
@@ -14,7 +14,7 @@ const WatchlistPage = () => {
       <StockWatchlistTable />
       <AlertsCards />
       <BannerAds />
-      <Articles />
+      <LatestArticles />
     </div>
   );
 };

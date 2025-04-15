@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Eye, EyeOff, User, Mail } from "lucide-react";
+import { Eye, EyeOff, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import googleImag from '../../../public/images/Authentication/google.png';
@@ -26,7 +26,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,

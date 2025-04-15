@@ -8,7 +8,7 @@ import React from 'react'
 // import QualityStocks from '@/components/quality-stocks/QualityStocks'
 import StockOfTable from "@/components/stock-of-months/StockOfMonthTable";
 import BannerAds from '@/components/News/BannerAds';
-import Articles from "@/components/HomePage/Articles"
+import LatestArticles from '@/shared/Articles';
 
 export default function page() {
   return (
@@ -27,7 +27,7 @@ export default function page() {
           <BannerAds />
         </div>
         <div>
-          <Articles />
+          <LatestArticles />
         </div>
     </>
   )

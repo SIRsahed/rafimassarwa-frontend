@@ -3,8 +3,8 @@ import BannerAds from '@/components/murakkabs_portfolio/BannerAds'
 // import Articles from '@/components/murakkabs_portfolio/Articles'
 // import TopData from '@/components/murakkabs_portfolio/TopData'
 import QualityStocks from '@/components/quality-stocks/QualityStocks'
-import LatestArticles from '@/components/HomePage/Articles'
 import StockTickerCarousel from '@/components/Watchlist/StockTickerCarousel'
+import LatestArticles from '@/shared/Articles'
 
 export default function page() {
   return (

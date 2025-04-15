@@ -1,15 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Eye, EyeOff, User, Mail } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import googleImag from '../../../public/images/Authentication/google.png';
-import appleImg from '../../../public/images/Authentication/apple.png';
-import microsoft from '../../../public/images/Authentication/microsoft.png';
+import { Mail } from "lucide-react";
 
 // Define the form schema with Zod
 const formSchema = z
@@ -22,8 +16,6 @@ const formSchema = z
 type FormValues = z.infer<typeof formSchema>;
 
 export default function ForgotPass() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
