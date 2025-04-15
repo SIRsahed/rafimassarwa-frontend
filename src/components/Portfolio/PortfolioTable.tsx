@@ -234,9 +234,8 @@ export default function PortfolioTable() {
                 </td>
                 <td className="px-4 py-4">
                   <div
-                    className={`flex items-center ${
-                      stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
-                    }`}
+                    className={`flex items-center ${stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
+                      }`}
                   >
                     <span className="font-medium">
                       {stock.priceChange >= 0 ? "▲" : "▼"} $
@@ -311,9 +310,8 @@ export default function PortfolioTable() {
                     <CirclePlus className="h-5 w-5 mx-auto text-gray-400" />
                   </div> */}
                   <div
-                    className={`flex items-center ${
-                      stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
-                    }`}
+                    className={`flex items-center ${stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
+                      }`}
                   >
                     <div className="font-medium flex items-center gap-2 justify-center">
                       <p>▼</p>
