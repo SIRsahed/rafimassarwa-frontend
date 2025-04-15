@@ -7,9 +7,9 @@ import * as z from "zod";
 import { Eye, EyeOff, User, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import googleImag from '../../../public/images/Authentication/google.png';
-import appleImg from '../../../public/images/Authentication/apple.png';
-import microsoft from '../../../public/images/Authentication/microsoft.png';
+import googleImag from "../../../public/images/Authentication/google.png";
+import appleImg from "../../../public/images/Authentication/apple.png";
+import microsoft from "../../../public/images/Authentication/microsoft.png";
 
 // Define the form schema with Zod
 const formSchema = z
@@ -56,11 +56,11 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center  p-4 bg-gradient-to-l from-[white] to-[#e8f7eb]">
-      <div className="w-full max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
+    <div className="flex lg:min-h-screen items-center justify-center  p-4 bg-gradient-to-l from-[white] to-[#e8f7eb]">
+      <div className="w-full max-w-6xl lg:overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
         <div className="flex flex-col md:flex-row">
           {/* Left side - Registration Form */}
-          <div className="w-full p-10 md:w-1/2  h-[778px] flex flex-col items-center justify-center">
+          <div className="w-full p-10 md:w-1/2  lg:h-[778px] flex flex-col items-center justify-center">
             <h1 className="mb-8 text-center text-3xl font-bold">
               Registration
             </h1>
@@ -68,29 +68,13 @@ export default function RegistrationForm() {
             {/* Social login options */}
             <div className="mb-6 flex justify-center space-x-4">
               <button className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                <Image
-                  src={googleImag}
-                  alt="Google"
-                  width={24}
-                  height={24}
-                />
-                
+                <Image src={googleImag} alt="Google" width={24} height={24} />
               </button>
               <button className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                <Image
-                  src={microsoft}
-                  alt="Microsoft"
-                  width={24}
-                  height={24}
-                />
+                <Image src={microsoft} alt="Microsoft" width={24} height={24} />
               </button>
               <button className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                <Image
-                  src={appleImg}
-                  alt="Apple"
-                  width={24}
-                  height={24}
-                />
+                <Image src={appleImg} alt="Apple" width={24} height={24} />
               </button>
             </div>
 
@@ -98,7 +82,10 @@ export default function RegistrationForm() {
               or use your email for registration
             </p>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 w-full">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-5 w-full"
+            >
               {/* Username field */}
               <div className="relative">
                 <input
@@ -193,10 +180,27 @@ export default function RegistrationForm() {
             </form>
           </div>
 
+          <div className="bg-[#eaf6ec] p-2 rounded-b-lg lg:hidden">
+            <div className="flex flex-col items-center justify-center w-full h-full text-gray-700">
+              <h1 className="mb-3 text-center text-3xl font-bold">
+                Hello, Welcome!
+              </h1>
+              <p className="mb-3 text-center">
+                Enter your personal details to use all of site features
+              </p>
+              <Link
+                href="/login"
+                className="w-32 rounded border border-green-500 py-3 text-center text-green-500 transition-colors hover:bg-green-500 hover:text-white"
+              >
+                Login
+              </Link>
+            </div>
+          </div>
+
           {/* Right side - Welcome message */}
-          <div className="relative w-[70%]  h-[778px]">
-            <div className="bg-gradient-to-br from-[#f0f9f0] to-[#e6f7e6] p-10  skew-x-12 w-full h-full absolute ml-16 shadow-[0_0_40px_rgba(0,0,0,0.2)]"></div>
-            
+          <div className="relative w-[70%]  h-[778px] hidden lg:block">
+            <div className="bg-gradient-to-br from-[#f0f9f0] to-[#e6f7e6] p-10  skew-x-12 w-full h-full absolute ml-[76px] shadow-[0_0_40px_rgba(0,0,0,0.2)]"></div>
+
             <div className="absolute flex flex-col items-center justify-center w-full h-full text-gray-700">
               <h1 className="mb-4 text-center text-5xl font-bold">
                 Hello, Welcome!
