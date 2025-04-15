@@ -12,7 +12,7 @@ export default function PUBanner() {
                             alt="logo"
                             width={500}
                             height={500}
-                            className="w-32 h-24 sm:w-28 sm:h-20 lg:w-32 lg:h-24 object-cover mb-6 sm:mb-8 lg:mb-10"
+                            className="w-32 h-24 sm:w-28 sm:h-20 lg:w-32 lg:h-24 object-cover mb-6 sm:mb-8 lg:mb-10 hidden md:block"
                         />
                         <h2 className="text-2xl sm:text-3xl md:text-[32px] lg:text-[40px] font-bold pb-4 sm:pb-6 lg:pb-8 max-w-[740px] leading-[120%]">
                             Next-Level Stock Research: Simple, Smart & Growing
@@ -25,7 +25,7 @@ export default function PUBanner() {
                             <Link href='/explore-plan' className="inline-flex items-center justify-center rounded-md bg-transparent border border-green-500 md:px-20 px-10 py-4 text-[14px] md:text-base font-medium text-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Explore Our Plans</Link>
                         </div>
                     </div>
-                    <div className="md:col-span-1 lg:col-span-2 flex justify-center md:justify-end">
+                    <div className="md:col-span-1 lg:col-span-2 flex justify-center md:justify-end hidden md:block">
                         <Image
                             src="/images/plan_upgrade_page/banner.png"
                             alt="banner arrow"
