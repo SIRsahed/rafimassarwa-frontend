@@ -47,10 +47,10 @@ export default function LoginForm() {
 
   return (
     <div className="flex min-h-screen items-center justify-center  p-4 bg-gradient-to-r from-[white] to-[#e8f7eb]">
-      <div className="w-full max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
+      <div className="w-full max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] lg:h-[778px]">
         <div className="flex flex-col md:flex-row">
           {/* left side - Welcome message */}
-          <div className="relative w-[70%] h-[778px]">
+          <div className="relative w-[70%] h-[778px] hidden lg:block">
             <div className="bg-gradient-to-br from-[#f0f9f0] to-[#e6f7e6] p-10  -skew-x-12 w-full h-full absolute right-20 shadow-[0_0_40px_rgba(0,0,0,0.2)]"></div>
             
             <div className="absolute flex flex-col items-center justify-center w-full h-full text-gray-700 pr-10">
@@ -103,7 +103,7 @@ export default function LoginForm() {
               or use your username for login
             </p>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 w-full pr-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 w-full lg:pr-5 p-3 lg:p-0">
               {/* Username field */}
               <div className="relative">
                 <input
