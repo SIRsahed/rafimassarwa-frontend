@@ -5,6 +5,16 @@ import type React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { GoDesktopDownload, GoPeople } from "react-icons/go";
+import { MdOutlineAccountCircle } from "react-icons/md";
+import { IoIosStarHalf } from "react-icons/io";
+import { RiNewspaperLine } from "react-icons/ri";
+import { SiSimpleanalytics } from "react-icons/si";
+import { FaRegCalendarAlt, FaChartLine } from "react-icons/fa";
+import { CiShare1 } from "react-icons/ci";
+import Image from "next/image"
+
+
 
 interface SidebarItem {
   icon: React.ReactNode
@@ -17,185 +27,73 @@ export function PortfolioSidebar() {
 
   const sidebarItems: SidebarItem[] = [
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="6" height="6" rx="1" fill="currentColor" />
-          <rect x="3" y="11" width="6" height="6" rx="1" fill="currentColor" />
-          <rect x="11" y="3" width="6" height="6" rx="1" fill="currentColor" />
-          <rect x="11" y="11" width="6" height="6" rx="1" fill="currentColor" />
-        </svg>
-      ),
+      icon: <GoDesktopDownload />,
       label: "Portfolio",
-      href: "/portfolio",
+      href: "/my-portfolio",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="7" r="3" stroke="currentColor" strokeWidth="1.5" />
-          <path
-            d="M16 15C16 11.6863 13.3137 9 10 9C6.68629 9 4 11.6863 4 15V16H16V15Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-        </svg>
-      ),
+      icon: <MdOutlineAccountCircle />,
       label: "My Account",
-      href: "/account",
+      href: "/my-portfolio/my-account",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M15 10L10 5L5 10"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path d="M10 15V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
+      icon: <IoIosStarHalf />,
       label: "Performance",
-      href: "/performance",
+      href: "/my-portfolio/performance",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="4" width="14" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M3 7H17" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M7 10H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M7 13H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      ),
+      icon: <RiNewspaperLine />,
       label: "My News",
-      href: "/news",
+      href: "/my-portfolio/my-news",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 16H4V8H16V16Z" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M7 12H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path
-            d="M7 4L10 7L13 4"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
+      icon: <SiSimpleanalytics />,
       label: "Analysis",
-      href: "/analysis",
+      href: "/my-portfolio/analysis",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="4" width="14" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M3 8H17" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M7 3V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M13 3V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M6 12H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M12 12H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M6 14H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M12 14H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      ),
+      icon: <FaRegCalendarAlt />,
       label: "My Calendar",
-      href: "/calendar",
+      href: "/my-portfolio/calendar",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M3 14L7 10L10 13L17 6"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path d="M13 6H17V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
+      icon: <FaChartLine />,
       label: "Chart",
-      href: "/chart",
+      href: "/my-portfolio/chart",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 10H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path
-            d="M10 6L14 10L10 14"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-      ),
+      icon: <CiShare1 />,
       label: "Refer with friends",
-      href: "/refer",
+      href: "/my-portfolio/refer",
     },
     {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="7" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="13" cy="13" r="2" stroke="currentColor" strokeWidth="1.5" />
-          <path
-            d="M13 7C13 5.89543 13.8954 5 15 5C16.1046 5 17 5.89543 17 7C17 8.10457 16.1046 9 15 9C13.8954 9 13 8.10457 13 7Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M3 13C3 11.8954 3.89543 11 5 11C6.10457 11 7 11.8954 7 13C7 14.1046 6.10457 15 5 15C3.89543 15 3 14.1046 3 13Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-        </svg>
-      ),
+      icon: <GoPeople />,
       label: "Influencers",
-      href: "/influencers",
+      href: "/my-portfolio/influencers",
     },
   ]
 
   return (
-    <div className="w-[220px] min-h-screen border-r bg-white">
-      <div className="flex flex-col h-full">
+    <div className="bg-white mt-36 shadow-[2px_0px_8px_0px_#00000029]">
+      <div className="flex flex-col">
         {/* Logo and Title */}
         <div className="flex items-center gap-2 p-4 border-b">
-          <div className="w-8 h-8">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-green-700">
-              <path
-                d="M12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4Z"
-                fill="white"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-              <path d="M12 8V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              <path d="M16 12H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              <path
-                d="M14.8284 9.17157L9.17157 14.8284"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M9.17157 9.17157L14.8284 14.8284"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
+          <Image 
+            src="/images/Stock-logo-1.png"
+            alt="Logo"
+            width={350}
+            height={150}
+            className="w-20 h-16 object-contain"
+          />
           <div className="flex flex-col">
-            <span className="text-sm font-medium text-black">Smart</span>
-            <span className="text-base font-bold text-black">Portfolio</span>
+            <span className="text-base font-medium text-black">Smart</span>
+            <span className="text-xl font-medium text-black">Portfolio</span>
           </div>
         </div>
 
         {/* Navigation Items */}
-        <nav className="flex-1 p-2">
-          <ul className="space-y-1">
+        <nav className="flex-1 shadow-[2px_0px_8px_0px_#00000029]">
+          <ul className="">
             {sidebarItems.map((item) => {
               const isActive = pathname === item.href
               return (
@@ -203,12 +101,12 @@ export function PortfolioSidebar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
-                      isActive ? "bg-green-100 text-green-600" : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
+                      "flex items-center gap-3 px-7 py-4 text-xl",
+                      isActive ? "bg-[#EAF6EC] text-[#28A745] relative after:absolute after:h-full after:w-1 after:bg-[#28A745] after:right-0 after:top-0" : "text-[#4E4E4E] hover:text-gray-900",
                     )}
                   >
-                    <span className={cn("", isActive ? "text-green-600" : "text-gray-500")}>{item.icon}</span>
-                    <span>{item.label}</span>
+                    <span className={cn("h-8 w-8 rounded-md flex justify-center items-center p-1 border", isActive ? "text-[#28A745] border-[#28A745]" : "text-gray-500")}>{item.icon}</span>
+                    <span className={cn("text-xs font-semibold", isActive ? "text-[#28A745]" : "")}>{item.label}</span>
                   </Link>
                 </li>
               )

@@ -1,9 +1,9 @@
 import Hero from "@/components/HomePage/Hero";
 import StockSearchSection from "@/components/HomePage/StockSearchSection";
 import Services from "@/components/HomePage/Services";
-import StockDashboard from "@/components/HomePage/StockDashboard";
 import PortfolioGrowth from "@/components/HomePage/PortfolioGrowth";
-import Article from "@/components/HomePage/Articles";
+import LatestArticles from "@/shared/Articles";
+import StockDashboard from "@/shared/StockDashboard";
 
 export default function Home() {
   return (
@@ -21,12 +21,13 @@ export default function Home() {
       <div>
         <PortfolioGrowth />
       </div>
+
       <div>
-        <StockDashboard />
+        <LatestArticles />
       </div>
 
       <div>
-        <Article />
+        <StockDashboard />
       </div>
     </div>
   );

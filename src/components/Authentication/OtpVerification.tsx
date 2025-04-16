@@ -3,10 +3,10 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 
 export default function OtpVerification() {
-  const router = useRouter()
+  // const router = useRouter()
   const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""])
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
   const [isResending, setIsResending] = useState(false)
@@ -108,7 +108,9 @@ export default function OtpVerification() {
             {otp.map((digit, index) => (
               <input
                 key={index}
-                ref={(el) => (inputRefs.current[index] = el)}
+                ref={(el) => {
+                  inputRefs.current[index] = el;
+                }}
                 type="text"
                 inputMode="numeric"
                 maxLength={1}
@@ -122,7 +124,7 @@ export default function OtpVerification() {
           </div>
 
           <div className="text-sm mb-6">
-            Didn't Receive OTP?
+            Didn&apos;t Receive OTP?
             <button
               onClick={handleResendOtp}
               disabled={isResending}

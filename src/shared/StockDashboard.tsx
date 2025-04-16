@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
-import AllStock from "./AllStock";
-import { BestRatedStocks } from "./BestRatedStocks";
-import WorstRatedStocks from "./WorstRatedStocks";
-import ByRating from "./ByRating";
-import SellingRating from "./SellingRating";
+import { BestRatedStocks } from "@/components/HomePage/BestRatedStocks";
+import WorstRatedStocks from "@/components/HomePage/WorstRatedStocks";
+import StockTrackingTable from "@/components/HomePage/AllStock";
+import AnalystRatingTable from "@/components/HomePage/ByRating";
+import SellingRating from "@/components/HomePage/SellingRating";
+
 
 export default function StockDashboard() {
   const [activeTrendingTab, setActiveTrendingTab] = useState("all");
@@ -47,7 +48,7 @@ export default function StockDashboard() {
 
               {/* Render Content Based on Active Tab */}
               {activeTrendingTab === "all" ? (
-                <AllStock />
+                <StockTrackingTable />
               ) : activeTrendingTab === "best" ? (
                 <BestRatedStocks />
               ) : (
@@ -87,7 +88,7 @@ export default function StockDashboard() {
 
               {/* Tab Content */}
               {activeTopStocksTab === "buy" ? (
-                <ByRating />
+                <AnalystRatingTable />
               ) : (
                 <SellingRating />
               )}

@@ -3,7 +3,7 @@ import StockTickerCarousel from "../Watchlist/StockTickerCarousel";
 
 export default function Home() {
   return (
-    <div className="flex gap-6 bg-white mt-28 px-6 lg:px-12">
+    <div className="flex gap-6 bg-white mt-36 px-6 lg:px-12">
 
       {/* Main Content */}
       <div className="flex flex-col flex-1">
