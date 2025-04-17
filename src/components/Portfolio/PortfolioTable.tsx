@@ -1,358 +1,321 @@
-import { ChevronRight, Bell, Trash, TriangleAlert, Pencil } from "lucide-react";
+import { ChevronRight, Trash } from "lucide-react";
+import { IoWarningOutline } from "react-icons/io5";
+import { FiEdit2 } from "react-icons/fi";
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import { IoNotificationsOutline } from "react-icons/io5";
+
+
+
+
 import Image from "next/image";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
-type StockData = {
-  name: string;
-  price: number;
-  priceChange: number;
-  changePercent: number;
-  smartScore: number;
-  marketCap: string;
-  sector: string;
-  analystConsensus: "buy" | "hold" | "sell";
-  priceTargetUpdated: boolean;
-  inPortfolio: boolean;
-  emailAlerts: boolean;
-  stockAlerts: boolean;
-  headingVal: string;
-};
-
-const stocks: StockData[] = [
+const tableData = [
   {
-    name: "Apple",
-    price: 175.5,
-    priceChange: 2.5,
-    changePercent: 1.45,
-    smartScore: 8,
-    marketCap: "2.8T",
-    sector: "Technology",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: true,
-    stockAlerts: true,
-    headingVal: "Stron",
+    ticker: "AAPL",
+    logo: '/images/appl.png',
+    numberOfShares: 12,
+    aiCatalyst: "/images/Ai.png",
+    changeArrow: "▲",
+    changeAmount: 0,
+    price: 120.22,
+    priceChange: 3.2,
+    priceChangePercentage: "12%",
+    recommendation: "Moderate Buy",
+    analystPriceTarget: "/images/lock.png",
+    holdingValue: "Strong",
+    holdingGain: -3.2,
   },
   {
-    name: "Tesla",
-    price: 250.1,
-    priceChange: -1.75,
-    changePercent: -0.7,
-    smartScore: 6,
-    marketCap: "900B",
-    sector: "Automotive",
-    analystConsensus: "hold",
-    priceTargetUpdated: false,
-    inPortfolio: false,
-    emailAlerts: false,
-    stockAlerts: true,
-    headingVal: "Stron",
+    ticker: "AAPL",
+    logo: '/images/appl.png',
+    numberOfShares: 12,
+    aiCatalyst: "/images/Ai.png",
+    changeArrow: "▲",
+    changeAmount: 0,
+    price: 120.22,
+    priceChange: 3.2,
+    priceChangePercentage: "12%",
+    recommendation: "Hold",
+    analystPriceTarget: "/images/lock.png",
+    holdingValue: "Strong",
+    holdingGain: -3.2,
   },
   {
-    name: "Amazon",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5T",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    headingVal: "Stron",
+    ticker: "AAPL",
+    logo: '/images/appl.png',
+    numberOfShares: 12,
+    aiCatalyst: "/images/Ai.png",
+    changeArrow: "▲",
+    changeAmount: 0,
+    price: 120.22,
+    priceChange: 3.2,
+    priceChangePercentage: "12%",
+    recommendation: "Hold",
+    analystPriceTarget: "/images/lock.png",
+    holdingValue: "Strong",
+    holdingGain: -3.2,
   },
   {
-    name: "Amazon",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5T",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    headingVal: "Stron",
+    ticker: "AAPL",
+    logo: '/images/appl.png',
+    numberOfShares: 12,
+    aiCatalyst: "/images/Ai.png",
+    changeArrow: "▲",
+    changeAmount: 0,
+    price: 120.22,
+    priceChange: 3.2,
+    priceChangePercentage: "12%",
+    recommendation: "Moderate Buy",
+    analystPriceTarget: "/images/lock.png",
+    holdingValue: "Strong",
+    holdingGain: -3.2,
   },
   {
-    name: "Amazon",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5T",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    headingVal: "Stron",
-  },
-  {
-    name: "Amazon",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5T",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    headingVal: "Stron",
+    ticker: "AAPL",
+    logo: '/images/appl.png',
+    numberOfShares: 12,
+    aiCatalyst: "/images/Ai.png",
+    changeArrow: "▲",
+    changeAmount: 0,
+    price: 120.22,
+    priceChange: 3.2,
+    priceChangePercentage: "12%",
+    recommendation: "Moderate Buy",
+    analystPriceTarget: "/images/lock.png",
+    holdingValue: "Strong",
+    holdingGain: 3.2,
   },
 ];
 
 export default function PortfolioTable() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-[100px] container mx-auto">
-      <div className="flex items-center gap-2 p-4 mb-11">
-        <div className="flex gap-3 items-center bg-[#BFBFBF] p-1 rounded-sm">
-          <div className="">
-            <Image
-              src="/images/icon-2.png"
-              alt="icon-2"
-              width={18}
-              height={18}
-              className="h-[18px] w-[18px]"
-            />
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList className="gap-2 pl-6 my-3 bg-transparent text-white">
+          <div className="flex items-center gap-2">
+            <div className="flex gap-3 items-center bg-[#BFBFBF] p-1 rounded-sm">
+              <div className="">
+                <Image
+                  src="/images/icon-2.png"
+                  alt="icon-2"
+                  width={18}
+                  height={18}
+                  className="h-[18px] w-[18px]"
+                />
+              </div>
+              <div className="flex gap-3">
+                <Image
+                  src="/images/icon-3.png"
+                  width={50}
+                  height={50}
+                  alt="icon-3"
+                  className="h-[18px] w-[18px]"
+                />
+                <Image
+                  src="/images/icon-4.png"
+                  width={50}
+                  height={50}
+                  alt="icon-4"
+                  className="h-[18px] w-[18px]"
+                />
+              </div>
+            </div>
           </div>
-          <div className="flex gap-3">
-            <Image
-              src="/images/icon-3.png"
-              width={50}
-              height={50}
-              alt="icon-3"
-              className="h-[18px] w-[18px]"
-            />
-            <Image
-              src="/images/icon-4.png"
-              width={50}
-              height={50}
-              alt="icon-4"
-              className="h-[18px] w-[18px]"
-            />
-          </div>
-        </div>
-        <div className="flex space-x-1">
-          <button className="rounded-md bg-green-600 px-4 py-1 text-sm font-medium text-white">
-            Overview
-          </button>
-          <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-            Financials
-          </button>
-          <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-            Technicals
-          </button>
-          <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-            Performance
-          </button>
-          <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-            Forecast
-          </button>
-        </div>
-      </div>
+          <TabsTrigger value="overview" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">Overview</TabsTrigger>
+          <TabsTrigger value="tipranks" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">TipRanks Essentials</TabsTrigger>
+          <TabsTrigger value="holdings" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">Holdings</TabsTrigger>
+          <TabsTrigger value="performance" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">Performance</TabsTrigger>
+          <TabsTrigger value="dividends" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">Dividends</TabsTrigger>
+          <TabsTrigger value="earnings" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">Earnings</TabsTrigger>
+          <TabsTrigger value="technicals" className="data-[state=active]:bg-[#28A745] data-[state=active]:text-white bg-[#E0E0E0] px-5 py-2">Technicals</TabsTrigger>
+        </TabsList>
 
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-green-50">
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Stock Name
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Number of Shares
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Price
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Price Change
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Ai Catalyst
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Analyst Consensus
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Analyst Price Target
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Smart Score
-              </th>
-
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Holding Value
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Holding Gain
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Top Analyst Consensus
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Alerts
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {stocks.map((stock, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="px-4 py-4">
-                  <div className="flex items-center">
-                    <div className="mr-2 h-9 w-9 rounded-full bg-gray-900 flex items-center justify-center text-white text-xs">
+        {/* Overview table */}
+        <TabsContent value="overview">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-[#EAF6EC] h-[70px]">
+                <TableHead className="w-[150px]  text-center">Stock Name</TableHead>
+                <TableHead className="w-[100px]  text-center">Number of Shares</TableHead>
+                <TableHead className="text-center">Price</TableHead>
+                <TableHead className="text-center">Price Change</TableHead>
+                <TableHead className="text-center">Ai Catalyst</TableHead>
+                <TableHead className="text-center">Ai Consensus</TableHead>
+                <TableHead className="text-center">Analyst Price Target</TableHead>
+                <TableHead className="text-center">Smart Score</TableHead>
+                <TableHead className="text-center">Holding Value</TableHead>
+                <TableHead className="text-center">Holding Gain</TableHead>
+                <TableHead className="text-center">Top Analyst Consensus</TableHead>
+                <TableHead className="text-center">Alerts</TableHead>
+                <TableHead className="text-center">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody className="text-center">
+              {tableData.map((item, index) => (
+                <TableRow key={index} className="h-24">
+                  <TableCell className="font-medium">
+                    <div className="flex justify-center">
+                      <div className="flex items-center gap-2">
+                        <div className="flex w-8 h-8 rounded-full bg-black justify-center items-center p-2">
+                          <Image
+                            src={item.logo}
+                            alt={item.ticker}
+                            width={350}
+                            height={200}
+                            className="w-5 h-5 object-cover"
+                          />
+                        </div>
+                        <div className="">
+                          <span>{item.ticker}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell className="">
+                    <div className="flex gap-1 text-center items-center">
+                      <span><IoWarningOutline className="text-[#FFD700]" /></span>
+                      <span>${item.numberOfShares}</span>
+                      <span><FiEdit2 className="text-[#28A745]" /></span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    ${item.price}
+                  </TableCell>
+                  <TableCell >
+                    <div className="flex items-center gap-2">
+                      <span>{item.priceChange > 0 ? <TiArrowSortedUp className="text-2xl text-black" /> : <TiArrowSortedDown className="text-red-500 text-2xl" />}</span>
+                      <p className="flex flex-col">
+                        <span>${item.priceChange}</span>
+                        <span>({(item.priceChange / item.price * 100).toFixed(2)}%)</span>
+                      </p>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex justify-center">
                       <Image
-                        src="/images/appl.png"
-                        alt="apple image"
-                        width={20}
-                        height={20}
+                        src={item.aiCatalyst}
+                        alt={item.ticker}
+                        width={350}
+                        height={200}
+                        className="w-5 h-5 object-cover"
                       />
                     </div>
-                    <span className="font-medium">{stock.name}</span>
-                  </div>
-                </td>
-                <td>
-                  <div className="flex ml-5">
-                    <TriangleAlert className="text-sm text-[#FFD700]" />
-                    <p className="text-md font-bold">0</p>
-                    <Pencil className="text-sm text-[#28A745]" />
-                  </div>
-                </td>
-                <td className="px-4 py-4 font-medium">
-                  ${stock.price.toFixed(2)}
-                </td>
-                <td className="px-4 py-4">
-                  <div
-                    className={`flex items-center ${
-                      stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
-                    }`}
-                  >
-                    <span className="font-medium">
-                      {stock.priceChange >= 0 ? "▲" : "▼"} $
-                      {Math.abs(stock.priceChange).toFixed(2)} (
-                      {stock.changePercent.toFixed(1)}%)
-                    </span>
-                  </div>
-                </td>
-                <td className="px-4 py-4 text-center">
-                  <div className="w-6 h-6">
-                    <Image
-                      src="/images/Ai.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </td>
-                <td className="px-4 py-4">
-                  {/* ${stock.marketCap} */}
-                  <div className="flex items-center gap-2">
-                    <div className="h-5 w-5">
+                  </TableCell>
+                  <TableCell>{item.recommendation}</TableCell>
+                  <TableCell>
+                    <div className="relative w-9 h-9 mx-auto flex items-center justify-center">
+                      {/* Green Glow */}
+                      <div className="absolute w-full h-full bg-[#28A745] rounded-full blur-[6px]"></div>
+
+                      {/* Lock Image (on top of glow) */}
                       <Image
-                        className="w-full h-full"
-                        src="/images/g-3.png"
-                        width={100}
-                        height={100}
-                        alt="group-image"
+                        src={item.analystPriceTarget}
+                        alt={item.ticker}
+                        width={350}
+                        height={200}
+                        className="w-5 h-5 object-cover relative z-10"
                       />
                     </div>
-                    <p>Hold</p>
-                  </div>
-                </td>
+                  </TableCell>
+                  <TableCell>
+                    <div className="relative w-9 h-9 mx-auto flex items-center justify-center">
+                      {/* Green Glow */}
+                      <div className="absolute w-full h-full bg-[#28A745] rounded-full blur-[6px]"></div>
 
-                <td className="px-4 py-4">
-                  <div>
-                    <Image
-                      src="/images/lock-s.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                    />
-                  </div>
-                </td>
-
-                <td className="text-center">
-                  <div>
-                    <Image
-                      src="/images/lock-s.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                    />
-                  </div>
-                </td>
-
-                <td className="px-4 py-4 text-center">
-                  {/* <div>
-                    <Image
-                      src="/images/lock-s.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                    />
-                  </div> */}
-                  <p className="text-lg text-black mr-6">{stock?.headingVal}</p>
-                </td>
-
-                <td className="px-4 py-4 text-center">
-                  {/* <div className="mr-14">
-                    <CirclePlus className="h-5 w-5 mx-auto text-gray-400" />
-                  </div> */}
-                  <div
-                    className={`flex items-center ${
-                      stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
-                    }`}
-                  >
-                    <div className="font-medium flex items-center gap-2 justify-center">
-                      <p>▼</p>
-                      <p>{stock.priceChange}</p>
+                      {/* Lock Image (on top of glow) */}
+                      <Image
+                        src={item.analystPriceTarget}
+                        alt={item.ticker}
+                        width={350}
+                        height={200}
+                        className="w-5 h-5 object-cover relative z-10"
+                      />
                     </div>
-                  </div>
-                </td>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {item.holdingValue}
+                  </TableCell>
+                  <TableCell className="">
+                    <div className="flex items-center gap-2">
+                      <span>{item.holdingGain < 0 ? <TiArrowSortedDown className="text-red-500 text-2xl" /> : <TiArrowSortedUp className="text-2xl text-[#28A745]" />}</span>
+                      {item.holdingGain}%
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="relative w-9 h-9 mx-auto flex items-center justify-center">
+                      {/* Green Glow */}
+                      <div className="absolute w-full h-full bg-[#28A745] rounded-full blur-[6px]"></div>
 
-                <td className="px-4 py-4 text-center">
-                  {/* {stock.emailAlerts ? (
-                      <Eye className="h-5 w-5 mx-auto text-gray-600" />
-                    ) : (
-                      <EyeOff className="h-5 w-5 mx-auto text-gray-400" />
-                    )} */}
+                      {/* Lock Image (on top of glow) */}
+                      <Image
+                        src={item.analystPriceTarget}
+                        alt={item.ticker}
+                        width={350}
+                        height={200}
+                        className="w-5 h-5 object-cover relative z-10"
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex justify-center">
+                      <IoNotificationsOutline className="h-4 w-4" />
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex justify-center">
+                      <Trash className="h-4 w-4" />
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TabsContent>
 
-                  <div>
-                    <Image
-                      src="/images/lock-s.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                    />
-                  </div>
-                </td>
+        {/* tipranks content */}
+        <TabsContent value="tipranks">
+          <h3 className="text-center py-10 text-2xl font-semibold text-[#28A745]">Tipsranks Essential&apos;s data will appear there</h3>
+        </TabsContent>
 
-                <td className="px-4 py-4 text-center">
-                  <div className="mr-6">
-                    <Bell className="h-5 w-5 mx-auto text-gray-400" />
-                  </div>
-                </td>
-                <td className="px-4 py-4 text-center">
-                  <Trash className="h-5 w-5 mx-auto text-gray-400" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        {/* holdings */}
+        <TabsContent value="holdings">
+          <h3 className="text-center py-10 text-2xl font-semibold text-[#28A745]">Holdings data will appear there</h3>
+        </TabsContent>
 
+        {/* performance */}
+        <TabsContent value="performance">
+          <h3 className="text-center py-10 text-2xl font-semibold text-[#28A745]">Performance data will appear there</h3>
+        </TabsContent>
+
+        {/* dividends */}
+        <TabsContent value="dividends">
+          <h3 className="text-center py-10 text-2xl font-semibold text-[#28A745]">Dividends data will appear there</h3>
+        </TabsContent>
+
+        {/* earnings */}
+        <TabsContent value="earnings">
+          <h3 className="text-center py-10 text-2xl font-semibold text-[#28A745]">Earnings data will appear there</h3>
+        </TabsContent>
+
+        {/* technicals */}
+        <TabsContent value="technicals">
+          <h3 className="text-center py-10 text-2xl font-semibold text-[#28A745]">Technicals data will appear there</h3>
+        </TabsContent>
+      </Tabs>
       <div className="flex items-center justify-end p-4">
         <div className="flex items-center space-x-2">
           <button className="flex h-8 w-8 items-center justify-center rounded-md bg-green-600 text-white">

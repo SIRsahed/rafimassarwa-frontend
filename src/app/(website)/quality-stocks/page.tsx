@@ -4,19 +4,18 @@ import BannerAds from '@/components/murakkabs_portfolio/BannerAds'
 // import TopData from '@/components/murakkabs_portfolio/TopData'
 import QualityStocks from '@/components/quality-stocks/QualityStocks'
 import StockTickerCarousel from '@/components/Watchlist/StockTickerCarousel'
-import LatestArticles from '@/shared/Articles'
+import Articles from '@/shared/Articles'
 
 export default function page() {
   return (
     <>
-        {/* <TopData/> */}
         <div className='mt-28'>
           <StockTickerCarousel />
         </div>
         <QualityStocks />
         
         <BannerAds/>
-        <LatestArticles />
+        <Articles />
         
     </>
   )

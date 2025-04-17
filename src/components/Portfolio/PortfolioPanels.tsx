@@ -1,69 +1,9 @@
-import Image from "next/image";
 import { ArrowRight, Edit2, Plus } from "lucide-react";
 import StockTickerCarousel from "../Watchlist/StockTickerCarousel";
 
 export default function Home() {
   return (
-    <div className="flex gap-6 bg-white mt-28 px-6 lg:px-12">
-      {/* Sidebar */}
-      <div className="w-[250px] h-[422px] bg-white shadow-md">
-        <div className="flex items-center gap-3 p-4 border-b shadow-[2px_0px_8px_0px_#00000029] mt-4">
-          <div className="w-8 h-8">
-            <Image
-              src="/images/Stock-logo-1.png"
-              width={32}
-              height={32}
-              alt="Tree logo"
-              className="object-contain"
-            />
-          </div>
-          <div>
-            <div className="font-bold text-sm">Smart</div>
-            <div className="font-bold">Portfolio</div>
-          </div>
-        </div>
-
-        <div className="py-2">
-          <div className="flex items-center gap-3 px-4 py-2 bg-white border-l-4 border-green-500">
-            <div className="w-5 h-5 bg-green-500 rounded-md flex items-center justify-center">
-              <Image
-                src="/images/sidbar-icon.png"
-                width={15}
-                height={15}
-                alt="Portfolio icon"
-                className="object-contain"
-              />
-            </div>
-            <span className="text-sm">Portfolio</span>
-          </div>
-
-          {[
-            { name: "Performance", icon: "/images/sidbar-icon.png" },
-            { name: "My News", icon: "/images/sidbar-icon.png" },
-            { name: "Analysis", icon: "/images/sidbar-icon.png" },
-            { name: "My Calendar", icon: "/images/sidbar-icon.png" },
-            { name: "Chart", icon: "/images/sidbar-icon.png" },
-            { name: "Refer with friends", icon: "/images/sidbar-icon.png" },
-            { name: "Influencers", icon: "/images/sidbar-icon.png" },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-3 px-4 py-2 hover:bg-green-50 transition-colors cursor-pointer"
-            >
-              <div className="w-5 h-5 flex items-center justify-center">
-                <Image
-                  src={item.icon || "/placeholder.svg"}
-                  width={20}
-                  height={20}
-                  alt={`${item.name} icon`}
-                  className="object-contain"
-                />
-              </div>
-              <span className="text-sm">{item.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="flex gap-6 bg-white px-6 lg:px-12">
 
       {/* Main Content */}
       <div className="flex flex-col flex-1">
@@ -94,8 +34,8 @@ export default function Home() {
               <h2 className="font-semibold text-lg text-gray-800">
                 Portfolio Overview
               </h2>
-              <div className="flex mt-2 border-b">
-                <div className="px-4 py-2 border-b-2 border-green-500 font-medium">
+              <div className="flex mt-2 shadow-[0px_0px_10px_1px_#0000001A]">
+                <div className="px-4 py-2 font-medium relative after:absolute after:top-0 after:left-0 after:content-[''] after:h-[5px] after:w-full after:bg-[#28A745]">
                   Overview
                 </div>
                 <div className="px-4 py-2 text-gray-500">Smart Score</div>
@@ -163,8 +103,8 @@ export default function Home() {
               <h2 className="font-semibold text-lg text-gray-800">
                 Portfolio Overview
               </h2>
-              <div className="flex mt-2 border-b">
-                <div className="px-4 py-2 border-b-2 border-green-500 font-medium">
+              <div className="flex mt-2 shadow-[0px_0px_10px_1px_#0000001A]">
+                <div className="px-4 py-2 font-medium relative after:absolute after:top-0 after:left-0 after:content-[''] after:h-[5px] after:w-full after:bg-[#28A745]">
                   Top Gainers
                 </div>
                 <div className="px-4 py-2 text-gray-500">Top Losers</div>
@@ -196,8 +136,8 @@ export default function Home() {
                   See All <ArrowRight className="h-3 w-3 ml-1" />
                 </div>
               </div>
-              <div className="flex mt-2 border-b">
-                <div className="px-4 py-2 border-b-2 border-green-500 font-medium">
+              <div className="flex mt-2 shadow-[0px_0px_10px_1px_#0000001A]">
+                <div className="px-4 py-2 font-medium relative after:absolute after:top-0 after:left-0 after:content-[''] after:h-[5px] after:w-full after:bg-[#28A745]">
                   Overview
                 </div>
                 <div className="px-4 py-2 text-gray-500">Smart Score</div>
