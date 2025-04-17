@@ -28,15 +28,15 @@ export default function MurakkabsNews() {
         <div>
             <div className="mb-5">
                 <div className="mb-4">
-                    <h2 className='text-[32px] font-semibold pb-4'>Murakkab News & Analysis</h2>
-                    <h5 className='text-xl font-semibold pb-2 inline-block relative after:absolute after:content-[""] after:bottom-0 after:left-0 after:w-[150%] after:h-[5px] after:bg-[#28A745]'>Latest News</h5>
+                    <h2 className='lg:text-[32px] text-[24px] font-semibold pb-4'>Murakkab News & Analysis</h2>
+                    <h5 className='lg:text-xl text-base font-semibold pb-2 inline-block relative after:absolute after:content-[""] after:bottom-0 after:left-0 after:w-[150%] after:h-[5px] after:bg-[#28A745]'>Latest News</h5>
                 </div>
 
                 {/* Latest News Part */}
                 <div className="flex flex-col space-y-3">
                     {
                         dummyData.map((news) => (
-                            <div className="grid grid-cols-5 items-center gap-2 border pr-2 rounded-lg">
+                            <div key={news.title} className="grid grid-cols-5 items-center gap-2 border pr-2 rounded-lg">
                                 <div className="col-span-2">
                                     <Image
                                         src={news.imageUrl}
@@ -68,7 +68,7 @@ export default function MurakkabsNews() {
                 <div className="flex flex-col space-y-3">
                     {
                         dummyData.map((news) => (
-                            <div className="grid grid-cols-5 items-center gap-2 border pr-2 rounded-lg">
+                            <div key={news.title} className="grid grid-cols-5 items-center gap-2 border pr-2 rounded-lg">
                                 <div className="col-span-2">
                                     <Image
                                         src={news.imageUrl}

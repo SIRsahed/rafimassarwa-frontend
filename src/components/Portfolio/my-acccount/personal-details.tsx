@@ -136,8 +136,8 @@ export default function PersonalDetailsCard() {
     }
 
     return (
-        <div className="grid lg:grid-cols-9 gap-5 mb-32">
-            <div className="col-span-7">
+        <div className="md:grid md:grid-cols-2 lg:grid-cols-9 gap-5 mb-32">
+            <div className="lg:col-span-7">
                 <Card className="w-full shadow-md">
                     <CardHeader>
                         <CardTitle className="text-xl">Personal Details</CardTitle>
@@ -305,7 +305,7 @@ export default function PersonalDetailsCard() {
                     <FeedbackCard />
                 </div>
             </div>
-            <div className="col-span-2">
+            <div className="lg:col-span-2 mt-5 md:mt-0">
                 <SubscriptionCard />
             </div>
         </div>

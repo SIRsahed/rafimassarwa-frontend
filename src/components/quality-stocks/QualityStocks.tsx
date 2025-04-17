@@ -121,33 +121,6 @@ export default function StockWatchlistTable() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-[100px] container mx-auto">
       <div className="flex items-center gap-2 p-4">
-        {/* <div className="flex gap-3 items-center bg-[#BFBFBF] p-1 rounded-sm">
-            <div className="">
-              <Image
-                src="/images/icon-2.png"
-                alt="icon-2"
-                width={18}
-                height={18}
-                className="h-[18px] w-[18px]"
-              />
-            </div>
-            <div className="flex gap-3">
-              <Image
-                src="/images/icon-3.png"
-                width={50}
-                height={50}
-                alt="icon-3"
-                className="h-[18px] w-[18px]"
-              />
-              <Image
-                src="/images/icon-4.png"
-                width={50}
-                height={50}
-                alt="icon-4"
-                className="h-[18px] w-[18px]"
-              />
-            </div>
-          </div> */}
         <div className="flex items-center space-x-4">
           <button className="text-base text-black">All Month</button>
 
@@ -160,16 +133,6 @@ export default function StockWatchlistTable() {
               className="w-full h-full"
             />
           </button>
-
-          {/* <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-              Technicals
-            </button>
-            <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-              Performance
-            </button>
-            <button className="rounded-md px-4 py-1 text-sm font-medium text-gray-500">
-              Forecast
-            </button> */}
         </div>
       </div>
 
@@ -197,23 +160,11 @@ export default function StockWatchlistTable() {
                 Market Cap
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-              Last Rating
+                Last Rating
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Sector
               </th>
-              {/* <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Sector
-                </th> */}
-              {/* <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Email Alerts
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Stock Alerts
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Action
-                </th> */}
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -254,22 +205,6 @@ export default function StockWatchlistTable() {
                 </td>
 
                 <td className="px-4 py-4 text-sm">
-                  {/* <div
-                      className={`flex items-center ${
-                        stock.priceChange >= 0 ? "text-green-600" : "text-red-600"
-                      }`}
-                    >
-                      <span className="font-medium">
-                        {stock.priceChange >= 0 ? "▲" : "▼"} $
-                        {Math.abs(stock.priceChange).toFixed(2)} (
-                        {stock.changePercent.toFixed(1)}%)
-                      </span>
-                    </div> */}
-
-                  {/* <p className="text-sm text-black">
-                    ▲{stock.priceChange}({stock.changePercent})%
-                  </p> */}
-
                   <div className="">
                     <p className="text-xs text-[#28A745] ml-7">
                       ${stock.priceChange}.00
@@ -279,15 +214,6 @@ export default function StockWatchlistTable() {
                 </td>
 
                 <td className="px-4 py-4 text-center">
-                  {/* <div>
-                    <Image
-                      src="/images/lock-s.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                    />
-                  </div> */}
-
                   <div className="flex items-center justify-start">
                     <div className="flex gap-3">
                       <div className="w-16 h-16 rounded-full border-4 border-yellow-400 flex items-center justify-center">
@@ -324,30 +250,12 @@ export default function StockWatchlistTable() {
                 </td>
 
                 <td className="px-4 py-4 text-xs">
-                  {/* <div className="flex items-center gap-2">
-                    <div className="h-5 w-5">
-                      <Image
-                        className="w-full h-full"
-                        src="/images/g-3.png"
-                        width={100}
-                        height={100}
-                        alt="group-image"
-                      />
-                    </div>
-                    <p>Hold</p>
-                  </div> */}
                   <p>{stock?.LastRating}</p>
                 </td>
 
                 <td className="text-center text-xs">
                   <p>{stock?.sector}</p>
                 </td>
-
-                {/* <td className="px-4 py-4 text-center">
-                    <div className="mr-14">
-                      <CirclePlus className="h-5 w-5 mx-auto text-gray-400" />
-                    </div>
-                  </td> */}
               </tr>
             ))}
           </tbody>

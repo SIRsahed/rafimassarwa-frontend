@@ -3,7 +3,7 @@ import StockTickerCarousel from "../Watchlist/StockTickerCarousel";
 
 export default function Home() {
   return (
-    <div className="flex gap-6 bg-white mt-36 px-6 lg:px-12">
+    <div className="flex gap-6 bg-white px-6 lg:px-12">
 
       {/* Main Content */}
       <div className="flex flex-col flex-1">
@@ -34,8 +34,8 @@ export default function Home() {
               <h2 className="font-semibold text-lg text-gray-800">
                 Portfolio Overview
               </h2>
-              <div className="flex mt-2 border-b">
-                <div className="px-4 py-2 border-b-2 border-green-500 font-medium">
+              <div className="flex mt-2 shadow-[0px_0px_10px_1px_#0000001A]">
+                <div className="px-4 py-2 font-medium relative after:absolute after:top-0 after:left-0 after:content-[''] after:h-[5px] after:w-full after:bg-[#28A745]">
                   Overview
                 </div>
                 <div className="px-4 py-2 text-gray-500">Smart Score</div>
@@ -103,8 +103,8 @@ export default function Home() {
               <h2 className="font-semibold text-lg text-gray-800">
                 Portfolio Overview
               </h2>
-              <div className="flex mt-2 border-b">
-                <div className="px-4 py-2 border-b-2 border-green-500 font-medium">
+              <div className="flex mt-2 shadow-[0px_0px_10px_1px_#0000001A]">
+                <div className="px-4 py-2 font-medium relative after:absolute after:top-0 after:left-0 after:content-[''] after:h-[5px] after:w-full after:bg-[#28A745]">
                   Top Gainers
                 </div>
                 <div className="px-4 py-2 text-gray-500">Top Losers</div>
@@ -136,8 +136,8 @@ export default function Home() {
                   See All <ArrowRight className="h-3 w-3 ml-1" />
                 </div>
               </div>
-              <div className="flex mt-2 border-b">
-                <div className="px-4 py-2 border-b-2 border-green-500 font-medium">
+              <div className="flex mt-2 shadow-[0px_0px_10px_1px_#0000001A]">
+                <div className="px-4 py-2 font-medium relative after:absolute after:top-0 after:left-0 after:content-[''] after:h-[5px] after:w-full after:bg-[#28A745]">
                   Overview
                 </div>
                 <div className="px-4 py-2 text-gray-500">Smart Score</div>

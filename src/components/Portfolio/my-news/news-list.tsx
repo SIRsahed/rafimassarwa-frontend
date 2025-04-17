@@ -95,8 +95,8 @@ export default function NewsList() {
     return (
         <div className='p-2 shadow-[0px_0px_8px_0px_#00000029]'>
             <div className="mb-4">
-                <h2 className='text-[32px] font-semibold pb-4'>Portfolio News</h2>
-                <h5 className='text-xl font-semibold pb-4'>Related News</h5>
+                <h2 className='lg:text-[32px] text-[24px] font-semibold pb-4'>Portfolio News</h2>
+                <h5 className='lg:text-xl text-base font-semibold pb-4'>Related News</h5>
                 <Progress value={48} className='mb-4 h-[5px] bg-[#999999]' />
                 <div className="relative w-[70%] inline-block">
                     <Input type="search" className='border border-[#28A745] h-12 rounded-3xl pl-6' placeholder="Search any Stock....." />
@@ -105,13 +105,13 @@ export default function NewsList() {
             </div>
             <Table>
                 <TableHeader className='[&_tr]:border-b-0'>
-                    <TableRow>
+                    <TableRow className='text-xs'>
                         <TableHead className="w-[100px]">Date</TableHead>
                         <TableHead>Ticker</TableHead>
                         <TableHead>Article</TableHead>
                     </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody className='text-xs'>
                     {dummyData.map((data) => (
                         <TableRow key={data.date} className='border-b-0'>
                             <TableCell className="font-medium">{data.date}</TableCell>
