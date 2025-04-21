@@ -113,6 +113,7 @@ const PriceChart = () => {
           <CardContent>
             <ChartContainer 
             config={chartConfig}
+            className="w-full h-[400px]"
             >
               <AreaChart
                 accessibilityLayer

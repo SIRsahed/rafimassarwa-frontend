@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { MoreHorizontal } from "lucide-react"
+import Image from "next/image"
 
 export default function NotificationsPage() {
   const [activeTab, setActiveTab] = useState("today")
@@ -135,10 +136,12 @@ export default function NotificationsPage() {
             )
             }
             <div className="w-12 h-12 rounded-full overflow-hidden mr-3 flex-shrink-0">
-              <img
+              <Image
                 src={notification.avatar}
                 alt="User avatar"
                 className="w-full h-full object-cover"
+                height={12}
+                width={12}
               />
             </div>
             <div className="flex-1 min-w-0">

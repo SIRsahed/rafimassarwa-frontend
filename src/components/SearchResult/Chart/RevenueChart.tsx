@@ -20,6 +20,15 @@ const chartData = [
   { month: "April", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", desktop: 186, mobile: 80 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
 ];
 const chartConfig = {
   desktop: {
@@ -34,14 +43,14 @@ const chartConfig = {
 
 const RevenueChart = () => {
   return (
-    <div>
-      <Card>
+    <div className="">
+      <Card className="">
         <CardHeader>
           <CardTitle>Earnings History</CardTitle>
           <CardDescription>Last 7 days</CardDescription>
         </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig}>
+        <CardContent >
+          <ChartContainer className="w-full h-[400px]" config={chartConfig}>
             <BarChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
               <XAxis
