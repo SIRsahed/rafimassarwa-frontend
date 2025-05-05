@@ -8,11 +8,11 @@ import Articles from '@/shared/Articles'
 export default function page() {
   return (
     <>
-        <StockTickerCarousel />
-        <Portfolio /> 
-        <UnderRader />
-        <BannerAds/>
-        <Articles/>
+      <StockTickerCarousel />
+      <Portfolio />
+      <UnderRader />
+      <BannerAds />
+      <Articles />
     </>
   )
 }

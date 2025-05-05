@@ -23,7 +23,7 @@ const stockTickerData = [
 
 export default function StockTickerCarousel() {
   return (
-    <div className="mx-auto max-w-[1500px] mt-32">
+    <div className="mx-auto max-w-[1500px] lg:mt-20">
       <Carousel opts={{ align: "start" }} className="w-full">
         <CarouselContent>
           {stockTickerData.map((stock, index) => (
@@ -57,7 +57,6 @@ export default function StockTickerCarousel() {
         </CarouselContent>
 
         {/* Custom styled controls */}
-        {/* <CarouselPrevious className="!left-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" /> */}
         <CarouselNext className="!right-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" />
       </Carousel>
       <hr />
