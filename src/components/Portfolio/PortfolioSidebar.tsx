@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { usePathname } from "next/navigation"
 import { GoDesktopDownload, GoPeople } from "react-icons/go";
 import { MdOutlineAccountCircle } from "react-icons/md";
@@ -84,7 +83,7 @@ export function PortfolioSidebar() {
   ]
 
   return (
-    <Sidebar className="mt-32 absolute h-min w-[260px] shadow-[2px_0px_8px_0px_#00000029]">
+    <Sidebar className="h-min absolute lg:mt-20 shadow-[2px_0px_8px_0px_#00000029]">
       <SidebarContent>
         <SidebarGroup className="p-0">
           <SidebarGroupLabel className="flex items-center gap-2 py-10">

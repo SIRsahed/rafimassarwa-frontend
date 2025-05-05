@@ -26,10 +26,7 @@ export default function Home() {
         {/* Portfolio Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3">
           {/* Left Section */}
-          <div
-            className="border rounded-xl overflow-hidden h-[400px] bg-white shadow-[0px_0px_8px_0px_#00000029]
-"
-          >
+          <div className="border rounded-xl overflow-hidden h-[400px] bg-white shadow-[0px_0px_8px_0px_#00000029]">
             <div className="p-4">
               <h2 className="font-semibold text-lg text-gray-800">
                 Portfolio Overview
@@ -95,10 +92,7 @@ export default function Home() {
           </div>
 
           {/* Middle Section */}
-          <div
-            className="border rounded-xl overflow-hidden h-[400px] bg-white shadow-[0px_0px_8px_0px_#00000029]
-"
-          >
+          <div className="border rounded-xl overflow-hidden h-[400px] bg-white shadow-[0px_0px_8px_0px_#00000029]">
             <div className="p-4 border-b">
               <h2 className="font-semibold text-lg text-gray-800">
                 Portfolio Overview

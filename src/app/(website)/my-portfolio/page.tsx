@@ -1,21 +1,17 @@
 import React from "react";
 import PortfolioPanels from "@/components/Portfolio/PortfolioPanels";
-import BannerAds from "@/components/News/BannerAds";
 import PortfolioTable from "@/components/Portfolio/PortfolioTable";
-import LatestArticles from "@/shared/Articles";
+import Articles from "@/shared/Articles";
+import BannerAds from "@/components/murakkabs_portfolio/BannerAds";
 
 const MyPortfolio = () => {
   return (
-    <div>
+    <>
       <PortfolioPanels />
       <PortfolioTable />
-      <div className="mt-[100px]">
-        <BannerAds />
-      </div>
-      <div>
-        <LatestArticles />
-      </div>
-    </div>
+      <BannerAds />
+      <Articles />
+    </>
   );
 };
 
