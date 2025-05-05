@@ -54,7 +54,7 @@ const Page = () => {
 
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-8 flex items-center justify-between">
         <PathTracker />
 
         <Link

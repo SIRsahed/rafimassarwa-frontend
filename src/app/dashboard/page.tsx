@@ -7,7 +7,7 @@ import { UsersChart } from "./_components/users-chart";
 const page = () => {
   return (
     <div>
-      <div className="mb-4">
+      <div className="mb-8">
         <PathTracker />
       </div>
 
