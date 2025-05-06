@@ -1,12 +1,7 @@
-"use client";
+"use client"
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-} from "@/components/ui/carousel";
-import Image from "next/image";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext } from "@/components/ui/carousel"
+import Image from "next/image"
 
 const stockTickerData = [
   { symbol: "S&P", value: 8222.3, change: 0.02, changePercent: 0.86, trend: "up" as const },
@@ -18,28 +13,27 @@ const stockTickerData = [
   { symbol: "NIKKEI", value: 30000.1, change: 0.02, changePercent: 0.86, trend: "up" as const },
   { symbol: "NIKKEI", value: 30000.1, change: 0.02, changePercent: 0.86, trend: "up" as const },
   { symbol: "NIKKEI", value: 30000.1, change: 0.02, changePercent: 0.86, trend: "up" as const },
-  
-];
+]
 
 export default function StockTickerCarousel() {
   return (
-    <div className="mx-auto max-w-[1500px]">
+    <div className="w-full mx-auto max-w-[1500px] mt-4 sm:mt-8 lg:mt-20">
       <Carousel opts={{ align: "start" }} className="w-full">
         <CarouselContent>
           {stockTickerData.map((stock, index) => (
-            <CarouselItem key={index} className="basis-[220px] md:basis-[240px]">
-              <div className="px-4 py-3">
-                <div className="flex items-center gap-4">
+            <CarouselItem key={index} className="basis-[180px] sm:basis-[220px] md:basis-[240px]">
+              <div className="px-2 sm:px-4 py-2 sm:py-3">
+                <div className="flex items-center gap-2 sm:gap-4">
                   {/* Stock Info */}
                   <div className="">
                     <div className="">
-                      <div className="text-[12px] text-blue-600 font-semibold">{stock.symbol}</div>
-                      <div className="text-[12px] font-bold text-black">{stock.value.toLocaleString()}</div>
+                      <div className="text-[10px] sm:text-[12px] text-blue-600 font-semibold">{stock.symbol}</div>
+                      <div className="text-[10px] sm:text-[12px] font-bold text-black">
+                        {stock.value.toLocaleString()}
+                      </div>
                     </div>
                     <div>
-                      <span
-                        className="text-black text-[12px]"
-                      >
+                      <span className="text-black text-[10px] sm:text-[12px]">
                         {stock.trend === "up" ? "+" : "-"}
                         {stock.change.toLocaleString()} ({stock.changePercent.toFixed(2)}%)
                       </span>
@@ -47,8 +41,14 @@ export default function StockTickerCarousel() {
                   </div>
 
                   {/* Mini Chart */}
-                  <div className="h-10 w-20">
-                    <Image src="/images/svgTrack.svg" alt="svg iamge" width={200} height={100} className="object-cover"/>
+                  <div className="h-8 sm:h-10 w-16 sm:w-20">
+                    <Image
+                      src="/images/svgTrack.svg"
+                      alt="svg image"
+                      width={200}
+                      height={100}
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -57,10 +57,9 @@ export default function StockTickerCarousel() {
         </CarouselContent>
 
         {/* Custom styled controls */}
-        {/* <CarouselPrevious className="!left-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" /> */}
-        <CarouselNext className="!right-[-24px] !bg-white !shadow-md hover:!bg-gray-100 transition" />
+        <CarouselNext className="!right-0 sm:!right-0 lg:!-right-6 !bg-white !shadow-md hover:!bg-gray-100 transition !h-8 !w-8 sm:!h-10 sm:!w-10" />
       </Carousel>
       <hr />
     </div>
-  );
+  )
 }

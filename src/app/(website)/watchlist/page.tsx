@@ -1,8 +1,8 @@
 import BannerAds from "@/components/News/BannerAds";
+import PortfolioTable from "@/components/Portfolio/PortfolioTable";
 import AlertsCards from "@/components/Watchlist/AlertsCards";
 import StockTickerCarousel from "@/components/Watchlist/StockTickerCarousel";
-import StockWatchlistTable from "@/components/Watchlist/StockWatchlistTable";
-import LatestArticles from "@/shared/Articles";
+import Articles from "@/shared/Articles";
 import React from "react";
 
 const WatchlistPage = () => {
@@ -11,10 +11,10 @@ const WatchlistPage = () => {
       <div className="mt-28">
       <StockTickerCarousel />
       </div>
-      <StockWatchlistTable />
+      <PortfolioTable />
       <AlertsCards />
       <BannerAds />
-      <LatestArticles />
+      <Articles />
     </div>
   );
 };

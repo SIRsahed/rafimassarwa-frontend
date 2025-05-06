@@ -1,118 +1,112 @@
-"use client"
+import React from 'react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Image from 'next/image'
 
-import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
+export default function Articles() {
 
-const tabs = [
-  "All Stocks",
-  "Market News",
-  "Crypto",
-  "Tech",
-  "Energy",
-  "Healthcare",
-  "Finance",
-]
+    const tabsArticleData = [
+        {
+            value: "allstocks",
+            title: "All Stocks",
+            data: [
+                {
+                    id: 1,
+                    thumbnail: "/images/murakkabs_portfolio_page/article.png",
+                    category: "Market News",
+                    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
+                    time: "10.00 pm, 20/11/25"
+                },
+                {
+                    id: 2,
+                    thumbnail: "/images/murakkabs_portfolio_page/article.png",
+                    category: "Market News",
+                    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
+                    time: "10.00 pm, 20/11/25"
+                },
+                {
+                    id: 3,
+                    thumbnail: "/images/murakkabs_portfolio_page/article.png",
+                    category: "Market News",
+                    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
+                    time: "10.00 pm, 20/11/25"
+                }
+            ]
+        },
+        {
+            value: "another",
+            title: "Another Stocks",
+            data: [
+                {
+                    id: 1,
+                    thumbnail: "/images/murakkabs_portfolio_page/article2.png",
+                    category: "Market News",
+                    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
+                    time: "10.00 pm, 20/11/25"
+                },
+                {
+                    id: 2,
+                    thumbnail: "/images/murakkabs_portfolio_page/article2.png",
+                    category: "Market News",
+                    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
+                    time: "10.00 pm, 20/11/25"
+                },
+                {
+                    id: 3,
+                    thumbnail: "/images/murakkabs_portfolio_page/article2.png",
+                    category: "Market News",
+                    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
+                    time: "10.00 pm, 20/11/25"
+                }
+            ]
 
-const articles = [
-  {
-    id: 1,
-    category: "Market News",
-    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
-    timestamp: "10.00 pm, 20/11/25",
-    tag: "TSLA",
-    image: "/images/cart.png",
-  },
-  {
-    id: 2,
-    category: "Tech",
-    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
-    timestamp: "1.00 pm, 20/11/25",
-    tag: "AAPL",
-    image: "/images/cart.png",
-  },
-  {
-    id: 3,
-    category: "Crypto",
-    title: "Want up to 11% Dividend Yield? Analysts Select 2 D",
-    timestamp: "9.00 am, 20/11/25",
-    tag: "BTC",
-    image: "/images/cart.png",
-  },
-]
+        },
 
-export default function LatestArticles() {
-  const [activeTab, setActiveTab] = useState("All Stocks")
 
-  const filteredArticles =
-    activeTab === "All Stocks"
-      ? articles
-      : articles.filter((article) => article.category === activeTab)
+    ]
 
-  return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="mb-6 text-3xl font-bold">Latest Articles</h2>
-
-        {/* Scrollable Tabs */}
-        <div className="mb-8 overflow-x-auto">
-          <div className="flex gap-3 min-w-max">
-            {tabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveTab(tab)}
-                className={`whitespace-nowrap rounded-full px-4 py-2 text-sm transition-all duration-300 ${
-                  activeTab === tab
-                    ? "bg-black text-white"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredArticles.length > 0 ? (
-            filteredArticles.map((article) => (
-              <div
-                key={article.id}
-                className="overflow-hidden rounded-[16px] border-[1px] border-black bg-white shadow-sm p-3"
-              >
-                <div className="relative h-48 w-full overflow-hidden rounded-md">
-                  <Image
-                    src={article.image}
-                    alt="Financial dashboard"
-                    fill
-                    className="object-cover"
-                  />
+    return (
+        <section className="py-16 px-2 lg:px-0">
+            <div className="container mx-auto">
+                <div className="pb-4">
+                    <h2 className='text-3xl font-semibold'>Latest Articles</h2>
                 </div>
-                <div className="p-4">
-                  <div className="mb-2 text-sm text-gray-600">{article.category}</div>
-                  <h3 className="mb-2 text-lg font-semibold">{article.title}</h3>
-                  <div className="flex items-center justify-between mt-3">
-                    <span className="text-sm text-gray-500">{article.timestamp}</span>
-                    <span className="rounded-full border border-[#28A745] px-3 py-1 text-xs font-medium">
-                      {article.tag}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-gray-500">No articles found for {activeTab}</p>
-          )}
-        </div>
-
-        {/* See All Link */}
-        <div className="mt-8 flex justify-end">
-          <Link href="/news" className="text-base font-medium text-black hover:underline">
-            See All News
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
+                <Tabs defaultValue="allstocks">
+                    <TabsList className='bg-transparent mb-3 text-[16px]'>
+                        {
+                            tabsArticleData.map((tabTitle) => (
+                                <TabsTrigger key={tabTitle.value} value={tabTitle.value}>{tabTitle.title}</TabsTrigger>
+                            ))
+                        }
+                    </TabsList>
+                    {
+                        tabsArticleData.map((tab) => (
+                            <TabsContent key={tab.value} value={tab.value}>
+                                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+                                    {
+                                        tab.data.map((article) => (
+                                            <div key={article.id} className="p-4 border rounded-2xl">
+                                                <Image
+                                                    src={article.thumbnail}
+                                                    alt='article'
+                                                    width={600}
+                                                    height={500}
+                                                    className='w-full h-[300px] object-cover'
+                                                />
+                                                <h5 className='font-medium text-[16px] text-[#595959] py-3'>{article.category}</h5>
+                                                <h2 className='text-lg font-medium pb-3'>{article.title}</h2>
+                                                <div className="flex justify-between items-center">
+                                                    <p className='font-normal text-[16px]'>{article.time}</p>
+                                                    <span className='uppercase text-base font-semibold px-5 py-1 border border-[#28A745] rounded-3xl'>TSLA</span>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </TabsContent>
+                        ))
+                    }
+                </Tabs>
+            </div>
+        </section>
+    )
 }

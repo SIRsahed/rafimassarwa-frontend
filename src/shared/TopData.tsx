@@ -4,7 +4,7 @@ import React from 'react'
 export default function TopData() {
 
   return (
-    <section className="py-16">
+    <section className="py-16 mt-12">
         <div className="container mx-auto">
             <div className="grid grid-cols-6 gap-3 pb-3 border-b border-[#A8A8A8]">
                 <div className="p-1">

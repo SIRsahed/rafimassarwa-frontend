@@ -138,6 +138,8 @@ export default function NotificationsPage() {
             <div className="w-12 h-12 rounded-full overflow-hidden mr-3 flex-shrink-0">
               <Image
                 src={notification.avatar}
+                width={800}
+                height={600}
                 alt="User avatar"
                 className="w-full h-full object-cover"
                 height={12}

@@ -60,45 +60,40 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-8">
-          <div className="w-full lg:w-3/5">
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-[#d0e8d0] rounded-lg overflow-hidden bg-white transition-all duration-300"
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
-                  >
-                    <h3 className="font-medium text-lg">{faq.question}</h3>
-                    <span className="flex-shrink-0 ml-2 bg-blue-500 rounded-full p-1 text-white">
-                      {openIndex === index ? <Minus size={16} /> : <Plus size={16} />}
-                    </span>
-                  </button>
-                  <div
-                    className={`px-4 overflow-hidden transition-all duration-300 ${
-                      openIndex === index ? "max-h-96 pb-4" : "max-h-0"
-                    }`}
-                  >
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="w-full lg:w-2/5 flex justify-center items-center">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <Image
-                src="/images/explore_plan_page/faq.png"
-                alt="Question marks illustration"
-                width={400}
-                height={500}
-                className="w-full h-auto max-w-md mx-auto"
-              />
-            </div>
+        <div className="flex justify-between items-center">
+          <div className="w-[70%] space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-[#d0e8d0] rounded-lg overflow-hidden bg-white transition-all duration-300"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
+                >
+                  <h3 className="font-medium text-lg">{faq.question}</h3>
+                  <span className="flex-shrink-0 ml-2 bg-blue-500 rounded-full p-1 text-white">
+                    {openIndex === index ? <Minus size={16} /> : <Plus size={16} />}
+                  </span>
+                </button>
+                <div
+                  className={`px-4 overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-96 pb-4" : "max-h-0"
+                    }`}
+                >
+                  <p className="text-gray-600">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="w-[20%] bg-white p-4 rounded-lg shadow-sm">
+            <Image
+              src="/images/explore_plan_page/faq.png"
+              alt="Question marks illustration"
+              width={400}
+              height={500}
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </div>
