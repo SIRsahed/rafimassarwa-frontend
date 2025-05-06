@@ -74,7 +74,7 @@ export default function Articles() {
                     <TabsList className='bg-transparent mb-3 text-[16px]'>
                         {
                             tabsArticleData.map((tabTitle) => (
-                                <TabsTrigger value={tabTitle.value}>{tabTitle.title}</TabsTrigger>
+                                <TabsTrigger key={tabTitle.value} value={tabTitle.value}>{tabTitle.title}</TabsTrigger>
                             ))
                         }
                     </TabsList>
