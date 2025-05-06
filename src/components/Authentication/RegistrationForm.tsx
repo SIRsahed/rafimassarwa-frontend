@@ -58,9 +58,9 @@ export default function RegistrationForm() {
   return (
     <div className="flex lg:min-h-screen items-center justify-center  p-4 bg-gradient-to-l from-[white] to-[#e8f7eb]">
       <div className="w-full max-w-6xl lg:overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col lg:flex-row">
           {/* Left side - Registration Form */}
-          <div className="w-full p-10 md:w-1/2  lg:h-[778px] flex flex-col items-center justify-center">
+          <div className="w-full p-10 md:w-1/2 mx-auto  lg:h-[778px] flex flex-col items-center justify-center">
             <h1 className="mb-8 text-center text-3xl font-bold">
               Registration
             </h1>

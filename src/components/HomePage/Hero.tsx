@@ -73,7 +73,7 @@ export default function HeroSwiper() {
               research.
             </p>
 
-            <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 w-[95%] mx-auto lg:w-full lg:mx-0">
+            <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 w-[95%] mx-auto lg:w-full lg:mx-0 justify-center lg:justify-normal">
               <Link
                 href="/registration"
                 className="inline-flex items-center justify-center rounded-md bg-green-500 px-8 py-3 text-base font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
