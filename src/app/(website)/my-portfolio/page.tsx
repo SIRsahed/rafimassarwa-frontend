@@ -4,15 +4,15 @@ import PortfolioTable from "@/components/Portfolio/PortfolioTable";
 import Articles from "@/shared/Articles";
 import BannerAds from "@/components/murakkabs_portfolio/BannerAds";
 
-const MyPortfolio = () => {
+const page = () => {
   return (
-    <>
+    <div className="">
       <PortfolioPanels />
       <PortfolioTable />
       <BannerAds />
       <Articles />
-    </>
+    </div>
   );
 };
 
-export default MyPortfolio;
+export default page;
