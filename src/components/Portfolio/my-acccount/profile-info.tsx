@@ -15,7 +15,7 @@ export default function ProfileInfo() {
 
     return (
         <div className="w-full mb-12">
-            <div className="flex md:flex-row flex-col gap-4 lg:gap-0 md:justify-between lg:items-center lg:mt-36 mt-4 rounded-xl py-4 px-4 shadow-[0px_0px_8px_0px_#00000029]">
+            <div className="flex md:flex-row flex-col gap-4 lg:gap-0 md:justify-between lg:items-center lg:mt-20 mt-4 rounded-xl py-4 px-4 shadow-[0px_0px_8px_0px_#00000029]">
                 <div className="flex gap-4 items-center">
                     <div className="relative">
                         <Image
