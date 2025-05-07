@@ -8,9 +8,7 @@ import React from "react";
 const WatchlistPage = () => {
   return (
     <div>
-      <div className="mt-28">
       <StockTickerCarousel />
-      </div>
       <PortfolioTable />
       <AlertsCards />
       <BannerAds />

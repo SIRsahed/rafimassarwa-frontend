@@ -12,8 +12,8 @@ export default function ProfileLayout({ children }: { children: React.ReactNode 
                     <div className="">
                         <PortfolioSidebar />
                     </div>
-                    <div className="flex justify-end lg:pr-24 mx-2 lg:mx-0">
-                        <div className="lg:w-[82%]">
+                    <div className="lg:flex lg:justify-end mx-2 lg:mx-0">
+                        <div className="lg:ml-72">
                             {children}
                             <Toaster />
                         </div>

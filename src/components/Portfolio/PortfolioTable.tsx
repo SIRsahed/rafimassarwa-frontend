@@ -105,8 +105,8 @@ export default function PortfolioTable() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-[100px] container mx-auto">
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="gap-2 pl-6 my-3 bg-transparent text-white">
-          <div className="flex items-center gap-2">
+        <TabsList className="gap-2 pl-6 my-3 bg-transparent text-white justify-start lg:justify-start max-w-[100vw] lg:max-w-full overflow-x-scroll lg:overflow-hidden">
+          <div className="hidden lg:flex items-center gap-2">
             <div className="flex gap-3 items-center bg-[#BFBFBF] p-1 rounded-sm">
               <div className="">
                 <Image
