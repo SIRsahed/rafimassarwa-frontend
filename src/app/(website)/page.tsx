@@ -7,7 +7,7 @@ import StockDashboard from "@/shared/StockDashboard";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="px-2 md:px-0">
       <div>
         <Hero />
       </div>

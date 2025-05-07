@@ -17,9 +17,9 @@ export function PerformanceMetrics({
     const isNegativeReturn = averageReturn < 0
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex items-center justify-between mb-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 px-2 pb-2">
+            <div className="bg-white p-4 rounded-lg shadow-sm border-2">
+                <div className="flex items-center justify-between mb-6">
                     <h3 className="text-sm text-gray-600 font-medium">Success Rate</h3>
                     <TooltipProvider>
                         <Tooltip>
@@ -33,7 +33,7 @@ export function PerformanceMetrics({
                     </TooltipProvider>
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-6">
                     <div className="relative w-24 h-24 md:w-32 md:h-32">
                         {/* Circle background */}
                         <div className="absolute inset-0 rounded-full border-4 border-gray-100"></div>
@@ -50,8 +50,8 @@ export function PerformanceMetrics({
                 </p>
             </div>
 
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex items-center justify-between mb-2">
+            <div className="bg-white p-4 rounded-lg shadow-sm border-2">
+                <div className="flex items-center justify-between mb-6">
                     <h3 className="text-sm text-gray-600 font-medium">Average Return</h3>
                     <TooltipProvider>
                         <Tooltip>
@@ -65,7 +65,7 @@ export function PerformanceMetrics({
                     </TooltipProvider>
                 </div>
 
-                <div className="flex justify-center items-center h-24 md:h-32">
+                <div className="flex justify-center items-center h-24 md:h-32 mb-6">
                     <span className={`text-3xl md:text-4xl font-bold ${isNegativeReturn ? "text-red-500" : "text-green-500"}`}>
                         {isNegativeReturn ? "" : "+"}
                         {averageReturn.toFixed(2)}%

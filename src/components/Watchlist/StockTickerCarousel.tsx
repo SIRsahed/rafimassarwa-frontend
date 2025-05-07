@@ -57,7 +57,7 @@ export default function StockTickerCarousel() {
         </CarouselContent>
 
         {/* Custom styled controls */}
-        <CarouselNext className="!right-0 lg:!-right-6 !bg-white !shadow-md hover:!bg-gray-100 transition" />
+        <CarouselNext className="!right-0 !bg-white !shadow-md hover:!bg-gray-100 transition" />
       </Carousel>
       <hr />
     </div>
