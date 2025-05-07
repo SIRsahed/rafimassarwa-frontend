@@ -47,7 +47,7 @@ const Page = () => {
                   htmlFor="title"
                   className="text-sm font-medium text-gray-700"
                 >
-                  News Title
+                  Blog Title
                 </label>
                 <input
                   id="title"
@@ -61,7 +61,7 @@ const Page = () => {
                   htmlFor="description"
                   className="text-sm font-medium text-gray-700"
                 >
-                  News Description
+                  Blog Description
                 </label>
                 <textarea
                   id="description"
@@ -72,7 +72,7 @@ const Page = () => {
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  News Gallery
+                  Blog Gallery
                 </label>
 
                 {images.length > 0 ? (

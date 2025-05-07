@@ -10,7 +10,7 @@ export default function NotificationsPage() {
   const notifications = [
     {
       id: 1,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -18,7 +18,7 @@ export default function NotificationsPage() {
     },
     {
       id: 2,
-      avatar: "https://img.icons8.com/?size=48&id=s-N8pcnbC5So&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -26,7 +26,7 @@ export default function NotificationsPage() {
     },
     {
       id: 3,
-      avatar: "https://img.icons8.com/?size=48&id=s-N8pcnbC5So&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -34,7 +34,7 @@ export default function NotificationsPage() {
     },
     {
       id: 4,
-      avatar: "https://img.icons8.com/?size=48&id=s-N8pcnbC5So&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -42,7 +42,7 @@ export default function NotificationsPage() {
     },
     {
       id: 5,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -50,7 +50,7 @@ export default function NotificationsPage() {
     },
     {
       id: 6,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -58,7 +58,7 @@ export default function NotificationsPage() {
     },
     {
       id: 7,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -66,7 +66,7 @@ export default function NotificationsPage() {
     },
     {
       id: 8,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -74,7 +74,7 @@ export default function NotificationsPage() {
     },
     {
       id: 9,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -82,7 +82,7 @@ export default function NotificationsPage() {
     },
     {
       id: 10,
-      avatar: "https://img.icons8.com/?size=48&id=80976&format=png",
+      avatar: "",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem et maximus nec malesuada vitae, volutpat sed ipsum. Sed nec magna et ex mattis interdum. Integer vehicula mattis sapien. Vivamus vel leo, volutpat sed augue molestie, tristique et dolor. Quisque ac molestie urna. Proin vitae condimentum mauris. Aliquam nec vulputate nunc.",
       time: "1hr ago",
@@ -138,8 +138,8 @@ export default function NotificationsPage() {
             <div className="w-12 h-12 rounded-full overflow-hidden mr-3 flex-shrink-0">
               <Image
                 src={notification.avatar}
-                width={800}
-                height={600}
+                // width={800}
+                // height={600}
                 alt="User avatar"
                 className="w-full h-full object-cover"
                 height={12}

@@ -21,12 +21,12 @@ const items = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Youtube Video", url: "/dashboard/youtube-video", addUrl:"/dashboard/youtube-video/add-video", icon: Youtube },
   { title: "News", url: "/dashboard/news", addUrl : "/dashboard/news/add-news", icon: Newspaper },
-  { title: "Ads", url: "/ads", icon: TableRowsSplit },
-  { title: "Blogs", url: "/blogs", icon: FaBlogger },
+  { title: "Ads", url: "/dashboard/ads", addUrl : "/dashboard/ads/add-ads", icon: TableRowsSplit },
+  { title: "Blogs", url: "/dashboard/blogs", addUrl : "/dashboard/blogs/add-blogs", icon: FaBlogger },
   { title: "Influencers", url: "/influencers", icon: Users },
   { title: "Advertisement", url: "/advertisement", icon: MicVocal },
   { title: "Refer", url: "/refer", icon: UserRoundPlus },
-  { title: "Settings", url: "/settings", icon: Settings },
+  { title: "Settings", url: "/dashboard/settings", icon: Settings },
 ]
 
 export function AppSidebar() {
