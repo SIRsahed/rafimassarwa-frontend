@@ -23,7 +23,7 @@ const stockTickerData = [
 
 export default function StockTickerCarousel() {
   return (
-    <div className="mx-auto max-w-[1500px] w-full lg:mt-20">
+    <div className="mx-auto max-w-[1500px] w-full lg:mt-20 mt-8">
       <Carousel opts={{ align: "start" }} className="w-full">
         <CarouselContent>
           {stockTickerData.map((stock, index) => (
