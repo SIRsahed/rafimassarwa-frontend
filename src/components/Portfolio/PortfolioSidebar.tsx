@@ -73,7 +73,7 @@ export function PortfolioSidebar() {
     {
       icon: <CiShare1 />,
       label: "Refer with friends",
-      href: "/my-portfolio/refer",
+      href: "/my-portfolio/refer-with-friends",
     },
     {
       icon: <GoPeople />,
@@ -88,10 +88,10 @@ export function PortfolioSidebar() {
   ]
 
   return (
-    <Sidebar className="h-fit absolute lg:mt-20 shadow-[2px_0px_8px_0px_#00000029]">
+    <Sidebar className="max-h-lvh z-40  shadow-[2px_0px_8px_0px_#00000029]">
       <SidebarContent>
         <SidebarGroup className="p-0">
-          <SidebarGroupLabel className="flex items-center gap-2 py-10">
+          <SidebarGroupLabel className="flex items-center gap-2 py-[44px]">
             <Image
               src="/images/Stock-logo-1.png"
               alt="Logo"

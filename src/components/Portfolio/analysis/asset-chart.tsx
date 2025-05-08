@@ -125,7 +125,7 @@ export function AssetAllocation() {
             <TabsTrigger
               value="assets"
               className={cn(
-                "py-4 px-2 text-sm font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-0",
+                "py-4 px-2 md:text-sm text-xs font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-0",
                 "data-[state=active]:text-black data-[state=active]:font-semibold text-gray-500",
               )}
             >
@@ -134,7 +134,7 @@ export function AssetAllocation() {
             <TabsTrigger
               value="stocks"
               className={cn(
-                "py-4 px-2 text-sm font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-0",
+                "py-4 px-2 md:text-sm text-xs font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-0",
                 "data-[state=active]:text-black data-[state=active]:font-semibold text-gray-500",
               )}
             >
@@ -143,7 +143,7 @@ export function AssetAllocation() {
             <TabsTrigger
               value="geo"
               className={cn(
-                "py-4 px-2 text-sm font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-0",
+                "py-4 px-2 md:text-sm text-xs font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-0",
                 "data-[state=active]:text-black data-[state=active]:font-semibold text-gray-500",
               )}
             >

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -24,37 +24,14 @@ const navigationLinks = [
 ];
 
 export default function Navbar() {
+
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <nav
       className={cn(
-        "sticky top-0 z-40 w-full border-b border-gray-200 bg-white transition-all duration-300",
-        {
-          "shadow-md py-3": scrolled,
-          "py-4": !scrolled,
-        }
+        "sticky top-0 z-40 w-full border-b border-gray-200 bg-white transition-all duration-300 shadow-md py-4",
+
       )}
     >
       <div className="mx-auto flex container items-center justify-between px-4">
@@ -65,10 +42,7 @@ export default function Navbar() {
               alt="Tree Logo"
               width={100}
               height={100}
-              className={cn("transition-all duration-300", {
-                "h-[50px] w-[40px]": scrolled,
-                "h-14 w-12": !scrolled,
-              })}
+              className={cn("transition-all duration-300 h-14 w-12")}
             />
           </Link>
         </div>
@@ -80,11 +54,10 @@ export default function Navbar() {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className={`text-base font-medium transition-all duration-300 ${
-                    link.isActive
-                      ? "text-green-600 hover:text-green-700"
-                      : "text-gray-700 hover:text-gray-900"
-                  }`}
+                  className={`text-base font-medium transition-all duration-300 ${link.isActive
+                    ? "text-green-600 hover:text-green-700"
+                    : "text-gray-700 hover:text-gray-900"
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -94,7 +67,7 @@ export default function Navbar() {
         </div>
 
         <Link
-        href={'/login'}
+          href={'/login'}
         >
           <div className="hidden lg:block w-[111px] h-[51px]">
             <Button className="bg-green-500 hover:bg-green-600 transition-all duration-300 w-full h-full text-base">
@@ -122,11 +95,10 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-2 py-2 text-base font-medium ${
-                      link.isActive
-                        ? "text-green-600 hover:text-green-700"
-                        : "text-gray-700 hover:text-gray-900"
-                    }`}
+                    className={`px-2 py-2 text-base font-medium ${link.isActive
+                      ? "text-green-600 hover:text-green-700"
+                      : "text-gray-700 hover:text-gray-900"
+                      }`}
                     onClick={() => setOpen(false)}
                   >
                     {link.name}

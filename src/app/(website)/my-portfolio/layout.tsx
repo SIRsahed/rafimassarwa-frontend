@@ -7,7 +7,7 @@ export default function ProfileLayout({ children }: { children: React.ReactNode 
     return (
         <>
             <SidebarProvider>
-                <div className="relative">
+                <div className="">
                     <SidebarTrigger className="lg:hidden mt-2 ml-1" />
                     <div className="">
                         <PortfolioSidebar />

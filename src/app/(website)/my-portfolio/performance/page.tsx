@@ -4,13 +4,13 @@ import React from 'react'
 
 export default function page() {
     return (
-        <>
+        <div className='lg:w-[95%]'>
             <div>
                 <PortfolioPerformance />
             </div>
             <div>
                 <RecentActivity />
             </div>
-        </>
+        </div>
     )
 }

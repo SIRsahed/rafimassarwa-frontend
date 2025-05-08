@@ -9,7 +9,7 @@ import React from 'react'
 
 const NewsPage = () => {
   return (
-    <div className='mt-24'>
+    <div className='lg:my-20 my-5'>
         <BannerAds />
         <StockNewsMain />
         <StockMarketNews />
