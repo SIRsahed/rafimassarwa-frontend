@@ -38,7 +38,7 @@ export default function PerformanceDashboard() {
     }
 
     return (
-        <div className="w-full mx-auto p-6 bg-white rounded-lg shadow-sm">
+        <div className="w-full mx-auto p-6 bg-white rounded-lg shadow-[0px_0px_16px_0px_#00000029]">
             <h1 className="text-3xl font-bold mb-4 pb-2 border-b">Performance</h1>
 
             <div className="flex flex-wrap gap-6 mb-6">
@@ -95,7 +95,7 @@ export default function PerformanceDashboard() {
                     </div>
                 </div>
 
-                <div className="mb-8 col-span-4 overflow-x-scroll">
+                <div className="mb-8 col-span-4 overflow-x-scroll lg:overflow-auto">
                     <div className="flex justify-start mb-2">
                         <span className="text-gray-700 font-medium">{maxValue.toFixed(2)}%</span>
                     </div>

@@ -4,9 +4,9 @@ import React from 'react'
 
 export default function page() {
     return (
-        <>
+        <div className='lg:w-[95%]'>
             <ProfileInfo />
             <PersonalDetails />
-        </>
+        </div>
     )
 }

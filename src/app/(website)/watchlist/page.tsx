@@ -7,7 +7,7 @@ import React from "react";
 
 const WatchlistPage = () => {
   return (
-    <div>
+    <div className="px-1 lg:px-0">
       <StockTickerCarousel />
       <PortfolioTable />
       <AlertsCards />

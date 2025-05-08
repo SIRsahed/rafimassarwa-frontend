@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function page() {
     return (
-        <div className="lg:py-32">
+        <div className="lg:py-20 py-5 lg:w-[95%]">
             <div className="flex justify-end gap-5 mb-10">
                 <button className="border rounded-md px-4 py-2 text-green-500 hover:bg-green-50 transition">
                     Add Portfolio
