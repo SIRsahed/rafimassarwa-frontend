@@ -63,7 +63,7 @@ const dummyInfluencers = [
 
 export default function page() {
     return (
-        <div className='lg:mt-20 mt-5'>
+        <div className='lg:my-20 my-5'>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
                     dummyInfluencers.map((influencer: Influencer) => (
