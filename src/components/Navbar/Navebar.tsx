@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "sticky top-0 z-40 w-full border-b border-gray-200 bg-white transition-all duration-300 shadow-md py-4",
+        "sticky top-0 z-40 w-full border-b border-gray-200 bg-white transition-all duration-300 shadow-md lg:py-4 py-1",
 
       )}
     >

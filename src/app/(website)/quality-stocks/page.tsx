@@ -9,7 +9,7 @@ import Articles from '@/shared/Articles'
 export default function page() {
   return (
     <>
-        <div className='mt-28'>
+        <div className=''>
           <StockTickerCarousel />
         </div>
         <QualityStocks />

@@ -119,7 +119,7 @@ const stocks: StockData[] = [
 
 export default function StockWatchlistTable() {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-[100px] container mx-auto">
+    <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-16 lg:mt-[100px] container mx-auto">
       <div className="flex items-center gap-2 p-4">
         <div className="flex items-center space-x-4">
           <button className="text-base text-black">All Month</button>
