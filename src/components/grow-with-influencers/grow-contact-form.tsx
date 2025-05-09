@@ -38,7 +38,7 @@ export default function GrowContactForm() {
         setTimeout(() => {
             setIsSubmitting(false)
         }, 2000)
-        
+        console.log(values)
     }
 
 
