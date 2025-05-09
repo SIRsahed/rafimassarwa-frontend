@@ -6,7 +6,7 @@ import StockHeader from "./stock-header"
 import StockList from "./stock-list"
 import StockPremiumBanner from "./chart-bottom"
 
-export default function Home() {
+export default function ChartPage() {
     const [selectedStock, setSelectedStock] = useState("AAPL")
     const [timeframe, setTimeframe] = useState("1Y") // Changed default from 1M to 1Y
     const [comparisonStocks, setComparisonStocks] = useState<string[]>([])
