@@ -4,6 +4,7 @@ import { useState } from "react"
 import StockChart from "./stock-chart"
 import StockHeader from "./stock-header"
 import StockList from "./stock-list"
+import StockPremiumBanner from "./chart-bottom"
 
 export default function Home() {
     const [selectedStock, setSelectedStock] = useState("AAPL")
@@ -33,22 +34,36 @@ export default function Home() {
     }
 
     return (
-        <main className="flex min-h-screen flex-col p-4 md:p-6 lg:w-[80vw]">
-            <StockHeader
-                selectedStock={selectedStock}
-                onStockChange={setSelectedStock}
-                timeframe={timeframe}
-                onTimeframeChange={setTimeframe}
-                comparisonStocks={comparisonStocks}
-                onToggleComparison={toggleComparisonStock}
-                onClearComparisons={clearComparisons}
-            />
-            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-4">
-                <div className="lg:col-span-3">
-                    <StockChart selectedStock={selectedStock} timeframe={timeframe} comparisonStocks={comparisonStocks} />
+        <main className="flex min-h-screen flex-col lg:p-4 md:p-6 lg:w-[80vw] w-[98vw]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+                <div className="col-span-5">
+                    <StockHeader
+                        selectedStock={selectedStock}
+                        onStockChange={setSelectedStock}
+                        timeframe={timeframe}
+                        onTimeframeChange={setTimeframe}
+                        comparisonStocks={comparisonStocks}
+                        onToggleComparison={toggleComparisonStock}
+                        onClearComparisons={clearComparisons}
+                    />
+                    <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-4">
+                        <div className="lg:col-span-3">
+                            <StockChart selectedStock={selectedStock} timeframe={timeframe} comparisonStocks={comparisonStocks} />
+                        </div>
+                        <div className="lg:col-span-1">
+                            <StockList selectedStock={selectedStock} onSelectStock={setSelectedStock} />
+                        </div>
+                    </div>
+                    <div className="mt-20">
+                        <StockPremiumBanner />
+                    </div>
                 </div>
-                <div className="lg:col-span-1">
-                    <StockList selectedStock={selectedStock} onSelectStock={setSelectedStock} />
+                <div className="col-span-1">
+                    <div className="md:w-[200px] h-full">
+                        <div className="bg-green-50 h-full rounded-xl flex items-center justify-center">
+                            <div className="font-bold text-3xl -rotate-90 tracking-wider hidden md:flex">Banner Ads</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

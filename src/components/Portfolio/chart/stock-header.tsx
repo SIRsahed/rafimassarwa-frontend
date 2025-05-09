@@ -3,16 +3,15 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Search, ChevronDown, BarChart2, Settings, Maximize2, Edit, X, Check } from "lucide-react"
+import { ChevronDown, X, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
 import { getStockInfo, stockData } from "@/lib/dummy-data"
 
-// Stock colors - must match the ones in stock-chart.tsx
-const stockColors = {
+// Color palette for comparison stocks only - must match the ones in stock-chart.tsx
+const comparisonColors = {
     AAPL: "#f43f5e", // Red
     NVDA: "#10b981", // Green
     MSFT: "#3b82f6", // Blue
@@ -21,6 +20,9 @@ const stockColors = {
     TSLA: "#ec4899", // Pink
     META: "#facc15", // Yellow
 }
+
+// Primary green color for all main stocks
+// const primaryGreen = "#1EAD00"
 
 interface StockHeaderProps {
     selectedStock: string
@@ -34,7 +36,7 @@ interface StockHeaderProps {
 
 export default function StockHeader({
     selectedStock,
-    onStockChange,
+    // onStockChange,
     timeframe,
     onTimeframeChange,
     comparisonStocks,
@@ -53,30 +55,20 @@ export default function StockHeader({
         setStockInfo(info)
     }, [selectedStock])
 
-    const handleStockChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onStockChange(e.target.value.toUpperCase())
-    }
+    // const handleStockChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     onStockChange(e.target.value.toUpperCase())
+    // }
 
-    // Get color for a stock
-    function getStockColor(symbol: string): string {
+    // Get color for a comparison stockror   
+    function getComparisonColor(symbol: string): string {
         /* eslint-disable @typescript-eslint/no-explicit-any */
-        return (stockColors as any)[symbol] || "#f43f5e" // Default to red if not found
+        return  (comparisonColors as any)[symbol] || "#f43f5e" // Default to red if not found
     }
 
     return (
         <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                    <div className="relative">
-                        <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                        <Input
-                            value={selectedStock}
-                            onChange={handleStockChange}
-                            className="w-[100px] pl-8 md:w-[150px]"
-                            placeholder="Symbol"
-                        />
-                    </div>
-
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" size="sm" className="gap-1">
@@ -112,7 +104,7 @@ export default function StockHeader({
                                             <div className="flex items-center gap-2">
                                                 <div
                                                     className="h-3 w-3 rounded-full"
-                                                    style={{ backgroundColor: getStockColor(stock.symbol) }}
+                                                    style={{ backgroundColor: getComparisonColor(stock.symbol) }}
                                                 ></div>
                                                 <span>
                                                     {stock.symbol} - {stock.name}
@@ -130,7 +122,7 @@ export default function StockHeader({
                         </DropdownMenuContent>
                     </DropdownMenu>
 
-                    <DropdownMenu>
+                    {/* <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" size="sm" className="gap-1">
                                 <BarChart2 className="h-4 w-4" />
@@ -142,9 +134,9 @@ export default function StockHeader({
                             <DropdownMenuItem>Candlestick Chart</DropdownMenuItem>
                             <DropdownMenuItem>OHLC Chart</DropdownMenuItem>
                         </DropdownMenuContent>
-                    </DropdownMenu>
+                    </DropdownMenu> */}
 
-                    <DropdownMenu>
+                    {/* <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" size="sm" className="gap-1">
                                 ID <ChevronDown className="h-4 w-4" />
@@ -154,11 +146,11 @@ export default function StockHeader({
                             <DropdownMenuItem>Indicators</DropdownMenuItem>
                             <DropdownMenuItem>Drawings</DropdownMenuItem>
                         </DropdownMenuContent>
-                    </DropdownMenu>
+                    </DropdownMenu> */}
                 </div>
 
-                <Tabs value={timeframe} onValueChange={onTimeframeChange} className="h-9">
-                    <TabsList>
+                <Tabs value={timeframe} onValueChange={onTimeframeChange} className="h-9 pb-16 md:pb-0">
+                    <TabsList className="grid grid-cols-6 md:grid-cols-8">
                         <TabsTrigger value="1D">1D</TabsTrigger>
                         <TabsTrigger value="5D">5D</TabsTrigger>
                         <TabsTrigger value="1M">1M</TabsTrigger>
@@ -170,7 +162,7 @@ export default function StockHeader({
                     </TabsList>
                 </Tabs>
 
-                <div className="flex items-center gap-1">
+                {/* <div className="flex items-center gap-1">
                     <Button variant="ghost" size="icon">
                         <Edit className="h-4 w-4" />
                     </Button>
@@ -180,7 +172,7 @@ export default function StockHeader({
                     <Button variant="ghost" size="icon">
                         <Maximize2 className="h-4 w-4" />
                     </Button>
-                </div>
+                </div> */}
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-2">
@@ -208,7 +200,7 @@ export default function StockHeader({
                         <div className="text-sm text-muted-foreground">Comparing with:</div>
                         {comparisonStocks.map((stock) => (
                             <Badge key={stock} variant="outline" className="flex items-center gap-1">
-                                <div className="h-2 w-2 rounded-full mr-1" style={{ backgroundColor: getStockColor(stock) }}></div>
+                                <div className="h-2 w-2 rounded-full mr-1" style={{ backgroundColor: getComparisonColor(stock) }}></div>
                                 {stock}
                                 <X className="h-3 w-3 cursor-pointer ml-1" onClick={() => onToggleComparison(stock)} />
                             </Badge>

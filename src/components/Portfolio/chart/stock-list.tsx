@@ -16,7 +16,7 @@ export default function StockList({ onSelectStock, selectedStock }: StockListPro
                 <CardTitle className="text-lg">Popular Stocks</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-                <ScrollArea className="h-[350px]">
+                <ScrollArea className="h-[440px]">
                     <div className="space-y-1 p-4 pt-0">
                         {stockData.map((stock) => (
                             <div

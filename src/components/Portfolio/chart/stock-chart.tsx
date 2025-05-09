@@ -14,8 +14,8 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
     const chartRef = useRef<HTMLDivElement>(null)
     const chartInstanceRef = useRef<echarts.ECharts | null>(null)
 
-    // Color palette for different stocks
-    const stockColors = {
+    // Color palette for comparison stocks only
+    const comparisonColors = {
         AAPL: "#f43f5e", // Red
         NVDA: "#10b981", // Green
         MSFT: "#3b82f6", // Blue
@@ -24,6 +24,10 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
         TSLA: "#ec4899", // Pink
         META: "#facc15", // Yellow
     }
+
+    // Primary green color for all main stocks
+    const primaryGreen = "#1EAD00"
+    const primaryGreenWithOpacity = "rgba(30, 173, 0, 0.38)"
 
     // Dummy data for different stocks
     // Format: [timestamp, price]
@@ -96,8 +100,10 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
         })
     }
 
-    // Function to filter data based on timeframe
-    function filterDataByTimeframe(data: [number, number][], timeframe: string): [number, number][] {
+    // Calculate dataZoom start and end percentages based on timeframe
+    function calculateDataZoomRange(timeframe: string, data: [number, number][]): { start: number; end: number } {
+        if (data.length === 0) return { start: 0, end: 100 }
+
         const now = new Date().getTime()
         let startTime: number
 
@@ -130,10 +136,21 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
                 startTime = now - 5 * 365 * 24 * 60 * 60 * 1000 // 5 years (approx)
                 break
             default:
-                startTime = now - 365 * 24 * 60 * 60 * 1000  // Default to 1 month
+                startTime = now - 365 * 24 * 60 * 60 * 1000 // Default to 1 year
         }
 
-        return data.filter((item) => item[0] >= startTime)
+        // Find the index of the first data point after startTime
+        const startIndex = data.findIndex((item) => item[0] >= startTime)
+
+        if (startIndex === -1) {
+            // If no data point is after startTime, show the entire dataset
+            return { start: 0, end: 100 }
+        }
+
+        // Calculate percentage
+        const start = (startIndex / data.length) * 100
+
+        return { start, end: 100 }
     }
 
     // Function to normalize data for comparison
@@ -144,10 +161,10 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
         return data.map((item) => [item[0], (item[1] / firstValue) * 100])
     }
 
-    // Get color for a stock
-    function getStockColor(symbol: string): string {
+    // Get color for a comparison stock
+    function getComparisonColor(symbol: string): string {
         /* eslint-disable @typescript-eslint/no-explicit-any */
-        return (stockColors as any)[symbol] || "#f43f5e" // Default to red if not found
+        return (comparisonColors as any)[symbol] || "#f43f5e" // Default to red if not found
     }
 
     useEffect(() => {
@@ -178,13 +195,10 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
         if (!chartInstanceRef.current) return
 
         // Get data for the selected stock (or default to AAPL)
-        const fullData = dummyData[selectedStock as keyof typeof dummyData] || dummyData.AAPL
+        const data = dummyData[selectedStock as keyof typeof dummyData] || dummyData.AAPL
 
-        // Filter data based on timeframe
-        const data = filterDataByTimeframe(fullData, timeframe)
-
-        // Get color for the main stock
-        const mainStockColor = getStockColor(selectedStock)
+        // Calculate dataZoom range based on timeframe
+        const { start, end } = calculateDataZoomRange(timeframe, data)
 
         // Prepare series for the chart
         const series = [
@@ -195,39 +209,31 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
                 symbol: "none",
                 sampling: "average",
                 itemStyle: {
-                    color: mainStockColor,
+                    color: primaryGreen, // Always use green for the primary stock
                 },
-                areaStyle:
-                    comparisonStocks.length > 0
-                        ? undefined
-                        : {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                {
-                                    offset: 0,
-                                    color: `${mainStockColor}38`, // Main color with opacity
-                                },
-                                {
-                                    offset: 0.9893,
-                                    color: "#FFFFFF", // End color close to 98.93%
-                                },
-                            ]),
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        {
+                            offset: 0,
+                            color: primaryGreenWithOpacity, // Green with opacity
                         },
-                data: data,
+                        {
+                            offset: 0.9893,
+                            color: "#FFFFFF", // End color close to 98.93%
+                        },
+                    ]),
+                },
+                data: comparisonStocks.length > 0 ? normalizeData(data) : data,
             },
         ]
 
         // Add comparison stocks if any
         if (comparisonStocks.length > 0) {
-            // For comparison, we normalize all data to percentage change from first point
-            const mainStockNormalized = normalizeData(data)
-            series[0].data = mainStockNormalized
-
             comparisonStocks.forEach((stockSymbol) => {
                 if (dummyData[stockSymbol as keyof typeof dummyData]) {
-                    const comparisonFullData = dummyData[stockSymbol as keyof typeof dummyData]
-                    const comparisonData = filterDataByTimeframe(comparisonFullData, timeframe)
+                    const comparisonData = dummyData[stockSymbol as keyof typeof dummyData]
                     const normalizedData = normalizeData(comparisonData)
-                    const stockColor = getStockColor(stockSymbol)
+                    const stockColor = getComparisonColor(stockSymbol)
 
                     series.push({
                         name: stockSymbol,
@@ -236,9 +242,10 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
                         symbol: "none",
                         sampling: "average",
                         itemStyle: {
-                            color: stockColor,
+                            color: stockColor, // Use different colors for comparison stocks
                         },
                         data: normalizedData,
+                        // @ts-expect-error style is not a valid option
                         areaStyle: undefined
                     })
                 }
@@ -253,7 +260,7 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
             yAxisIndex: 1,
             z: -1, // Put volume behind price lines
             itemStyle: {
-                /* eslint-disable @typescript-eslint/no-explicit-any */
+                // @ts-expect-error color is not a valid option
                 color: (params: any) => {
                     // Get the corresponding price data point
                     const priceIndex = params.dataIndex
@@ -275,14 +282,14 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
                 trigger: "axis",
                 /* eslint-disable @typescript-eslint/no-explicit-any */
                 position: (pt: any) => [pt[0], "10%"],
+                /* eslint-disable @typescript-eslint/no-explicit-any */
                 formatter: (params: any) => {
                     const date = new Date(params[0].value[0])
                     let tooltipText = `<div style="font-weight: bold">${date.toLocaleDateString()}</div>`
 
                     // Filter out volume from tooltip
-                /* eslint-disable @typescript-eslint/no-explicit-any */
                     const priceParams = params.filter((param: any) => param.seriesName !== "Volume")
-
+                    /* eslint-disable @typescript-eslint/no-explicit-any */
                     priceParams.forEach((param: any) => {
                         const color = param.color
                         const seriesName = param.seriesName
@@ -301,9 +308,8 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
                             </div>`
                         }
                     })
-
                     // Add volume information
-                /* eslint-disable @typescript-eslint/no-explicit-any */
+                    /* eslint-disable @typescript-eslint/no-explicit-any */
                     const volumeParam = params.find((param: any) => param.seriesName === "Volume")
                     if (volumeParam) {
                         tooltipText += `<div style="display: flex; align-items: center; margin-top: 5px;">
@@ -395,9 +401,32 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
             dataZoom: [
                 {
                     type: "inside",
-                    start: 0,
-                    end: 100,
+                    start: start,
+                    end: end,
                     xAxisIndex: [0],
+                    zoomLock: false,
+                },
+                {
+                    type: "slider",
+                    start: start,
+                    end: end,
+                    height: 20,
+                    bottom: 30,
+                    borderColor: "transparent",
+                    backgroundColor: "#f5f5f5",
+                    fillerColor: "rgba(200, 200, 200, 0.3)",
+                    handleStyle: {
+                        color: "#ddd",
+                        borderColor: "#ccc",
+                    },
+                    moveHandleStyle: {
+                        color: "#aaa",
+                    },
+                    emphasis: {
+                        handleStyle: {
+                            color: "#999",
+                        },
+                    },
                 },
             ],
             series: series,
@@ -405,11 +434,12 @@ export default function StockChart({ selectedStock, timeframe, comparisonStocks 
 
         // Apply options to chart
         chartInstanceRef.current.setOption(option, true)
-    }, [selectedStock, dummyData, getStockColor, timeframe, comparisonStocks])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedStock, timeframe, comparisonStocks])
 
     return (
-        <Card className="relative overflow-hidden">
-            <div ref={chartRef} className="h-[400px] w-full" />
+        <Card className="relative overflow-hidden max-w-[98vw]">
+            <div ref={chartRef} className="h-[500px] w-full" />
         </Card>
     )
 }
