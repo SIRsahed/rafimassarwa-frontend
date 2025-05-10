@@ -14,7 +14,7 @@ export default function PortfolioGrowth() {
     <section className="py-16">
       <div className="container mx-auto">
         <div className="overflow-hidden rounded-lg bg-white">
-          <div className="grid grid-cols-1 items-center md:grid-cols-2">
+          <div className="grid grid-cols-1 items-center lg:grid-cols-2">
             {/* Left side - Image */}
             <div className="h-full w-full">
               <Image

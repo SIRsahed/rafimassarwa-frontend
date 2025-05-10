@@ -63,7 +63,7 @@ export function PortfolioSidebar() {
     {
       icon: <FaRegCalendarAlt />,
       label: "My Calendar",
-      href: "/my-portfolio/calendar",
+      href: "/my-portfolio/my-calendar",
     },
     {
       icon: <FaChartLine />,

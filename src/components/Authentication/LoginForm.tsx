@@ -65,7 +65,7 @@ export default function LoginForm() {
           </div>
 
           {/* right side - Registration Form */}
-          <div className="w-full md:w-1/2 h-[778px] flex flex-col items-center justify-center">
+          <div className="w-full md:w-1/2 h-[778px] mx-auto flex flex-col items-center justify-center">
             <h1 className="mb-8 text-center text-3xl font-bold">
               Login
             </h1>
