@@ -22,9 +22,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import Link from "next/link";
+import { Input } from "../ui/input";
 
 const tableData = [
   {
+    _id: 1,
     ticker: "AAPL",
     logo: '/images/appl.png',
     numberOfShares: 12,
@@ -40,6 +43,7 @@ const tableData = [
     holdingGain: -3.2,
   },
   {
+    _id: 2,
     ticker: "AAPL",
     logo: '/images/appl.png',
     numberOfShares: 12,
@@ -55,6 +59,7 @@ const tableData = [
     holdingGain: -3.2,
   },
   {
+    _id: 3,
     ticker: "AAPL",
     logo: '/images/appl.png',
     numberOfShares: 12,
@@ -70,6 +75,7 @@ const tableData = [
     holdingGain: -3.2,
   },
   {
+    _id: 4,
     ticker: "AAPL",
     logo: '/images/appl.png',
     numberOfShares: 12,
@@ -85,6 +91,7 @@ const tableData = [
     holdingGain: -3.2,
   },
   {
+    _id: 5,
     ticker: "AAPL",
     logo: '/images/appl.png',
     numberOfShares: 12,
@@ -168,27 +175,32 @@ export default function PortfolioTable() {
               {tableData.map((item, index) => (
                 <TableRow key={index} className="h-24">
                   <TableCell className="font-medium">
-                    <div className="flex justify-center">
-                      <div className="flex items-center gap-2">
-                        <div className="flex w-8 h-8 rounded-full bg-black justify-center items-center p-2">
-                          <Image
-                            src={item.logo}
-                            alt={item.ticker}
-                            width={350}
-                            height={200}
-                            className="w-5 h-5 object-cover"
-                          />
-                        </div>
-                        <div className="">
-                          <span>{item.ticker}</span>
+                    <Link href={`/stock/${item.ticker.toLowerCase()}`}>
+                      <div className="flex justify-center">
+                        <div className="flex items-center gap-2">
+                          <div className="flex w-8 h-8 rounded-full bg-black justify-center items-center p-2">
+                            <Image
+                              src={item.logo}
+                              alt={item.ticker}
+                              width={350}
+                              height={200}
+                              className="w-5 h-5 object-cover"
+                            />
+                          </div>
+                          <div className="">
+                            <span className="hover:underline hover:text-blue-400">{item.ticker}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </TableCell>
                   <TableCell className="">
                     <div className="flex gap-1 text-center items-center">
                       <span><IoWarningOutline className="text-[#FFD700]" /></span>
-                      <span>${item.numberOfShares}</span>
+                      <Input
+                        value={item.numberOfShares}
+                        className="text-center"
+                      />
                       <span><FiEdit2 className="text-[#28A745]" /></span>
                     </div>
                   </TableCell>
