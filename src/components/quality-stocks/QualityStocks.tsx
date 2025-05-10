@@ -1,137 +1,134 @@
-import { ChevronRight } from "lucide-react";
-import Image from "next/image";
+"use client"
 
-type StockData = {
-  name: string;
-  price: number;
-  priceChange: number;
-  changePercent: number;
-  smartScore: number;
-  marketCap: string;
-  sector: string;
-  analystConsensus: "buy" | "hold" | "sell";
-  priceTargetUpdated: boolean;
-  inPortfolio: boolean;
-  emailAlerts: boolean;
-  stockAlerts: boolean;
-  month: string;
-  LastRating: string
-};
+import { useState } from "react"
+import { ChevronRight } from "lucide-react"
+import Image from "next/image"
 
-const stocks: StockData[] = [
+// Sample data for the stocks
+const stocks = [
   {
-    name: "Apple",
+    company: "/images/company-logo.png",
+    price: 120.0,
+    priceChange: 120.0,
+    changePercent: 50.0,
+    smartScore: 29,
+    marketCap: 2.34,
     month: "January",
-    price: 175.5,
-    priceChange: 2.5,
-    changePercent: 1.45,
-    smartScore: 8,
-    marketCap: "2.8",
     sector: "Technology",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: true,
-    stockAlerts: true,
-    LastRating: "2 Days Ago",
+    LastRating: "Strong Buy",
+    buyCount: 30,
+    holdCount: 2,
+    sellCount: 0,
   },
   {
-    name: "Tesla",
-    month: "January",
-    price: 250.1,
-    priceChange: 1.75,
-    changePercent: 0.7,
-    smartScore: 6,
-    marketCap: "900",
-    sector: "Automotive",
-    analystConsensus: "hold",
-    priceTargetUpdated: false,
-    inPortfolio: false,
-    emailAlerts: false,
-    stockAlerts: true,
-    LastRating: "2 Days Ago",
+    company: "/images/company-logo.png",
+    price: 120.0,
+    priceChange: 120.0,
+    changePercent: 50.0,
+    smartScore: 30,
+    marketCap: 2.34,
+    month: "March",
+    sector: "Technology",
+    LastRating: "Strong Buy",
+    buyCount: 30,
+    holdCount: 5,
+    sellCount: 0,
   },
   {
-    name: "Amazon",
-    month: "January",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    LastRating: "2 Days Ago",
+    company: "/images/company-logo.png",
+    price: 120.0,
+    priceChange: 120.0,
+    changePercent: 50.0,
+    smartScore: 29,
+    marketCap: 2.34,
+    month: "April",
+    sector: "Technology",
+    LastRating: "Strong Buy",
+    buyCount: 30,
+    holdCount: 2,
+    sellCount: 0,
   },
   {
-    name: "Amazon",
-    month: "January",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    LastRating: "2 Days Ago",
+    company: "/images/company-logo.png",
+    price: 120.0,
+    priceChange: 120.0,
+    changePercent: 50.0,
+    smartScore: 30,
+    marketCap: 2.34,
+    month: "April",
+    sector: "Technology",
+    LastRating: "Strong Buy",
+    buyCount: 30,
+    holdCount: 2,
+    sellCount: 0,
   },
   {
-    name: "Amazon",
-    month: "January",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    LastRating: "2 Days Ago",
+    company: "/images/company-logo.png",
+    price: 120.0,
+    priceChange: 120.0,
+    changePercent: 50.0,
+    smartScore: 30,
+    marketCap: 2.34,
+    month: "April",
+    sector: "Technology",
+    LastRating: "Strong Buy",
+    buyCount: 30,
+    holdCount: 2,
+    sellCount: 0,
   },
   {
-    name: "Amazon",
-    month: "January",
-    price: 120.25,
-    priceChange: 0.65,
-    changePercent: 0.54,
-    smartScore: 7,
-    marketCap: "1.5",
-    sector: "ecommerce",
-    analystConsensus: "buy",
-    priceTargetUpdated: true,
-    inPortfolio: true,
-    emailAlerts: false,
-    stockAlerts: false,
-    LastRating: "2 Days Ago",
+    company: "/images/company-logo.png",
+    price: 120.0,
+    priceChange: 120.0,
+    changePercent: 50.0,
+    smartScore: 30,
+    marketCap: 2.34,
+    month: "April",
+    sector: "Technology",
+    LastRating: "Strong Buy",
+    buyCount: 30,
+    holdCount: 2,
+    sellCount: 0,
   },
-];
+]
 
-export default function StockWatchlistTable() {
+export default function StockTable() {
+  const [activeTab, setActiveTab] = useState("all")
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = 5
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab)
+    setCurrentPage(1)
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
   return (
-    <div className="rounded-lg border border-gray-200 bg-white shadow-sm mt-16 lg:mt-[100px] container mx-auto">
-      <div className="flex items-center gap-2 p-4">
-        <div className="flex items-center space-x-4">
-          <button className="text-base text-black">All Month</button>
+    <div className="bg-white rounded-lg shadow-lg p-6 container mx-auto border mt-10">
+      <h2 className="text-2xl font-medium mb-4">Quality Stocks</h2>
 
-          <button className="w-4 h-4">
-            <Image
-              src="/images/calander.png"
-              width={100}
-              height={100}
-              alt="clander"
-              className="w-full h-full"
-            />
+      <div className="flex items-center mb-4">
+        <div className=" border-b">
+          <button
+            className={`pb-2 px-4 ${activeTab === "all" ? "border-b-2 border-green-500 font-medium" : "text-gray-500"}`}
+            onClick={() => handleTabChange("all")}
+          >
+            All Stock
+          </button>
+          <button
+            className={`pb-2 px-4 ${activeTab === "best" ? "border-b-2 border-green-500 font-medium" : "text-gray-500"}`}
+            onClick={() => handleTabChange("best")}
+          >
+            Best Rated
+          </button>
+          <button
+            className={`pb-2 px-4 ${activeTab === "worst" ? "border-b-2 border-green-500 font-medium" : "text-gray-500"}`}
+            onClick={() => handleTabChange("worst")}
+          >
+            Worse Rated
           </button>
         </div>
       </div>
@@ -140,122 +137,84 @@ export default function StockWatchlistTable() {
         <table className="w-full">
           <thead>
             <tr className="bg-green-50">
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Company
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Company</th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Stock Rating</th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Analyst Price Target</th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 flex items-center">
+                <p>Ratings in Last</p>
+                <p className="ml-1">72 Days ▼</p>
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Stock Rating
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Analyst Price Target
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 flex">
-                <p>Ratings in Last 72 Days</p>
-                <p>▼</p>
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Month %
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Market Cap
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Last Rating
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                Sector
-              </th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Month %</th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Market Cap</th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Month</th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Sector</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {stocks.map((stock, index) => (
               <tr key={index} className="hover:bg-gray-50">
                 <td className="px-4 py-4">
-                  <div>
-                    <Image
-                      src="/images/lock-s.png"
-                      height={100}
-                      width={100}
-                      alt="lock image"
-                    />
+                  <div className="flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                      <Image 
+                      src={'/images/lock-s.png'}
+                      alt="lock"
+                      width={10}
+                      height={10}
+                      />
+                    </div>
                   </div>
                 </td>
 
-                <td className="px-4 py-4 font-medium">
-                  <p className="ml-5">${stock.price.toFixed(2)}</p>
-                  <div className="relative">
-                    <div className="w-[100px] h-[8px]">
-                      <Image
-                        src="/images/green-line.png"
-                        alt=""
-                        width={50}
-                        height={50}
-                        className="w-full h-full"
-                      />
-                    </div>
-                    <div className="absolute top-0 right-1/2">
-                      <Image
-                        src="/images/trangle.png"
-                        alt="tringle"
-                        width={10}
-                        height={10}
-                      />
+                <td className="px-4 py-4">
+                  <div className="flex flex-col items-center">
+                    <p className="font-medium">{stock.LastRating}</p>
+                    <div className="relative w-24 mt-1">
+                      <div className="w-full h-2 bg-green-500 rounded-full"></div>
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div className="w-2 h-2 bg-white border border-green-500 rounded-full"></div>
+                      </div>
                     </div>
                   </div>
                 </td>
 
                 <td className="px-4 py-4 text-sm">
-                  <div className="">
-                    <p className="text-xs text-[#28A745] ml-7">
-                      ${stock.priceChange}.00
-                    </p>
-                    <p>({stock.changePercent}% Upside)</p>
+                  <div className="text-center">
+                    <p className="text-green-500 font-medium">${stock.priceChange.toFixed(2)}</p>
+                    <p className="text-xs text-gray-600">({stock.changePercent}% upside)</p>
                   </div>
                 </td>
 
-                <td className="px-4 py-4 text-center">
-                  <div className="flex items-center justify-start">
-                    <div className="flex gap-3">
-                      <div className="w-16 h-16 rounded-full border-4 border-yellow-400 flex items-center justify-center">
-                        <span className="text-lg font-bold">
-                          {stock.smartScore}
-                        </span>
-                      </div>
+                <td className="px-4 py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full border-4 border-yellow-400 flex items-center justify-center">
+                      <span className="text-lg font-bold">{stock.smartScore}</span>
+                    </div>
 
-                      <div className="">
-                        <div className="flex flex-col items-start text-sm">
-                          <div className="flex items-center gap-1">
-                            <div className="w-3 h-3 bg-green-500"></div>
-                            <span>{stock.smartScore} Buy</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <div className="w-3 h-3 bg-yellow-400"></div>
-                            <span>{stock.smartScore} Hold</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <div className="w-3 h-3 bg-red-500"></div>
-                            <span>{stock.smartScore} Sell</span>{" "}
-                            {/* Fixed typo here */}
-                          </div>
-                        </div>
+                    <div className="flex flex-col text-xs">
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
+                        <span>{stock.buyCount} Buy</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-yellow-400 rounded-sm"></div>
+                        <span>{stock.holdCount} Hold</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
+                        <span>{stock.sellCount} Sell</span>
                       </div>
                     </div>
                   </div>
                 </td>
 
-                <td className="px-4 py-4 text-red-500">-{stock.marketCap}%</td>
+                <td className="px-4 py-4 text-red-500 font-medium">-7.24%</td>
 
-                <td className="px-4 py-4">
-                  <div className="flex items-center">${stock.marketCap}T</div>
-                </td>
+                <td className="px-4 py-4 font-medium">${stock.marketCap}T</td>
 
-                <td className="px-4 py-4 text-xs">
-                  <p>{stock?.LastRating}</p>
-                </td>
+                <td className="px-4 py-4 text-sm">{stock.month}</td>
 
-                <td className="text-center text-xs">
-                  <p>{stock?.sector}</p>
-                </td>
+                <td className="px-4 py-4 text-sm">{stock.sector}</td>
               </tr>
             ))}
           </tbody>
@@ -264,26 +223,22 @@ export default function StockWatchlistTable() {
 
       <div className="flex items-center justify-end p-4">
         <div className="flex items-center space-x-2">
-          <button className="flex h-8 w-8 items-center justify-center rounded-md bg-green-600 text-white">
-            1
-          </button>
-          <button className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-600">
-            2
-          </button>
-          <button className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-600">
-            3
-          </button>
-          <button className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-600">
-            4
-          </button>
-          <button className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-600">
-            5
-          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              className={`flex h-8 w-8 items-center justify-center rounded-md ${
+                currentPage === page ? "bg-green-600 text-white" : "border border-gray-200 text-gray-600"
+              }`}
+              onClick={() => handlePageChange(page)}
+            >
+              {page}
+            </button>
+          ))}
           <button className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-600">
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
