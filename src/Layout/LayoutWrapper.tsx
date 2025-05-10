@@ -17,7 +17,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       }
       <main>{children}</main>
       {
-        pathname !== "/registration" && pathname !== "/login" && pathname !== "/forgot-password" && pathname !== "/enter-otp" && pathname !== "/reset-password" && !pathname.includes("my-portfolio") && !pathname.includes("overview") && <Footer />
+        pathname !== "/registration" && pathname !== "/login" && pathname !== "/forgot-password" && pathname !== "/enter-otp" && pathname !== "/reset-password" && !pathname.includes("my-portfolio") && !pathname.includes("stock") && <Footer />
       }
     </>
   );

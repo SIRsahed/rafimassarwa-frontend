@@ -25,13 +25,13 @@ const comparisonColors = {
 // const primaryGreen = "#1EAD00"
 
 interface StockHeaderProps {
-    selectedStock: string
-    onStockChange: (symbol: string) => void
+    selectedStock?: string
+    onStockChange?: (symbol: string) => void
     timeframe: string
     onTimeframeChange: (timeframe: string) => void
-    comparisonStocks: string[]
-    onToggleComparison: (symbol: string) => void
-    onClearComparisons: () => void
+    comparisonStocks?: string[]
+    onToggleComparison?: (symbol: string) => void
+    onClearComparisons?: () => void
 }
 
 export default function StockHeader({
@@ -49,11 +49,15 @@ export default function StockHeader({
         changePercent: 0,
     })
 
-    // Update stock info when selected stock changes
     useEffect(() => {
+        if (!selectedStock) return
+
         const info = getStockInfo(selectedStock)
         setStockInfo(info)
     }, [selectedStock])
+
+    
+    // Update stock info when selected stock changes
 
     // const handleStockChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //     onStockChange(e.target.value.toUpperCase())
@@ -62,14 +66,14 @@ export default function StockHeader({
     // Get color for a comparison stockror   
     function getComparisonColor(symbol: string): string {
         /* eslint-disable @typescript-eslint/no-explicit-any */
-        return  (comparisonColors as any)[symbol] || "#f43f5e" // Default to red if not found
+        return (comparisonColors as any)[symbol] || "#f43f5e" // Default to red if not found
     }
 
     return (
         <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                    <DropdownMenu>
+                    {/* <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" size="sm" className="gap-1">
                                 Studies <ChevronDown className="h-4 w-4" />
@@ -81,46 +85,50 @@ export default function StockHeader({
                             <DropdownMenuItem>RSI</DropdownMenuItem>
                             <DropdownMenuItem>MACD</DropdownMenuItem>
                         </DropdownMenuContent>
-                    </DropdownMenu>
+                    </DropdownMenu> */}
 
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant={comparisonStocks.length > 0 ? "default" : "outline"} size="sm" className="gap-1">
-                                {comparisonStocks.length > 0 ? "Comparing" : "+ Compare"} <ChevronDown className="h-4 w-4" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="start" className="w-[200px]">
-                            <DropdownMenuItem disabled className="text-xs font-semibold text-muted-foreground">
-                                Select stocks to compare
-                            </DropdownMenuItem>
-                            {stockData.map(
-                                (stock) =>
-                                    stock.symbol !== selectedStock && (
-                                        <DropdownMenuItem
-                                            key={stock.symbol}
-                                            className="flex items-center justify-between"
-                                            onClick={() => onToggleComparison(stock.symbol)}
-                                        >
-                                            <div className="flex items-center gap-2">
-                                                <div
-                                                    className="h-3 w-3 rounded-full"
-                                                    style={{ backgroundColor: getComparisonColor(stock.symbol) }}
-                                                ></div>
-                                                <span>
-                                                    {stock.symbol} - {stock.name}
-                                                </span>
-                                            </div>
-                                            {comparisonStocks.includes(stock.symbol) && <Check className="h-4 w-4 text-green-500" />}
-                                        </DropdownMenuItem>
-                                    ),
-                            )}
-                            {comparisonStocks.length > 0 && (
-                                <DropdownMenuItem className="border-t text-xs text-muted-foreground" onClick={onClearComparisons}>
-                                    Clear all comparisons
+
+                    {comparisonStocks && onToggleComparison &&
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant={comparisonStocks?.length > 0 ? "default" : "outline"} size="sm" className="gap-1">
+                                    {comparisonStocks?.length > 0 ? "Comparing" : "+ Compare"} <ChevronDown className="h-4 w-4" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="start" className="w-[200px]">
+                                <DropdownMenuItem disabled className="text-xs font-semibold text-muted-foreground">
+                                    Select stocks to compare
                                 </DropdownMenuItem>
-                            )}
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                                {stockData.map(
+                                    (stock) =>
+                                        stock.symbol !== selectedStock && (
+                                            <DropdownMenuItem
+                                                key={stock.symbol}
+                                                className="flex items-center justify-between"
+                                                onClick={() => onToggleComparison(stock.symbol)}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <div
+                                                        className="h-3 w-3 rounded-full"
+                                                        style={{ backgroundColor: getComparisonColor(stock.symbol) }}
+                                                    ></div>
+                                                    <span>
+                                                        {stock.symbol} - {stock.name}
+                                                    </span>
+                                                </div>
+                                                {comparisonStocks?.includes(stock.symbol) && <Check className="h-4 w-4 text-green-500" />}
+                                            </DropdownMenuItem>
+                                        ),
+                                )}
+                                {comparisonStocks?.length > 0 && (
+                                    <DropdownMenuItem className="border-t text-xs text-muted-foreground" onClick={onClearComparisons}>
+                                        Clear all comparisons
+                                    </DropdownMenuItem>
+                                )}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    }
+
 
                     {/* <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -195,40 +203,45 @@ export default function StockHeader({
                     </Button>
                 </div>
 
-                {comparisonStocks.length > 0 && (
-                    <div className="flex flex-wrap items-center gap-2">
-                        <div className="text-sm text-muted-foreground">Comparing with:</div>
-                        {comparisonStocks.map((stock) => (
-                            <Badge key={stock} variant="outline" className="flex items-center gap-1">
-                                <div className="h-2 w-2 rounded-full mr-1" style={{ backgroundColor: getComparisonColor(stock) }}></div>
-                                {stock}
-                                <X className="h-3 w-3 cursor-pointer ml-1" onClick={() => onToggleComparison(stock)} />
-                            </Badge>
-                        ))}
-                        {comparisonStocks.length > 0 && (
-                            <Button variant="ghost" size="sm" className="h-6 px-2 text-xs" onClick={onClearComparisons}>
-                                Clear All
-                            </Button>
-                        )}
-                    </div>
-                )}
+                {comparisonStocks && onToggleComparison &&
+                    comparisonStocks?.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-2">
+                            <div className="text-sm text-muted-foreground">Comparing with:</div>
+                            {comparisonStocks?.map((stock) => (
+                                <Badge key={stock} variant="outline" className="flex items-center gap-1">
+                                    <div className="h-2 w-2 rounded-full mr-1" style={{ backgroundColor: getComparisonColor(stock) }}></div>
+                                    {stock}
+                                    <X className="h-3 w-3 cursor-pointer ml-1" onClick={() => onToggleComparison(stock)} />
+                                </Badge>
+                            ))}
+                            {comparisonStocks?.length > 0 && (
+                                <Button variant="ghost" size="sm" className="h-6 px-2 text-xs" onClick={onClearComparisons}>
+                                    Clear All
+                                </Button>
+                            )}
+                        </div>
+                    )
+                }
 
-                <div className="flex items-center gap-2">
-                    <div className="text-sm text-muted-foreground">Choose Stocks:</div>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="outline" size="sm" className="gap-1">
-                                Popular Stocks <ChevronDown className="h-4 w-4" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuItem>Tech Stocks</DropdownMenuItem>
-                            <DropdownMenuItem>Financial Stocks</DropdownMenuItem>
-                            <DropdownMenuItem>Energy Stocks</DropdownMenuItem>
-                            <DropdownMenuItem>Healthcare Stocks</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
+                {comparisonStocks && onToggleComparison &&
+
+                    <div className="flex items-center gap-2">
+                        <div className="text-sm text-muted-foreground">Choose Stocks:</div>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" size="sm" className="gap-1">
+                                    Popular Stocks <ChevronDown className="h-4 w-4" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                <DropdownMenuItem>Tech Stocks</DropdownMenuItem>
+                                <DropdownMenuItem>Financial Stocks</DropdownMenuItem>
+                                <DropdownMenuItem>Energy Stocks</DropdownMenuItem>
+                                <DropdownMenuItem>Healthcare Stocks</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
+                }
             </div>
         </div>
     )

@@ -29,26 +29,31 @@ interface SidebarItem {
     icon: React.ReactNode
     label: string
     href: string
+    params?: {
+        [key: string]: string
+    }
 }
 
-export function OverviewSidebar() {
+export function OverviewSidebar({ params: { stockName } }: { params: { stockName: string } }) {
     const pathname = usePathname()
+
+    console.log(stockName)
 
     const sidebarItems: SidebarItem[] = [
         {
             icon: <ChartBar />,
             label: "Overview",
-            href: "/overview",
+            href: `/stock/aapl`,
         },
         {
             icon: <MdOutlineAccountCircle />,
             label: "Analyst Forecasts",
-            href: "/overview/analyst-forecasts",
+            href: "/stock/analyst-forecasts",
         },
         {
             icon: <GoDesktopDownload />,
-            label: "Download/my-account",
-            href: "/overview/download-my-account",
+            label: "AI Stock Analysis",
+            href: "/overview/ai-stock-analysis",
         },
         {
             icon: <IoIosStarHalf />,
@@ -73,7 +78,7 @@ export function OverviewSidebar() {
         {
             icon: <ChartArea />,
             label: "Chart",
-            href: "/overview/chart",
+            href: "/stock/aapl/chart",
         },
         {
             icon: <GoPeople />,
@@ -107,7 +112,7 @@ export function OverviewSidebar() {
                     <SidebarGroupContent className="pt-4 border-t">
                         <SidebarMenu className="gap-0">
                             {sidebarItems.map((item) => {
-                                const isActive = pathname === item.href
+                                const isActive = pathname === item.href;
                                 return (
                                     <SidebarMenuItem key={item.label}>
                                         <SidebarMenuButton asChild>
