@@ -1,27 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { Check, ChevronUp, Info, X } from "lucide-react";
+import { Check, ChevronUp } from "lucide-react";
 import ModerateBuy from "./_components/chart/ModerateBuy";
 import FinanceChart from "./_components/FinanceChart";
 import AnalystRatingsTable from "./_components/AnalystRatingsTable";
 import StocksConsensus from "./_components/StocksConsensus";
 import TestimonialCarousel from "./_components/TestimonialCarousel";
 import AnalystRecommendationTrends from "./_components/AnalystRecommendationTrends";
+import BannerAds from "@/components/murakkabs_portfolio/BannerAds";
+import ForcastChart from "./_components/chart/ForcastChart";
+import OverviewFAQ from "@/components/overview/overview-faq";
+import StockPremiumBanner from "@/components/Portfolio/chart/chart-bottom";
 
 const page = () => {
   return (
-    <div className="w-[75vw]">
-      <div className="relative bg-[#f5fbf6] rounded-lg p-10 shadow-lg">
-        <div className="absolute top-4 right-4 flex items-center gap-2">
-          <button className="text-gray-700 hover:text-gray-900">
-            <Info className="h-5 w-5" />
-          </button>
-          <button className="text-gray-700 hover:text-gray-900">
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Banner Ads</h2>
-        </div>
+    <div className="lg:w-[75vw]">
+      <div>
+        <BannerAds />
       </div>
 
       <div className="mt-8">
@@ -91,6 +85,25 @@ const page = () => {
 
       <div className="mt-10">
         <AnalystRecommendationTrends />
+      </div>
+
+      <div className="mt-10">
+        <h1 className="font-medium text-xl mb-4">AAPL Financial Forecast</h1>
+        <div className=" border border-gray-300 p-2 rounded-lg">
+          <ForcastChart />
+
+          <div className="mt-8">
+            <ForcastChart />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <OverviewFAQ />
+      </div>
+
+      <div className="mt-10">
+        <StockPremiumBanner />
       </div>
     </div>
   );
