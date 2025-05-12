@@ -15,7 +15,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import FinancialForecastChart from "./TargetChartCompo";
+import FinancialForecastChart from "./FinancialForecastChart";
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
   { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
@@ -56,11 +56,11 @@ const TargetChart = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 gap-5">
-      <div className="border-2 border-[#a8a8a87a] lg:h-[400px] lg:col-span-4 rounded-lg">
+      <div className="border-2 border-[#a8a8a87a] lg:col-span-4 rounded-lg">
         <FinancialForecastChart />
       </div>
 
-      <div className="border-2 border-[#a8a8a87a] lg:h-[400px] lg:col-span-2 rounded-lg flex flex-col justify-center">
+      <div className="border-2 border-[#a8a8a87a] lg:col-span-2 rounded-lg flex flex-col justify-center">
         <Card className="flex flex-col">
           <CardHeader className="items-center pb-0">
             <CardTitle>Sell</CardTitle>

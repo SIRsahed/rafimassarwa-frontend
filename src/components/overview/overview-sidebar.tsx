@@ -2,12 +2,9 @@
 
 import type React from "react"
 import { usePathname } from "next/navigation"
-import { GoDesktopDownload, GoPeople } from "react-icons/go";
-import { MdOutlineAccountCircle, MdOutlineSupportAgent } from "react-icons/md";
-import { IoIosStarHalf } from "react-icons/io";
-import { RiNewspaperLine } from "react-icons/ri";
-import { SiSimpleanalytics } from "react-icons/si";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { MdAltRoute, MdStackedLineChart } from "react-icons/md";
+import { SiRedbull } from "react-icons/si";
+import { FaBookReader } from "react-icons/fa";
 import {
     Sidebar,
     SidebarContent,
@@ -21,7 +18,17 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ChartArea, ChartBar } from "lucide-react";
+import { ChartBar } from "lucide-react";
+import { CiMicrochip } from "react-icons/ci";
+import { HiOutlineNewspaper } from "react-icons/hi";
+import { LiaCoinsSolid } from "react-icons/lia";
+import { GiChart } from "react-icons/gi";
+import { RiPieChartFill } from "react-icons/ri";
+import { TbChartBubble, TbUserDollar } from "react-icons/tb";
+import { TiWaves } from "react-icons/ti";
+
+
+
 
 
 
@@ -46,49 +53,64 @@ export function OverviewSidebar({ params: { stockName } }: { params: { stockName
             href: `/stock/aapl`,
         },
         {
-            icon: <MdOutlineAccountCircle />,
+            icon: <FaBookReader />,
             label: "Analyst Forecasts",
-            href: "/stock/analyst-forecasts",
+            href: "/stock/aapl/analyst-forecasts",
         },
         {
-            icon: <GoDesktopDownload />,
+            icon: <CiMicrochip />,
             label: "AI Stock Analysis",
-            href: "/overview/ai-stock-analysis",
+            href: "/stock/aapl/stock-analysis",
         },
         {
-            icon: <IoIosStarHalf />,
-            label: "Performance",
-            href: "/my-portfolio/performance",
+            icon: <SiRedbull />,
+            label: "News & Insights",
+            href: "/stock/aapl/news-insights",
         },
         {
-            icon: <RiNewspaperLine />,
-            label: "My News",
-            href: "/my-portfolio/my-news",
+            icon: <HiOutlineNewspaper />,
+            label: "Financials",
+            href: "/stock/aapl/financials",
         },
         {
-            icon: <SiSimpleanalytics />,
-            label: "Analysis",
-            href: "/my-portfolio/analysis",
+            icon: <LiaCoinsSolid />,
+            label: "Dividends",
+            href: "/stock/aapl/dividends",
         },
         {
-            icon: <FaRegCalendarAlt />,
-            label: "My Calendar",
-            href: "/my-portfolio/calendar",
+            icon: <MdStackedLineChart />,
+            label: "Technical Analysis",
+            href: "/stock/aapl/technical-analysis",
         },
         {
-            icon: <ChartArea />,
+            icon: <MdAltRoute />,
+            label: "Options",
+            href: "/stock/aapl/options",
+        },
+        {
+            icon: <GiChart />,
             label: "Chart",
             href: "/stock/aapl/chart",
         },
         {
-            icon: <GoPeople />,
-            label: "Influencers",
-            href: "/my-portfolio/influencers",
+            icon: <RiPieChartFill />,
+            label: "Earnings",
+            href: "/stock/aapl/earnings",
         },
         {
-            icon: <MdOutlineSupportAgent />,
-            label: "Support",
-            href: "/my-portfolio/support",
+            icon: <TbChartBubble />,
+            label: "Ownership",
+            href: "/stock/aapl/ownership",
+        },
+        {
+            icon: <TbUserDollar />,
+            label: "Stock Buybacks",
+            href: "/stock/aapl/stock-buybacks",
+        },
+        {
+            icon: <TiWaves />,
+            label: "Similar Stocks",
+            href: "/stock/aapl/similar-stocks",
         }
     ]
 

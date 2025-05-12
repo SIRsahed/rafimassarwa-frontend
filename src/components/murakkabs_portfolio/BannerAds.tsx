@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function BannerAds() {
   return (
-    <section className='my-16'>
+    <section className='my-5'>
       <div className="container mx-auto">
         <div className="relative">
           <Image

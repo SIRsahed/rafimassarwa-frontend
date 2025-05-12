@@ -1,11 +1,19 @@
-"use client"
+"use client";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
 
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { ArrowUpRight } from "lucide-react"
-
-export default function FinancialForecastChart() {
+const ForcastChart = () => {
   // Combined data for visualization
   const chartData = [
     { month: "Jan 2024", price: 119 },
@@ -21,7 +29,14 @@ export default function FinancialForecastChart() {
     { month: "Nov 2024", price: 443 },
     { month: "Dec 2024", price: 351 },
     // Forecast data starts here - this is the transition point
-    { month: "Dec 2024", forecast: true, price: 351, high: 351, average: 351, low: 351 },
+    {
+      month: "Dec 2024",
+      forecast: true,
+      price: 351,
+      high: 351,
+      average: 351,
+      low: 351,
+    },
     { month: "Jan 2025", forecast: true, high: 365, average: 355, low: 345 },
     { month: "Feb 2025", forecast: true, high: 380, average: 360, low: 330 },
     { month: "Mar 2025", forecast: true, high: 395, average: 365, low: 315 },
@@ -34,38 +49,13 @@ export default function FinancialForecastChart() {
     { month: "Oct 2025", forecast: true, high: 500, average: 400, low: 210 },
     { month: "Nov 2025", forecast: true, high: 515, average: 405, low: 195 },
     { month: "Dec 2025", forecast: true, high: 525, average: 410, low: 188 },
-  ]
-
-  // Current price and upside percentage
-  const currentPrice = 400
-  const percentageUpside = 15.2
+  ];
 
   return (
-    <Card className="w-full max-w-4xl mx-auto">
-      <CardHeader className="pb-0 px-6">
-        <div className="flex flex-col md:flex-row justify-between border-b pb-4">
-          <div className="flex flex-col">
-            <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-bold text-green-500">${currentPrice}</span>
-              <span className="text-sm text-green-500 flex items-center">
-                <ArrowUpRight className="h-4 w-4 mr-1" />({percentageUpside}% Upside)
-              </span>
-            </div>
-          </div>
-          <div className="max-w-md mt-4 md:mt-0">
-            <p className="text-sm text-gray-600">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry&apos;s standard dummy text ever since the 1500s.
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-between mt-4 text-sm text-gray-500 font-medium">
-          <div>Past 12 Months</div>
-          <div>12 Month Forecast</div>
-        </div>
-      </CardHeader>
-      <CardContent className="p-0">
-        <div className="h-[300px] w-full px-0">
+    <div>
+      <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
+        {/* Chart container - takes 100% width */}
+        <div className="h-[200px] flex-1 lg:col-span-4">
           <ChartContainer
             config={{
               price: {
@@ -85,21 +75,24 @@ export default function FinancialForecastChart() {
                 color: "hsl(0, 76%, 50%)",
               },
             }}
-            className="h-full"
+            className="h-full w-full"
           >
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={chartData} margin={{ top: 20, right: 0, bottom: 20, left: 0 }}>
+            <ResponsiveContainer>
+              <LineChart
+                data={chartData}
+                margin={{ top: 20, right: 0, bottom: 20, left: 0 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
                   dataKey="month"
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(value) => {
-                    const date = new Date(value)
-                    return date.toLocaleString("default", { month: "short" })
+                    const date = new Date(value);
+                    return date.toLocaleString("default", { month: "short" });
                   }}
                   tick={{ fontSize: 12 }}
-                  interval={2} // Show fewer ticks for better readability
+                  interval={2}
                 />
                 <YAxis
                   domain={[0, 550]}
@@ -109,20 +102,18 @@ export default function FinancialForecastChart() {
                   tickFormatter={(value) => `$${value}`}
                 />
                 <ChartTooltip
-                  content={({ payload }) => (
-                    <ChartTooltipContent>
-                      {payload?.[0]?.value ? `$${payload[0].value}` : ""}
-                    </ChartTooltipContent>
-                  )}
+                  content={
+                    <ChartTooltipContent formatter={(value) => `$${value}`} />
+                  }
                 />
 
                 {/* Historical price line */}
                 <Line
                   type="monotone"
                   dataKey="price"
-                  stroke="var(--color-price)"
+                  stroke="#0666a7"
                   strokeWidth={2}
-                  dot={{ r: 3, fill: "var(--color-price)" }}
+                  dot={{ r: 3, fill: "white" }}
                   activeDot={{ r: 5 }}
                   connectNulls={true}
                 />
@@ -160,38 +151,20 @@ export default function FinancialForecastChart() {
           </ChartContainer>
         </div>
 
-        <div className="flex justify-end mt-4 text-sm px-6">
-          <div className="grid grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-gray-500">High</div>
-              <div className="font-semibold text-green-500">$325.00</div>
-            </div>
-            <div className="text-center">
-              <div className="text-gray-500">Average</div>
-              <div className="font-semibold">$250.20</div>
-            </div>
-            <div className="text-center">
-              <div className="text-gray-500">Low</div>
-              <div className="font-semibold text-red-500">$188.00</div>
-            </div>
-          </div>
+        <div className="lg:col-span-2">
+          <h1 className="font-medium mb-1">AAPL Earnings Forecast</h1>
+          <p>
+            Next quarter’s earnings estimate for AAPL is $1.61 with a range of
+            $1.50 to $1.67. The previous quarter’s EPS was $2.40. AAPL beat its
+            EPS estimate 100.00% of the time in the past 12 months, while its
+            overall industry beat the EPS estimate 47.83% of the time in the
+            same period. In the last calendar year AAPL has Outperformed its
+            overall industry.
+          </p>
         </div>
+      </div>
+    </div>
+  );
+};
 
-        <div className="flex justify-between mt-6 border-t pt-4 px-6">
-          <div className="text-center">
-            <div className="text-xs text-gray-500">Highest Price Target:</div>
-            <div className="font-semibold text-green-500">$400</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xs text-gray-500">Highest Price Target:</div>
-            <div className="font-semibold">$400</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xs text-gray-500">Highest Price Target:</div>
-            <div className="font-semibold text-red-500">$400</div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
+export default ForcastChart;
