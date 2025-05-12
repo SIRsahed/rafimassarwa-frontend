@@ -34,7 +34,7 @@ export default function PerformanceCoverage() {
 
     // Available stocks
     const [stocks, setStocks] = useState<Stock[]>([
-        { id: "AAPL", name: "Apple", color: "#2695FF", visible: true},
+        { id: "AAPL", name: "Apple", color: "#2695FF", visible: true },
         { id: "AMZN", name: "Amazon", color: "#28A745", visible: true },
         { id: "GOOGL", name: "Alphabet Class A", color: "#0E3A18", visible: true },
         { id: "INTC", name: "Intel", color: "#FFD700", visible: true },
@@ -47,6 +47,8 @@ export default function PerformanceCoverage() {
 
     // State for data
     const [data, setData] = useState<DataPoint[]>([])
+
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const [stockTableData, setStockTableData] = useState<any[]>([])
 
     // Generate dummy data based on selected time period
@@ -110,7 +112,7 @@ export default function PerformanceCoverage() {
                 let baseValue: number
 
                 switch (stock.id) {
-                    case "AAPL" :
+                    case "AAPL":
                         baseValue = 25 + random() * 20
                         break // AAPL performs well
                     case "NVDA":
@@ -155,7 +157,7 @@ export default function PerformanceCoverage() {
         }
 
         return data
-    }, [])
+    }, [stocks])
 
     // Calculate latest values and changes for the table
     const getStockTableData = useCallback(
@@ -195,6 +197,8 @@ export default function PerformanceCoverage() {
                         backgroundColor: "#6a7985",
                     },
                 },
+
+                /* eslint-disable @typescript-eslint/no-explicit-any */
                 formatter: (params: any) => {
                     const date = params[0].axisValue
                     let html = `<div style="margin-bottom: 5px;">${date}</div>`
@@ -297,7 +301,11 @@ export default function PerformanceCoverage() {
         const generatedData = generateData(period)
         setData(generatedData)
         setStockTableData(getStockTableData(generatedData))
-    }, []) // Empty dependency array means this runs once on mount
+    
+
+
+
+    }, [generateData, getStockTableData, period]) // Empty dependency array means this runs once on mount
 
     // Update data when period changes (client-side only)
     useEffect(() => {

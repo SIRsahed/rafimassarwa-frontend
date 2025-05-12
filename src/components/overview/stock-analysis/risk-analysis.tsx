@@ -105,7 +105,7 @@ export default function RiskAnalysis() {
                     <p className="text-lg mb-6">
                         {companyName} disclosed <span className="font-bold">{riskSummary.totalRisks}</span> risk factors in its most
                         recent earnings report. {companyName} reported the most risks in the{" "}
-                        <span className="font-bold">"{riskSummary.highestRiskCategory}"</span> category.
+                        <span className="font-bold">&quot;{riskSummary.highestRiskCategory}&quot;</span> category.
                     </p>
 
                     {/* Risk Chart */}
