@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const navigationLinks = [
   { name: "Home", href: "/", isActive: true },
   {
-    name: "Murakkab's Portfolio",
+    name: "Olive Stock's Portfolio",
     href: "/murakkabs-portfolio",
     isActive: false,
   },

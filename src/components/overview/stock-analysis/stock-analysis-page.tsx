@@ -6,6 +6,10 @@ import StockAnalysisTopCard from './top-stock-analysis'
 import BusinessOverview from './business-chart-full'
 import BusinessOverviewDescription from './business-description'
 import FinancialStatementOverview from './financial-statement'
+import RiskAnalysis from './risk-analysis'
+import EarningsCallSummary from './earning-summary'
+import PerformanceCoverage from './media-coverage-chart'
+import Glossary from './glossary'
 
 export default function StockAnalysisPage() {
 
@@ -20,6 +24,14 @@ export default function StockAnalysisPage() {
                     </div>
                     <BusinessOverviewDescription />
                     <FinancialStatementOverview />
+                    <RiskAnalysis />
+                    <PerformanceCoverage />
+                    <div className="mt-14 lg:mt-20">
+                        <EarningsCallSummary />
+                    </div>
+                    <div className="mt-14 lg:mt-20">
+                        <Glossary />
+                    </div>
                 </div>
                 <div className="col-span-full lg:col-span-2">
                     <RecentNews />
