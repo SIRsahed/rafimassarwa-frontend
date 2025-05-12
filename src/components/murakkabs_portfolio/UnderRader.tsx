@@ -15,7 +15,7 @@ export default function UnderRader() {
             <div className="container mx-auto">
                 <div className="px-3 py-2 rounded-2xl shadow-[0px_0px_5.5px_0px_#00000040]">
                     <div className="py-2 px-3">
-                        <h2 className='text-2xl font-medium pb-4'>Murakkab’s Under Rader</h2>
+                        <h2 className='text-2xl font-medium pb-4'>Olive Stock's Under Rader</h2>
                     </div>
                     <Table className=''>
                         <TableHeader>
