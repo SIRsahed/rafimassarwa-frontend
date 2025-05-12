@@ -55,7 +55,7 @@ export function OverviewSidebar({ params: { stockName } }: { params: { stockName
         {
             icon: <FaBookReader />,
             label: "Analyst Forecasts",
-            href: "/stock/analyst-forecasts",
+            href: "/stock/aapl/analyst-forecasts",
         },
         {
             icon: <CiMicrochip />,
