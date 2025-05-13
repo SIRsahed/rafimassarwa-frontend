@@ -1,9 +1,11 @@
 import RecentNews from "@/components/overview/news";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronUp } from "lucide-react";
-import FinancialOverview from "./_components/FinancialOverview";
-import FinancialDashboard from "./_components/FinancialDashboard";
-import AppleFinancialCharts from "./_components/chart/AppleFinancialCharts";
+import { Check, ChevronUp, Search } from "lucide-react";
+import DividendDataCard from "./_components/DividendDataCard";
+import DividendChart from "./_components/chart/DividendChart";
+import DividendYieldChartCompo from "./_components/DividendYieldChartCompo";
+import DividendHistory from "./_components/DividendHistory";
+import OverviewFAQ from "@/components/overview/overview-faq";
 import StockPremiumBanner from "@/components/Portfolio/chart/chart-bottom";
 
 const page = () => {
@@ -12,7 +14,7 @@ const page = () => {
       <div className="mt-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h3 className="text-xl font-bold">
-            Apple (AAPL) Stock News & Sentiment
+            Apple (AAPL) Stock Forecast & Price Target
           </h3>
 
           <div className="flex flex-wrap gap-2 items-center">
@@ -44,21 +46,39 @@ const page = () => {
         </div>
       </div>
 
+      <div className="w-[350px] relative mt-8 lg:mt-0">
+        <input
+          type="text"
+          className="border border-black outline-none rounded-3xl px-3 py-5 h-[35px] w-full"
+          placeholder="Enter symbol for earnings data"
+        />
+
+        <Search className="h-5 w-5 absolute top-1/4 right-3" />
+      </div>
+
       <div className="flex flex-col lg:flex-row gap-8 mt-8">
         <div className="lg:w-[75%]">
           <div>
-            <FinancialOverview />
+            <DividendDataCard />
           </div>
 
-          <div className="mt-10">
-            <FinancialDashboard />
+          <div className="mt-8">
+            <DividendChart />
           </div>
 
-          <div className="mt-10">
-            <AppleFinancialCharts />
+          <div className="mt-8">
+            <DividendYieldChartCompo />
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8">
+            <DividendHistory />
+          </div>
+
+          <div className="mt-8">
+            <OverviewFAQ />
+          </div>
+
+          <div className="mt-8">
             <StockPremiumBanner />
           </div>
         </div>

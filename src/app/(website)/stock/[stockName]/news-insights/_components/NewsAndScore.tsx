@@ -1,4 +1,5 @@
 import NewsComponent from "./NewsComponent"
+import NewsScoreDashboard from "./NewsScoreDashboard"
 
 const NewsAndScore = () => {
   return (
@@ -7,8 +8,8 @@ const NewsAndScore = () => {
             <NewsComponent />
         </div>
 
-        <div className="border border-red-500 lg:col-span-2">
-            2
+        <div className="lg:col-span-2">
+            <NewsScoreDashboard />
         </div>
     </div>
   )
