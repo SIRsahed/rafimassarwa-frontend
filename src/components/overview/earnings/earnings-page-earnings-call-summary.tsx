@@ -102,7 +102,7 @@ export default function EarningsPageEarningsCallSummary() {
         <div className="w-full">
             <h1 className="text-2xl font-bold mb-4">Earnings Call Summary</h1>
 
-            <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6">
+            <div className="bg-white rounded-md shadow-sm border border-gray-100 p-2 lg:p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Left column */}
                     <div>
@@ -183,7 +183,7 @@ export default function EarningsPageEarningsCallSummary() {
                                             <h3 className="text-base font-semibold mb-1">{highlight.title}</h3>
                                             <div className="flex items-start">
                                                 <MdSubdirectoryArrowRight className="h-5 w-5 text-gray-400 mt-1 flex-shrink-0" />
-                                                <p className="text-sm text-gray-700 ml-1">{highlight.description}</p>
+                                                <p className="text-sm text-gray-700 ml-1 text-justify">{highlight.description}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@ export default function EarningsPageEarningsCallSummary() {
                                             <h3 className="text-base font-semibold mb-1">{lowlight.title}</h3>
                                             <div className="flex items-start">
                                                 <MdSubdirectoryArrowRight className="h-5 w-5 text-gray-400 mt-1 flex-shrink-0" />
-                                                <p className="text-sm text-gray-700 ml-1">{lowlight.description}</p>
+                                                <p className="text-sm text-gray-700 ml-1 text-justify">{lowlight.description}</p>
                                             </div>
                                         </div>
                                     </div>

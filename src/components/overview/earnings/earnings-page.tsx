@@ -5,6 +5,33 @@ import EarningsHistoryChart from './earnings-history-chart'
 import EarningsHistoryTable from './earnings-history-table'
 import PriceChangesTable from './price-changes'
 import OverviewFAQ from '../overview-faq'
+import MarketNewsCard from '@/app/(website)/stock/[stockName]/news-insights/_components/MarketNewsCard'
+
+
+const dummyMarketNews = [
+    {
+        image: "/images/murakkabs_portfolio_page/article2.png",
+        title: "Broadcom (AVGO) Is About to Report Q1...",
+        timeAgo: "2d Ago",
+        tags: ["Technology", "Broadcom"]
+    },
+    {
+        image: "/images/murakkabs_portfolio_page/article2.png",
+        title: "Broadcom (AVGO) Is About to Report Q1...",
+        timeAgo: "2d Ago",
+        tags: ["Technology", "Broadcom"]
+    },
+    {
+        image: "/images/murakkabs_portfolio_page/article2.png",
+        title: "Broadcom (AVGO) Is About to Report Q1...",
+        timeAgo: "2d Ago",
+        tags: [
+            { name: "Technology", color: "#28A745" },
+            { name: "Broadcom", color: "#28A745" }
+        ]
+    },
+]
+
 
 export default function EarningsPage() {
     return (
@@ -25,7 +52,15 @@ export default function EarningsPage() {
                         <OverviewFAQ />
                     </div>
                     <div className="mt-8 lg:mt-20">
-                        <OverviewFAQ />
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            {
+                                dummyMarketNews.map((item, index) => {
+                                    return (
+                                        <MarketNewsCard key={index} image={item.image} title={item.title} timeAgo={item.timeAgo} tags={[{ name: "AAPL" }, { name: "AVGO" }]} />
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
                 <div className="col-span-full lg:col-span-2">
