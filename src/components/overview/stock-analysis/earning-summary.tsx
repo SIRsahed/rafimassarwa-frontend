@@ -93,7 +93,7 @@ export default function EarningsCallSummary() {
     }
 
     return (
-        <div className="container mx-auto px-4 shadow-[]">
+        <div className="container mx-auto px-4">
             <h1 className="text-2xl md:text-3xl font-bold mb-6">{earningsData.companyName} Earnings Call Summary</h1>
 
             <div className="px-4 py-4 shadow-[0px_0px_10px_1px_#0000001A]">

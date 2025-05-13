@@ -16,8 +16,8 @@ export default function BannerAds() {
             className='w-full h-[200px] object-cover'
           />
           <div className="absolute right-1.5 top-0 flex gap-1">
-            <button><Info className='bg-white' /></button>
-            <button> <SquareX className='bg-white' /></button>
+            <button><Info className='' /></button>
+            <button> <SquareX className='' /></button>
           </div>
         </div>
       </div>
