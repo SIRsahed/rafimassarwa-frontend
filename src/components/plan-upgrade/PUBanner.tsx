@@ -25,7 +25,7 @@ export default function PUBanner() {
                             <Link href='/explore-plan' className="inline-flex items-center justify-center rounded-md bg-transparent border border-green-500 md:px-20 px-10 py-4 text-[14px] md:text-base font-medium text-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Explore Our Plans</Link>
                         </div>
                     </div>
-                    <div className="md:col-span-1 lg:col-span-2 flex justify-center md:justify-end hidden md:block">
+                    <div className="md:col-span-1 lg:col-span-2 md:justify-end hidden md:flex">
                         <Image
                             src="/images/plan_upgrade_page/banner.png"
                             alt="banner arrow"

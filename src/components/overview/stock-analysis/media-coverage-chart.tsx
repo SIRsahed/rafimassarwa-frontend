@@ -301,7 +301,7 @@ export default function PerformanceCoverage() {
         const generatedData = generateData(period)
         setData(generatedData)
         setStockTableData(getStockTableData(generatedData))
-    
+
 
 
 
@@ -378,7 +378,7 @@ export default function PerformanceCoverage() {
             <CardHeader className="sm:flex-row sm:items-center sm:justify-between">
                 <CardTitle className="text-xl sm:text-2xl">Performance Comparison</CardTitle>
                 <Tabs value={period} onValueChange={(value) => setPeriod(value as TimePeriod)} className="mt-2 sm:mt-0">
-                    <TabsList className="grid grid-cols-3 sm:grid-cols-6">
+                    <TabsList className="grid grid-cols-3 sm:grid-cols-6 mb-6 bg-transparent">
                         <TabsTrigger value="3m">3m</TabsTrigger>
                         <TabsTrigger value="6m">6m</TabsTrigger>
                         <TabsTrigger value="1y">1y</TabsTrigger>

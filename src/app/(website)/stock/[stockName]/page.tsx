@@ -47,8 +47,12 @@ export default function Page({ params: { stockName } }: { params: { stockName: s
               </div>
               <OverviewNewsFeed />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <OptionsPrices />
-                <OwnershipOverview />
+                <div className="shadow-[0px_0px_10px_1px_#0000001A]">
+                  <OptionsPrices />
+                </div>
+                <div className="shadow-[0px_0px_10px_1px_#0000001A]">
+                  <OwnershipOverview />
+                </div>
               </div>
               <div className="">
                 <FinancialDashboard />

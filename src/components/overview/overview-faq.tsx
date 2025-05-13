@@ -60,7 +60,7 @@ export default function OverviewFAQ() {
     return (
         <div className="w-full">
             <h1 className="text-2xl font-bold mb-6">AAPL FAQ</h1>
-            <div className="bg-white rounded-lg border border-gray-100 shadow-sm">
+            <div className="bg-white rounded-lg border border-gray-100 shadow-[0px_0px_8px_0px_#00000029] ">
                 <Accordion type="single" collapsible className="w-full">
                     {faqData.map((faq, index) => (
                         <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200 last:border-0">
