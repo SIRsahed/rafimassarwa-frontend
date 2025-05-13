@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { PieChart, Pie, Cell } from "recharts"
 import { ChevronRight } from "lucide-react"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 
 // Define types for ownership data
 type OwnershipData = {
@@ -28,8 +30,12 @@ export default function OwnershipOverview() {
         setIsMounted(true)
     }, [])
 
+
+    const pathname = usePathname()
+
+
     return (
-        <Card className="w-full shadow-sm">
+        <Card className="w-full">
             <CardHeader className="pb-0">
                 <CardTitle className="text-xl font-bold">Ownership Overview</CardTitle>
             </CardHeader>
@@ -79,12 +85,14 @@ export default function OwnershipOverview() {
                 </div>
             </CardContent>
 
-            <CardFooter className="flex justify-center py-2">
-                <a href="#" className="text-blue-500 text-sm flex items-center">
-                    Detailed Ownership Overview
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                </a>
-            </CardFooter>
+            {!pathname.endsWith("ownership") &&
+                <CardFooter className="flex justify-center py-2">
+                    <Link href="/stock/aapl/ownership" className="text-blue-500 text-sm flex items-center">
+                        Detailed Ownership Overview
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                    </Link>
+                </CardFooter>
+            }
         </Card>
     )
 }

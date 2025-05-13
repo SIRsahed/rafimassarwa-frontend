@@ -6,7 +6,6 @@ import AnalystRatingsTable from "./_components/AnalystRatingsTable";
 import StocksConsensus from "./_components/StocksConsensus";
 import TestimonialCarousel from "./_components/TestimonialCarousel";
 import AnalystRecommendationTrends from "./_components/AnalystRecommendationTrends";
-import BannerAds from "@/components/murakkabs_portfolio/BannerAds";
 import ForcastChart from "./_components/chart/ForcastChart";
 import OverviewFAQ from "@/components/overview/overview-faq";
 import StockPremiumBanner from "@/components/Portfolio/chart/chart-bottom";
@@ -14,10 +13,6 @@ import StockPremiumBanner from "@/components/Portfolio/chart/chart-bottom";
 const page = () => {
   return (
     <div className="lg:w-[75vw]">
-      <div>
-        <BannerAds />
-      </div>
-
       <div className="mt-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h3 className="text-xl font-bold">

@@ -1,9 +1,11 @@
 import RecentNews from "@/components/overview/news";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronUp } from "lucide-react";
-import FinancialOverview from "./_components/FinancialOverview";
-import FinancialDashboard from "./_components/FinancialDashboard";
-import AppleFinancialCharts from "./_components/chart/AppleFinancialCharts";
+import TechnicalSentiment from "./_components/TechnicalSentiment";
+import ApplePivotPoints from "./_components/ApplePivotPoints";
+import StockAnalysisDashboard from "./_components/StockAnalysisDashboard";
+import TechnicalAnalysisScreener from "./_components/TechnicalAnalysisScreener";
+import OverviewFAQ from "@/components/overview/overview-faq";
 import StockPremiumBanner from "@/components/Portfolio/chart/chart-bottom";
 
 const page = () => {
@@ -12,7 +14,7 @@ const page = () => {
       <div className="mt-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h3 className="text-xl font-bold">
-            Apple (AAPL) Stock News & Sentiment
+            Apple (AAPL) Stock Forecast & Price Target
           </h3>
 
           <div className="flex flex-wrap gap-2 items-center">
@@ -47,15 +49,23 @@ const page = () => {
       <div className="flex flex-col lg:flex-row gap-8 mt-8">
         <div className="lg:w-[75%]">
           <div>
-            <FinancialOverview />
+            <TechnicalSentiment />
           </div>
 
           <div className="mt-10">
-            <FinancialDashboard />
+            <ApplePivotPoints />
           </div>
 
           <div className="mt-10">
-            <AppleFinancialCharts />
+            <StockAnalysisDashboard />
+          </div>
+
+          <div className="mt-10">
+            <TechnicalAnalysisScreener />
+          </div>
+
+          <div className="mt-10">
+            <OverviewFAQ />
           </div>
 
           <div className="mt-10">
