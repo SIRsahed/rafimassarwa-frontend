@@ -6,6 +6,7 @@ import EarningsHistoryTable from './earnings-history-table'
 import PriceChangesTable from './price-changes'
 import OverviewFAQ from '../overview-faq'
 import MarketNewsCard from '@/app/(website)/stock/[stockName]/news-insights/_components/MarketNewsCard'
+import StockPremiumBanner from '@/components/Portfolio/chart/chart-bottom'
 
 
 const dummyMarketNews = [
@@ -61,6 +62,9 @@ export default function EarningsPage() {
                                 })
                             }
                         </div>
+                    </div>
+                    <div className="mt-8 lg:mt-20">
+                        <StockPremiumBanner />
                     </div>
                 </div>
                 <div className="col-span-full lg:col-span-2">
