@@ -4,6 +4,7 @@ import RecentNews from '../news'
 import EarningsHistoryChart from './earnings-history-chart'
 import EarningsHistoryTable from './earnings-history-table'
 import PriceChangesTable from './price-changes'
+import OverviewFAQ from '../overview-faq'
 
 export default function EarningsPage() {
     return (
@@ -19,6 +20,12 @@ export default function EarningsPage() {
                     </div>
                     <div className="mt-8 lg:mt-20">
                         <PriceChangesTable />
+                    </div>
+                    <div className="mt-8 lg:mt-20">
+                        <OverviewFAQ />
+                    </div>
+                    <div className="mt-8 lg:mt-20">
+                        <OverviewFAQ />
                     </div>
                 </div>
                 <div className="col-span-full lg:col-span-2">

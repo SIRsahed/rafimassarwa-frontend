@@ -1,6 +1,6 @@
 import EPBanner from '@/components/explore-plan/EPBanner'
 import PricingCard from '@/components/explore-plan/PricingCard'
-import FAQ from '@/shared/FAQ'
+import OverviewFAQ from '@/components/overview/overview-faq'
 import Review from '@/shared/Review'
 import React from 'react'
 
@@ -9,7 +9,7 @@ export default function page() {
     <main>
       <EPBanner />
       <PricingCard />
-      <FAQ />
+      <OverviewFAQ />
       <Review />
     </main>
   )

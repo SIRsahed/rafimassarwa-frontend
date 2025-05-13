@@ -157,7 +157,7 @@ export default function PriceChangesTable() {
                 </div>
 
                 <div className="bg-gray-100 p-4 text-gray-600 text-sm mt-4">
-                    <p>The upcoming earnings date is based on a company's previous reporting.</p>
+                    <p>The upcoming earnings date is based on a company&apos;s previous reporting.</p>
                 </div>
 
                 {!showAll && displayData.length > 0 && (

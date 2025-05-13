@@ -223,7 +223,7 @@ export default function EarningsHistoryTable() {
                                 <TableHead className="whitespace-nowrap">Report Date</TableHead>
                                 <TableHead className="whitespace-nowrap">Fiscal Quarter</TableHead>
                                 <TableHead className="whitespace-nowrap">Forecast/EPS</TableHead>
-                                <TableHead className="whitespace-nowrap">Last Year's EPS</TableHead>
+                                <TableHead className="whitespace-nowrap">Last Year&apos;s EPS</TableHead>
                                 <TableHead className="whitespace-nowrap">EPS YoY Change</TableHead>
                                 <TableHead className="whitespace-nowrap">Press Release</TableHead>
                                 <TableHead className="whitespace-nowrap">Slides</TableHead>
@@ -281,7 +281,7 @@ export default function EarningsHistoryTable() {
 
                 <div className="bg-gray-100 p-4 text-gray-600 text-sm mt-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <p>The upcoming earnings date is based on a company's previous reporting.</p>
+                        <p>The upcoming earnings date is based on a company&apos;s previous reporting.</p>
                         <div className="flex items-center gap-4 mt-2 md:mt-0">
                             <div className="flex items-center gap-1">
                                 <div className="w-3 h-3 bg-green-500"></div>

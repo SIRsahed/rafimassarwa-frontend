@@ -292,7 +292,7 @@ export default function OptionsChainTable() {
     // Format date for display
     const formatDate = (dateStr: string) => {
         const [date, time] = dateStr.split(" ")
-        const [month, day, year] = date.split("/")
+        const [month, day ] = date.split("/")
         return `${month}/${day}, ${time}`
     }
 

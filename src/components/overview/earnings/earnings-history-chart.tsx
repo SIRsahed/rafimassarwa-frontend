@@ -3,8 +3,6 @@
 import { useState } from "react"
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ChevronRight } from "lucide-react"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 // EPS data
 const epsData = {
@@ -178,7 +176,7 @@ export default function EarningsHistoryChart() {
                 </div>
 
                 <div className="bg-gray-100 p-4 text-gray-600 text-sm mt-12">
-                    <p>The upcoming earnings date is based on a company's previous reporting.</p>
+                    <p>The upcoming earnings date is based on a company&apos;s previous reporting.</p>
                 </div>
             </div>
         </div>
