@@ -1,4 +1,3 @@
-import BannerAds from "@/components/murakkabs_portfolio/BannerAds";
 import RecentNews from "@/components/overview/news";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronUp } from "lucide-react";
@@ -11,10 +10,6 @@ import OverviewFAQ from "@/components/overview/overview-faq";
 const page = () => {
   return (
     <div className="lg:w-[75vw]">
-      <div>
-        <BannerAds />
-      </div>
-
       <div className="mt-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h3 className="text-xl font-bold">

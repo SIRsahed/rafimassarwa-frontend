@@ -1,9 +1,8 @@
 import RecentNews from "@/components/overview/news";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronUp } from "lucide-react";
-import FinancialOverview from "./_components/FinancialOverview";
-import FinancialDashboard from "./_components/FinancialDashboard";
-import AppleFinancialCharts from "./_components/chart/AppleFinancialCharts";
+import StockBuybacksChart from "./_components/StockBuybacksChart";
+import StockBuybacksTable from "./_components/StockBuybacksTable";
 import StockPremiumBanner from "@/components/Portfolio/chart/chart-bottom";
 
 const page = () => {
@@ -12,7 +11,7 @@ const page = () => {
       <div className="mt-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h3 className="text-xl font-bold">
-            Apple (AAPL) Stock News & Sentiment
+            Apple (AAPL) Stock Forecast & Price Target
           </h3>
 
           <div className="flex flex-wrap gap-2 items-center">
@@ -47,15 +46,11 @@ const page = () => {
       <div className="flex flex-col lg:flex-row gap-8 mt-8">
         <div className="lg:w-[75%]">
           <div>
-            <FinancialOverview />
+            <StockBuybacksChart />
           </div>
 
           <div className="mt-10">
-            <FinancialDashboard />
-          </div>
-
-          <div className="mt-10">
-            <AppleFinancialCharts />
+            <StockBuybacksTable />
           </div>
 
           <div className="mt-10">
