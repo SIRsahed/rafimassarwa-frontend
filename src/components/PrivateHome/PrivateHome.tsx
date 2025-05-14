@@ -2,12 +2,35 @@ import LatestArticles from "@/shared/Articles";
 import StockDashboard from "@/shared/StockDashboard";
 import Image from "next/image";
 import StockTickerCarousel from "../Watchlist/StockTickerCarousel";
+import Link from "next/link";
 
 const PrivateHome = () => {
   return (
     <div className="mt-28 container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-5">
         <StockTickerCarousel />
+      </div>
+
+      {/* ADDED: Quick-access shortcut buttons/links */}
+      <div className="mb-6 flex justify-center space-x-4">
+        <Link
+          href="/my-portfolio"
+          className="inline-block rounded-md bg-green-100 px-4 py-2 text-sm font-medium text-green-600 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1"
+        >
+          Portfolio
+        </Link>
+        <Link
+          href="/watchlist"
+          className="inline-block rounded-md bg-blue-100 px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
+        >
+          Watchlist
+        </Link>
+        <Link
+          href="/news"
+          className="inline-block rounded-md bg-orange-100 px-4 py-2 text-sm font-medium text-orange-600 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1"
+        >
+          News
+        </Link>
       </div>
 
       <div>
@@ -28,7 +51,7 @@ const PrivateHome = () => {
               width={500}
               height={270}
               className="w-full"
-              style={{ aspectRatio: '500 / 270' }}
+              style={{ aspectRatio: "500 / 270" }}
             />
 
             <h1 className="font-medium mt-3 text-lg md:text-xl">
@@ -50,7 +73,7 @@ const PrivateHome = () => {
               width={500}
               height={270}
               className="w-full"
-              style={{ aspectRatio: '500 / 270' }}
+              style={{ aspectRatio: "500 / 270" }}
             />
 
             <h1 className="font-medium mt-3 text-lg md:text-xl">
@@ -74,15 +97,15 @@ const PrivateHome = () => {
             width={800}
             height={450}
             className="w-full"
-            style={{ aspectRatio: '800 / 450' }}
+            style={{ aspectRatio: "800 / 450" }}
           />
           <h1 className="font-bold my-4 md:my-5 text-2xl md:text-[40px] w-full lg:w-[90%] mx-auto text-center leading-tight">
             Want up to 11% Dividend Yield?
           </h1>
 
           <p className="w-full lg:w-[80%] mx-auto text-center text-sm md:text-base">
-            Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting
-            industry.&nbsp;
+            Lorem Ipsum&nbsp;is simply dummy text of the printing and
+            typesetting industry.&nbsp;
           </p>
         </div>
 
@@ -95,7 +118,7 @@ const PrivateHome = () => {
               width={500}
               height={270}
               className="w-full"
-              style={{ aspectRatio: '500 / 270' }}
+              style={{ aspectRatio: "500 / 270" }}
             />
 
             <h1 className="font-medium mt-3 text-lg md:text-xl">
@@ -117,7 +140,7 @@ const PrivateHome = () => {
               width={500}
               height={270}
               className="w-full"
-              style={{ aspectRatio: '500 / 270' }}
+              style={{ aspectRatio: "500 / 270" }}
             />
 
             <h1 className="font-medium mt-3 text-lg md:text-xl">
@@ -147,8 +170,13 @@ const PrivateHome = () => {
           </div>
 
           <div>
-            <h1 className="font-bold text-[14px] leading-tight">Lorem Ipsum&nbsp;is simply<br className="hidden md:inline" /> Lorem simply. </h1>
-            <p className="text-[12px] md:text-[14px]">Lorem Ipsum&nbsp;is simply. </p>
+            <h1 className="font-bold text-[14px] leading-tight">
+              Lorem Ipsum&nbsp;is simply
+              <br className="hidden md:inline" /> Lorem simply.{" "}
+            </h1>
+            <p className="text-[12px] md:text-[14px]">
+              Lorem Ipsum&nbsp;is simply.{" "}
+            </p>
           </div>
         </div>
 
@@ -164,8 +192,13 @@ const PrivateHome = () => {
           </div>
 
           <div>
-            <h1 className="font-bold text-[14px] leading-tight">Lorem Ipsum&nbsp;is simply<br className="hidden md:inline" /> Lorem simply. </h1>
-            <p className="text-[12px] md:text-[14px]">Lorem Ipsum&nbsp;is simply. </p>
+            <h1 className="font-bold text-[14px] leading-tight">
+              Lorem Ipsum&nbsp;is simply
+              <br className="hidden md:inline" /> Lorem simply.{" "}
+            </h1>
+            <p className="text-[12px] md:text-[14px]">
+              Lorem Ipsum&nbsp;is simply.{" "}
+            </p>
           </div>
         </div>
 
@@ -181,8 +214,13 @@ const PrivateHome = () => {
           </div>
 
           <div>
-            <h1 className="font-bold text-[14px] leading-tight">Lorem Ipsum&nbsp;is simply<br className="hidden md:inline" /> Lorem simply. </h1>
-            <p className="text-[12px] md:text-[14px]">Lorem Ipsum&nbsp;is simply. </p>
+            <h1 className="font-bold text-[14px] leading-tight">
+              Lorem Ipsum&nbsp;is simply
+              <br className="hidden md:inline" /> Lorem simply.{" "}
+            </h1>
+            <p className="text-[12px] md:text-[14px]">
+              Lorem Ipsum&nbsp;is simply.{" "}
+            </p>
           </div>
         </div>
 
@@ -198,8 +236,13 @@ const PrivateHome = () => {
           </div>
 
           <div>
-            <h1 className="font-bold text-[14px] leading-tight">Lorem Ipsum&nbsp;is simply<br className="hidden md:inline" /> Lorem simply. </h1>
-            <p className="text-[12px] md:text-[14px]">Lorem Ipsum&nbsp;is simply. </p>
+            <h1 className="font-bold text-[14px] leading-tight">
+              Lorem Ipsum&nbsp;is simply
+              <br className="hidden md:inline" /> Lorem simply.{" "}
+            </h1>
+            <p className="text-[12px] md:text-[14px]">
+              Lorem Ipsum&nbsp;is simply.{" "}
+            </p>
           </div>
         </div>
       </div>

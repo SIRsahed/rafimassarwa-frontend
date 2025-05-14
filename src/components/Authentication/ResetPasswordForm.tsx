@@ -48,6 +48,9 @@ export default function ResetPasswordForm() {
     <div className="flex min-h-screen items-center justify-center p-4 bg-[#eaf6ec]">
       <div className="w-full max-w-6xl h-[778px] overflow-hidden rounded-2xl bg-white shadow-[0_0_40px_rgba(0,0,0,0.1)] p-8">
         <div className="flex flex-col items-center justify-center h-full w-[40%] mx-auto">
+          {/* ADDED: Step Indicator */}
+          <p className="mb-2 text-center text-gray-500">Step 3 of 3</p>
+
           <h1 className="mb-4 text-center text-3xl font-bold">Reset Password</h1>
 
           <p className="mb-8 text-center text-gray-600">Please kindly set your new password</p>

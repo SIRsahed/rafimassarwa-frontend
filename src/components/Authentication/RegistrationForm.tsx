@@ -61,6 +61,11 @@ export default function RegistrationForm() {
         <div className="flex flex-col lg:flex-row">
           {/* Left side - Registration Form */}
           <div className="w-full p-10 md:w-1/2 mx-auto  lg:h-[778px] flex flex-col items-center justify-center">
+            {/* ADDED: Benefit/Value Proposition */}
+            <p className="mb-4 text-center text-lg text-gray-700">
+              Join our community and unlock exclusive content!
+            </p>
+
             <h1 className="mb-8 text-center text-3xl font-bold">
               Registration
             </h1>

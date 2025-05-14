@@ -12,10 +12,43 @@ import StockDashboard from "@/shared/StockDashboard";
 
 const SearchResult = () => {
   const [isActive, setIsActive] = useState("price");
-  const [isActive2, setIsActive2] = useState('revenue')
+  const [isActive2, setIsActive2] = useState("revenue");
 
   return (
     <div className="container mx-auto px-4 py-6">
+      {/* Filter Section */}
+      <div className="w-full shadow-lg p-4 border rounded-xl bg-white mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-3">
+            <h2 className="text-lg font-semibold">Filters:</h2>
+            <select className="border rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+              <option>All Industries</option>
+              <option>Technology</option>
+              <option>Healthcare</option>
+              <option>Finance</option>
+              <option>Consumer Goods</option>
+            </select>
+            <select className="border rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+              <option>All Market Caps</option>
+              <option>Large Cap</option>
+              <option>Mid Cap</option>
+              <option>Small Cap</option>
+            </select>
+          </div>
+          <div className="flex items-center gap-3">
+            <input
+              type="text"
+              placeholder="Search stocks..."
+              className="border rounded-md px-3 py-1.5 text-sm w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <button className="bg-green-500 text-white px-4 py-1.5 rounded-md text-sm hover:bg-green-600 transition-colors">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
       {/* section 1  */}
       <div className="w-full shadow-lg p-6 border rounded-xl bg-white">
         <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[500px]">
@@ -340,11 +373,9 @@ const SearchResult = () => {
         <div className="mt-4">
           {(isActive === "price" && <PriceChart />) ||
             (isActive === "target" && <TargetChart />) ||
-            (isActive === "cashFlow" && <CashFlowChart />)
-          }
+            (isActive === "cashFlow" && <CashFlowChart />)}
         </div>
       </div>
-
 
       {/* section 3 */}
       <div className="w-full shadow-lg p-6 border rounded-xl bg-white mt-20">
@@ -387,14 +418,13 @@ const SearchResult = () => {
         <div className="mt-4">
           {(isActive2 === "revenue" && <RevenueChart />) ||
             (isActive2 === "eps" && <EpsChart />) ||
-            (isActive2 === "earning" && <EarningChart />)
-          }
+            (isActive2 === "earning" && <EarningChart />)}
         </div>
       </div>
 
       {/* section 4 */}
       <LatestArticles />
-      
+
       {/* section 5 */}
       <StockDashboard />
     </div>
