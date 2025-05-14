@@ -20,13 +20,13 @@ const formSchema = z
     password: z.string().min(8, {
       message: "Password must be at least 8 characters.",
     }),
+    remember: z.boolean().optional(), // Added for "Remember Me"
   })
 
 type FormValues = z.infer<typeof formSchema>;
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
@@ -37,12 +37,13 @@ export default function LoginForm() {
     defaultValues: {
       username: "",
       password: "",
+      remember: false, // Default value for "Remember Me"
     },
   });
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
-    // Handle form submission here
+    // Handle form submission here, including the 'remember' value
   };
 
   return (
@@ -52,14 +53,18 @@ export default function LoginForm() {
           {/* left side - Welcome message */}
           <div className="relative w-[70%] h-[778px] hidden lg:block">
             <div className="bg-gradient-to-br from-[#f0f9f0] to-[#e6f7e6] p-10  -skew-x-12 w-full h-full absolute right-20 shadow-[0_0_40px_rgba(0,0,0,0.2)]"></div>
-            
+
             <div className="absolute flex flex-col items-center justify-center w-full h-full text-gray-700 pr-10">
               <h1 className="mb-4 text-center text-5xl font-bold">
                 Welcome Back!
               </h1>
-              <p className="mb-8 text-center">
+              <p className="mb-1 text-center">
                 To keep connected with us please login with your
                 personal info
+              </p>
+              {/* ADDED: Reassurance Statement */}
+              <p className="mb-8 text-center text-sm text-gray-600">
+                Your data is safe and secure with us.
               </p>
             </div>
           </div>
@@ -79,7 +84,7 @@ export default function LoginForm() {
                   width={24}
                   height={24}
                 />
-                
+
               </button>
               <button className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
                 <Image
@@ -144,13 +149,26 @@ export default function LoginForm() {
                 )}
               </div>
 
+              {/* "Remember Me" checkbox */}
+              <div className="flex items-center">
+                <input
+                  id="remember"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-green-500 focus:ring-green-500"
+                  {...register("remember")}
+                />
+                <label htmlFor="remember" className="ml-2 block text-sm text-gray-900">
+                  Remember Me
+                </label>
+              </div>
+
               <div>
                 <Link href="/forgot-password">
                   <p className="text-sm text-gray-500 text-center">Forgot password?</p>
                 </Link>
               </div>
 
-              {/* Register button */}
+              {/* Login button */}
               <button
                 type="submit"
                 className="mt-2 w-full rounded bg-green-500 py-3 font-medium text-white transition-colors hover:bg-green-600"

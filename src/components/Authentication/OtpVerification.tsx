@@ -96,6 +96,9 @@ export default function OtpVerification() {
     <div className="flex min-h-screen items-center justify-center bg-[#eaf6ec]">
       <div className="w-full max-w-6xl overflow-hidden rounded-3xl bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
         <div className="flex flex-col items-center justify-center h-full">
+          {/* ADDED: Step Indicator */}
+          <p className="text-center text-gray-500 mb-2">Step 2 of 3</p>
+
           <h1 className="text-2xl font-bold mb-4">Enter OTP</h1>
 
           <p className="text-center text-gray-600 mb-6">
