@@ -38,6 +38,9 @@ export default function ForgotPass() {
       <div className="w-full max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-[0_0_40px_rgba(0,0,0,0.2)] h-[778px]">
         <div className="mx-auto">
           <div className="w-full p-10  h-[778px] flex flex-col items-center justify-center">
+            {/* ADDED: Step Indicator */}
+            <p className="mb-2 text-center text-gray-500">Step 1 of 3</p>
+
             <h1 className="mb-3 text-center text-3xl font-bold">
                 Forgot Password
             </h1>
@@ -47,7 +50,7 @@ export default function ForgotPass() {
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 md:w-[40%]">
-              
+
 
               {/* Email field */}
               <div className="relative">

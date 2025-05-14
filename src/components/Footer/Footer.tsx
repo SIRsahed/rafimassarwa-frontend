@@ -1,218 +1,175 @@
-import Image from "next/image";
-import React from "react";
+"use client"
+
+import * as React from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
+// import { Switch } from "@/components/ui/switch"
+// import { Textarea } from "@/components/ui/textarea"
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-} from "react-icons/fa";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
 
-const Footer = () => {
+const  Footer = () => {
+  // const [isDarkMode, setIsDarkMode] = React.useState(true)
+  // const [isChatOpen, setIsChatOpen] = React.useState(false)
+
+  // React.useEffect(() => {
+  //   if (isDarkMode) {
+  //     document.documentElement.classList.add("dark")
+  //   } else {
+  //     document.documentElement.classList.remove("dark")
+  //   }
+  // }, [isDarkMode])
+
   return (
-    <footer className="bg-[#EAF6EC] py-12 text-gray-700 relative z-50">
-      <div className="container mx-auto lg:flex lg:justify-between">
-        {/* Company Info */}
-        <div className="lg:w-[500px] mb-10 lg:mb-0">
-          <div className="mb-4">
-            <Image
-              src="/images/Stock-logo-1.png"
-              width={100}
-              height={100}
-              alt="Olives Stocks Logo"
-              className="h-[54px] w-[48px] mr-2"
-            />
-            <h3 className="text-[24px] font-semibold mt-6 text-black">
-              Olives Stocks
-            </h3>
-          </div>
-          <p className="text-base leading-[150%]">
-            Were a cement tile company with a passion for color, stocking
-            hundreds of cement tiles at our warehouse in New Jersey with fast
-            shipping nationwide!
-          </p>
-          <p className="font-semibold">
-            Lets help you create a space youll love!
-          </p>
-          <div className="flex space-x-4 mt-[70px]">
-            <a
-              href="#"
-              className="rounded-full h-12 w-12 border flex items-center justify-center border-black"
-            >
-              <FaFacebookF className="text-2xl" />
-            </a>
-            <a
-              href="#"
-              className="rounded-full h-12 w-12 border flex items-center justify-center border-black"
-            >
-              <FaInstagram className="text-2xl" />
-            </a>
-            <a
-              href="#"
-              className="rounded-full h-12 w-12 border flex items-center justify-center border-black"
-            >
-              <FaTwitter className="text-2xl" />
-            </a>
-            <a
-              href="#"
-              className="rounded-full h-12 w-12 border flex items-center justify-center border-black"
-            >
-              <FaLinkedinIn className="text-2xl" />
-            </a>
-          </div>
-        </div>
-
-        {/* Quick Links */}
-        <div className="mb-10 lg:mb-0">
-          <h4 className="text-[24px] text-black font-semibold mb-4">Quick Link</h4>
-          <ul className="text-base space-y-2 font-normal">
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
+    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
+      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
+            <p className="mb-6 text-muted-foreground">
+              Join our newsletter for the latest updates and exclusive offers.
+            </p>
+            <form className="relative">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="pr-12 backdrop-blur-sm"
+              />
+              <Button
+                type="submit"
+                size="icon"
+                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
               >
+                <Send className="h-4 w-4" />
+                <span className="sr-only">Subscribe</span>
+              </Button>
+            </form>
+            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+          </div>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
+            <nav className="space-y-2 text-sm">
+              <a href="#" className="block transition-colors hover:text-primary">
                 Home
               </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Browse Cement Tiles
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
+              <a href="#" className="block transition-colors hover:text-primary">
                 About Us
               </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Gallery
+              <a href="#" className="block transition-colors hover:text-primary">
+                Services
               </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Blog
+              <a href="#" className="block transition-colors hover:text-primary">
+                Products
               </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Refund Policy
+              <a href="#" className="block transition-colors hover:text-primary">
+                Contact
               </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Shipping Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Trade
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Data sheet
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                Contact Us
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Subscribe Newsletter */}
-
-        {/* Contact */}
-        <div>
-          <div>
-            <h4 className="text-[24px] font-semibold text-black mb-4 tracking-wider">
-              Subscribe To Our Daily <br /> Newsletter
-            </h4>
-            <div className="flex mb-[50px] relative w-full">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="bg-black border border-gray-300 rounded-md py-2 px-4 text-sm w-full focus:outline-none focus:ring-2 focus:ring-green-500 h-[50px]"
-              />
-              <button className="absolute right-[4px] top-[6px] bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200">
-                Subscribe
-              </button>
-            </div>
+            </nav>
           </div>
-          <h4 className="text-[24px] font-semibold text-black mb-4">Contact</h4>
-          <ul className="text-sm space-y-3">
-            <li className="flex text-[20px] leading-7">
-              <FaMapMarkerAlt className="mr-2 text-[#4E4E4E] text-2xl mt-1" />
-              18000 Commerce Parkway <br /> Mt Laurel, NJ 08054
-            </li>
-            <li className="flex items-center text-xl">
-              <FaPhoneAlt className="mr-2 text-gray-500 text-xl" />
-              856-988-1802
-            </li>
-            <li className="flex items-center text-xl">
-              <FaEnvelope className="mr-2 text-gray-500 text-xl" />
-              <a
-                href="mailto:olesya@liltile.com"
-                className="hover:text-gray-900 transition duration-200"
-              >
-                olesya@liltile.com
-              </a>
-            </li>
-          </ul>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
+            <address className="space-y-2 text-sm not-italic">
+              <p>123 Innovation Street</p>
+              <p>Tech City, TC 12345</p>
+              <p>Phone: (123) 456-7890</p>
+              <p>Email: hello@example.com</p>
+            </address>
+          </div>
+          <div className="relative">
+            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
+            <div className="mb-6 flex space-x-4">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full">
+                      <Facebook className="h-4 w-4" />
+                      <span className="sr-only">Facebook</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Follow us on Facebook</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full">
+                      <Twitter className="h-4 w-4" />
+                      <span className="sr-only">Twitter</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Follow us on Twitter</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full">
+                      <Instagram className="h-4 w-4" />
+                      <span className="sr-only">Instagram</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Follow us on Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full">
+                      <Linkedin className="h-4 w-4" />
+                      <span className="sr-only">LinkedIn</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Connect with us on LinkedIn</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+            {/* <div className="flex items-center space-x-2">
+              <Sun className="h-4 w-4" />
+              <Switch
+                id="dark-mode"
+                checked={isDarkMode}
+                onCheckedChange={setIsDarkMode}
+              />
+              <Moon className="h-4 w-4" />
+              <Label htmlFor="dark-mode" className="sr-only">
+                Toggle dark mode
+              </Label>
+            </div> */}
+          </div>
         </div>
-      </div>
-
-      <div className="border-t border-gray-200 mt-8 py-4">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 lg:flex justify-between items-center text-xs text-gray-500 ">
-          <p className="text-center text-base">© 2025 rafimassanwa. All rights reserved.</p>
-          <div className="mt-5 flex items-center justify-center text-base">
-            <div className="space-x-4">
-            <a href="#" className="hover:text-gray-700 transition duration-200">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
+          <p className="text-sm text-muted-foreground">
+            © 2024 Your Company. All rights reserved.
+          </p>
+          <nav className="flex gap-4 text-sm">
+            <a href="#" className="transition-colors hover:text-primary">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-gray-700 transition duration-200">
-              Conditions
+            <a href="#" className="transition-colors hover:text-primary">
+              Terms of Service
             </a>
-            <a href="#" className="hover:text-gray-700 transition duration-200">
-              Support
+            <a href="#" className="transition-colors hover:text-primary">
+              Cookie Settings
             </a>
-            </div>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
